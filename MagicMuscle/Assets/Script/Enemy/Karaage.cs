@@ -11,7 +11,7 @@ public class Karaage : MonoBehaviour
     {
 
     }
-
+    //sin波上に移動してくる
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -24,7 +24,7 @@ public class Karaage : MonoBehaviour
         //{
             //MV = obj.GetComponent<PlayerCharaControle>();//スクリプトを取得
             //Vector3 Pvec = new Vector3(MV.transform.position.x, transform.position.y, MV.transform.position.z);//プレイヤーの座標を保存
-            Vector3 Pvec = new Vector3(0, 1, -10);
+            Vector3 Pvec = new Vector3(0, 0, -10);
             Vector3 vec = Pvec - this.transform.position;//プレイヤーの位置から敵の位置を引く
             vec = vec.normalized;//正規化
             this.transform.position += vec * speed+new Vector3(0,sinMove,0);//スピードをかける
