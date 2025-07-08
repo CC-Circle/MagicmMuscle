@@ -1,0 +1,46 @@
+using UnityEngine;
+using UnityEngine.Rendering;
+
+
+public class orangelevel : MonoBehaviour
+{
+    
+    
+    private float positionx;
+    private double scale;
+    
+
+    void Start()
+    {
+
+        
+        scale = 0;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        positionx = this.transform.position.x;
+        if (greenlevel.inValue < greenlevel.inMax * 2.0 / 3)
+        {
+            scale = 0;
+
+        } else if (greenlevel.inValue>=greenlevel.inMax * 5.0 / 6) {
+            scale = 50;
+        }
+        else
+        {
+            scale = greenlevel.inValue / greenlevel.inMax * 300 -200;
+        }
+        RectTransform rt = GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(50, (float)scale);  
+        this.transform.position = new Vector3(positionx, (float)(scale / 2 + 250), 0);
+
+        greenlevel.inValue += 0.1;
+
+
+        
+    }
+
+}
