@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            Destroy(transform.parent.gameObject);
 
         }
     }
