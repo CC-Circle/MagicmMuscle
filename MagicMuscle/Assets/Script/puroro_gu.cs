@@ -14,9 +14,19 @@ public class puroro_gu : MonoBehaviour
      // Updateは毎フレーム呼び出される関数です
     void Update()
     {
-        // ステッキを握る動作の代わりにEnterキーまたはマウスクリックで反応します
-        // ↓キー入力またはクリックを検出
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+        Serial.strong = Mathf.Abs(Serial.strong);
+        Debug.Log(Serial.strong);
+        if (Serial.strong > 100)
+        {
+            // Debugログで確認（開発中用）
+            Debug.Log("ステッキを握りました！（Enterキーまたはクリック）");
+
+            // "TutorialScene" へ遷移します（シーン名に一致させてください）
+            SceneManager.LoadScene("GameScene");
+        }
+            // ステッキを握る動作の代わりにEnterキーまたはマウスクリックで反応します
+            // ↓キー入力またはクリックを検出
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
             // Debugログで確認（開発中用）
             Debug.Log("ステッキを握りました！（Enterキーまたはクリック）");

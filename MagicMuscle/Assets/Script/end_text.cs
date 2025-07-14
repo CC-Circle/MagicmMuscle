@@ -4,7 +4,8 @@ using TMPro;  // ← 追加！
 
 public class end_text : MonoBehaviour
 {
-   //public Image characterImage;      // 先輩魔法少女のイラスト表示
+    public TextMeshProUGUI scoreText;
+    //public Image characterImage;      // 先輩魔法少女のイラスト表示
     public TextMeshProUGUI messageText;          // セリフ表示
 
     // テスト用のスコア（仮に750点に固定）
@@ -15,6 +16,7 @@ public class end_text : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        score = Score.score;
         ShowEnding(score); // テスト用に固定スコアを使用
 
 
@@ -65,5 +67,6 @@ public class end_text : MonoBehaviour
 
         // メッセージを表示
         messageText.text = message;
+        scoreText.text = "kcal:" + score;
     }
 }

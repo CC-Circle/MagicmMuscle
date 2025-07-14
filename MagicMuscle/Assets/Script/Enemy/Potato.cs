@@ -19,4 +19,8 @@ public class Potato : MonoBehaviour
         vec = vec.normalized;//正規化
         this.transform.position += vec * speed;//スピードをかける
     }
+    void Ondeath()
+    {
+        Debug.Log("yarareta!!!");
+    }
 }
