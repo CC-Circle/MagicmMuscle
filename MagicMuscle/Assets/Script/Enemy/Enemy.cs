@@ -27,33 +27,4 @@ public class Enemy : MonoBehaviour
         }
            
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Bullet")
-        {
-            collision.gameObject.GetComponent<Enemy>();
-
-
-            Score.score += scoreadd;
-            Destroy(collision.gameObject);
-            Destroy(transform.parent.gameObject);
-
-        }
-        if (collision.gameObject.tag == "Player")
-        {
-           
-            camerashake.Shake();
-            Destroy(transform.parent.gameObject);
-        }
-    }
-    private void OnTriggerEnter(Collider collider)
-    {
-       
-        if (collider.gameObject.tag == "Player")
-        {
-            camerashake.Shake();
-            Destroy(transform.parent.gameObject);
-        }
-    }
 }
