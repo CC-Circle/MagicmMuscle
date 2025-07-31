@@ -13,6 +13,7 @@ public class Potato : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         animator = GetComponent<Animator>();
         camerashake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
     }
@@ -29,7 +30,6 @@ public class Potato : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            collision.gameObject.GetComponent<Enemy>();
 
             animator.SetBool("isDeath", true);
             Score.score += scoreadd;

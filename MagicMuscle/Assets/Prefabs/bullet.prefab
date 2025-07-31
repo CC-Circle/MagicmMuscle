@@ -122,8 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0d1bb8034b546309077faa0be1eeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
   input: {x: 400, y: 400, z: 20}
+  powerscale: 0
+  scalechange: 200
   speed: 0.2
+  turanuki: 0
 --- !u!54 &3943305574291622598
 Rigidbody:
   m_ObjectHideFlags: 0
