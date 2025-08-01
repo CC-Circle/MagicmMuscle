@@ -46,9 +46,9 @@ public class ArmAnimation : MonoBehaviour
         //太さ
         float visualWidth = ((rectTransform.rect.width * rectTransform.lossyScale.x) / 2)+fixX;
 
-        rectTransform.localPosition = new Vector3(localPoint.x+visualWidth, startPos.y,startPos.z);
+        rectTransform.localPosition = new Vector3(localPoint.x+visualWidth, startPos.y - visualHeight, startPos.z);
 
-        if (startPos.y> localPoint.y - visualHeight)
+        if (startPos.y> localPoint.y)
         {
             rectTransform.localPosition = new Vector3(localPoint.x + visualWidth, localPoint.y - visualHeight, currentPos.z);
         }
@@ -61,10 +61,10 @@ public class ArmAnimation : MonoBehaviour
       
     }
     public void StartAnime() {
-        //RectTransform rt = GetComponent<RectTransform>(); // 自分のRectTransformを取得
-        //rt.DOLocalMove(rt.localPosition + new Vector3(0, 50, 0), 0.1f)    // 現在位置にoffsetを加算した位置へ0.3秒で移動
-        //  ;                          // 移動にイージングを適用（滑らかに減速）
-       
+        RectTransform rt = GetComponent<RectTransform>(); // 自分のRectTransformを取得
+        rt.DOLocalMove(rt.localPosition + new Vector3(0, 50, 0), 0.1f)    // 現在位置にoffsetを加算した位置へ0.3秒で移動
+          ;                          // 移動にイージングを適用（滑らかに減速）
+
     }
     public void EndAnime() {
        
