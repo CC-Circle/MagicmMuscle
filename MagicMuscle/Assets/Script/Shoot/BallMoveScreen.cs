@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using UnityEditor.Rendering.LookDev;
 
 public class BallMoveScreen : MonoBehaviour
 {
@@ -37,10 +39,33 @@ public class BallMoveScreen : MonoBehaviour
         screenObj = Camera.main.ScreenToWorldPoint(input);
         this.transform.position = screenObj;
     }
-    void OnDisable()
-    {
-        //削除された時にエフェクトを
-        Instantiate(death_effect, transform.position, Quaternion.identity);
+    //void OnDisable()
+    //{
 
+    //    StartCoroutine(SpawnNextFrame());
+    //    //削除された時にエフェクトを
+    //    //Instantiate(death_effect, transform.position, Quaternion.identity);
+    //}
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Bullet")
+    //    {
+    //        Instantiate(death_effect, transform.position, Quaternion.identity);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Instantiate(death_effect, transform.position, Quaternion.identity);
+            this.gameObject.SetActive(false);
+        }
+    }
+    IEnumerator SpawnNextFrame()
+    {
+        yield return null; // 1フレーム待つ
+        Instantiate(death_effect, transform.position, Quaternion.identity);
     }
 }
