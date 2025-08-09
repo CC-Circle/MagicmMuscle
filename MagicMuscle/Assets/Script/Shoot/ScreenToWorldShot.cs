@@ -28,7 +28,8 @@ public class ScreenToWorldShot : MonoBehaviour
     void Update()
     {
         Serial.strong = Mathf.Abs(Serial.strong);
-        Debug.Log(Serial.strong);
+        //Debug.Log(Serial.strong);
+        //センサーの場合
         if (Serial.strong > 100)
         {
             if (maxpower < Serial.strong)
@@ -40,20 +41,20 @@ public class ScreenToWorldShot : MonoBehaviour
         }else if (charge)
         {
             camerashake.Shake();
-            audioSource.PlayOneShot(clip1);
             shoot(new Vector3(HD.x/2,HD.y/2,0));
             charge = false;
         }
         if (Input.GetMouseButtonUp(0))
         {
-            audioSource.PlayOneShot(clip1);
             shoot(Input.mousePosition);
             maxpower = 200;
         }
     }
-
+    //発射したい地点を選択
     public void shoot(Vector3 yourinput)
     {
+        //効果音
+        audioSource.PlayOneShot(clip1);
         aruanimation.StartAnime();
         Vector3 mousePosition = yourinput + input;
         screenObj = Camera.main.ScreenToWorldPoint(mousePosition);

@@ -72,5 +72,6 @@ public class Serial : MonoBehaviour
                 this.serial.Close();
             }
         }
+
     }
 }
