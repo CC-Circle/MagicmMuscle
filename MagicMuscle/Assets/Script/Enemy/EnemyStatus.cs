@@ -24,7 +24,7 @@ public class EnemyStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        scriptanima.StartFlashingMaterial(0.1f,0.1f);
+        //scriptanima.StartFlashingMaterial(0.1f,0.1f);
         currentHP -= damage;
         if (currentHP <= 0)
         {
@@ -42,8 +42,4 @@ public class EnemyStatus : MonoBehaviour
     {
         return currentHP;
     }
-
-
-
-   
 }
