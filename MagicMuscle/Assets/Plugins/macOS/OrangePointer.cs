@@ -1,56 +1,3 @@
-//using UnityEngine;
-//using System.Diagnostics;
-//using System.IO;
-
-//public class OrangePointer : MonoBehaviour
-//{
-//    Process cppProcess;
-//    string filePath = "/tmp/pointingX.txt"; // Macの一時ファイル
-//    public static float pointerX;
-
-//    void Start()
-//    {
-//        pointerX = 0.5f;
-//        // C++プログラム起動
-//        ProcessStartInfo psi = new ProcessStartInfo
-//        {
-//            FileName = "Assets/Plugins/macOS/a.out", // ビルドした実行ファイル
-//            UseShellExecute = false,
-//            RedirectStandardOutput = false, // ファイルで受け取るので不要
-//            CreateNoWindow = true
-//        };
-
-//        cppProcess = Process.Start(psi);
-//    }
-
-//    void Update()
-//    {
-//        if (File.Exists(filePath))
-//        {
-//            try
-//            {
-//                string val = File.ReadAllText(filePath);
-//                if (float.TryParse(val, out float pointingX))
-//                {
-//                    UnityEngine.Debug.Log("PointingX = " + pointingX);
-//                    pointerX = pointingX;
-//                }
-//            }
-//            catch (IOException)
-//            {
-//                // 他プロセスがファイル書き込み中
-//            }
-//        }
-//    }
-
-//    void OnApplicationQuit()
-//    {
-//        if (cppProcess != null && !cppProcess.HasExited)
-//        {
-//            cppProcess.Kill();
-//        }
-//    }
-//}
 
 
 using UnityEngine;
@@ -60,30 +7,29 @@ using System.IO;
 public class OrangePointer : MonoBehaviour
 {
     Process cppProcess;
-    string filePath;
+    string filePathX;
+    string filePathY;
     public static float pointerX;
+    public static float pointerY;
 
     void Start()
     {
         pointerX = 0.5f;
+        pointerY = 0.5f;
 
-        // 共有ファイルパス（Macなら /tmp/ が安全）
-        filePath = "/tmp/pointingX.txt";
+        filePathX = "/tmp/pointingX.txt";
+        filePathY = "/tmp/pointingY.txt";
 
-        // 実行ファイルパスを取得
         string exePath;
         if (Application.isEditor)
         {
-            // エディタ実行時（Assetsフォルダ直下を参照）
             exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
         }
         else
         {
-            // ビルド後（.appパッケージ内のPluginsフォルダを参照）
             exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
         }
 
-        // プロセス起動
         ProcessStartInfo psi = new ProcessStartInfo
         {
             FileName = exePath,
@@ -104,20 +50,32 @@ public class OrangePointer : MonoBehaviour
 
     void Update()
     {
-        if (File.Exists(filePath))
+        if (File.Exists(filePathX))
         {
             try
             {
-                string val = File.ReadAllText(filePath);
-                if (float.TryParse(val, out float pointingX))
+                string val = File.ReadAllText(filePathX);
+                if (float.TryParse(val, out float px))
                 {
-                    pointerX = pointingX;
+                    pointerX = px;
+                    UnityEngine.Debug.Log("X:" + pointerY);
                 }
             }
-            catch (IOException)
+            catch (IOException) { }
+        }
+
+        if (File.Exists(filePathY))
+        {
+            try
             {
-                // 他プロセスが書き込み中
+                string val = File.ReadAllText(filePathY);
+                if (float.TryParse(val, out float py))
+                {
+                    pointerY = py;
+                    UnityEngine.Debug.Log("Y:"+pointerY);
+                }
             }
+            catch (IOException) { }
         }
     }
 
