@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 public class EnemyStatus : MonoBehaviour
 {
     ////アニメーションを取得
@@ -12,7 +13,7 @@ public class EnemyStatus : MonoBehaviour
 
     public bool IsDead => currentHP <= 0;
 
-
+    public float activeTime = 7;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class EnemyStatus : MonoBehaviour
         currentHP = maxHP;
         enemyanimator = GetComponent<EnemyAnima>();
         scriptanima = transform.Find("Main").GetComponent<EnemyScriptAnimation>();
+        StartCoroutine(nonActive());
     }
 
     public void TakeDamage(int damage)
@@ -41,5 +43,10 @@ public class EnemyStatus : MonoBehaviour
     public int GetHP()
     {
         return currentHP;
+    }
+    IEnumerator nonActive ()
+    {
+        yield return new WaitForSeconds(activeTime);
+        Destroy(this.gameObject);
     }
 }

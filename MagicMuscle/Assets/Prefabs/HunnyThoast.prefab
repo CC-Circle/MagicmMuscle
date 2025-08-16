@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 7402650103187417861}
   - component: {fileID: 3018860560162734466}
   - component: {fileID: 8039373715995541432}
-  - component: {fileID: 6795423429311928320}
+  - component: {fileID: 7354966813376490744}
   m_Layer: 0
   m_Name: HunnyThoast
   m_TagString: Untagged
@@ -527,8 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679ac49bd694e4de1a0a0d88562ff6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
---- !u!114 &6795423429311928320
+  speed: 0.2
+--- !u!114 &7354966813376490744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,8 +537,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9105811535860323414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b973973e2909452782ca5fe8442fd76, type: 3}
+  m_Script: {fileID: 11500000, guid: 656a37cbb5c7b450b8a2649b9c75a647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootObject: {fileID: 4547417476430531731, guid: 2e9e7b31e3b0a45799e862c6494902e7, type: 3}
-  wattime: 3
+  fixVector3: {x: 0, y: 3, z: -1}
+  shootObject: {fileID: 2447559207189851908, guid: ea3a110017e184967aecaead60aca539, type: 3}
+  wattime: 1
