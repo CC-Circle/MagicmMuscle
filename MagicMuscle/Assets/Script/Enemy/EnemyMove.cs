@@ -11,6 +11,6 @@ public class EnemyMove : MonoBehaviour
         Vector3 vec = Pvec - this.transform.position;//プレイヤーの位置から敵の位置を引く
         vec = vec.normalized;//正規化
         this.transform.position += vec * speed;//スピードをかける
-
+        
     }
 }

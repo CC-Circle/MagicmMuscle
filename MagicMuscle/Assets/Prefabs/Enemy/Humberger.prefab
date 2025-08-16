@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3936746845713606742}
-  - component: {fileID: 3299319987960679315}
   - component: {fileID: 5559902284302780608}
   - component: {fileID: 7855655076292691812}
   - component: {fileID: 7741817638397362630}
+  - component: {fileID: 7482340454114708755}
+  - component: {fileID: 3667649387446280923}
   m_Layer: 0
   m_Name: Humberger
   m_TagString: Untagged
@@ -38,19 +39,6 @@ Transform:
   - {fileID: 2316689600743279374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3299319987960679315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570517566713246722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a5218ab2abb43118731277dfeb553e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.05
 --- !u!95 &5559902284302780608
 Animator:
   serializedVersion: 7
@@ -86,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyanimator: {fileID: 0}
+  scriptanima: {fileID: 0}
   maxHP: 4
   scoreadd: 100
 --- !u!114 &7741817638397362630
@@ -103,6 +92,33 @@ MonoBehaviour:
   animationNames:
   - isDeathR
   - isDeathL
+--- !u!114 &7482340454114708755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570517566713246722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679ac49bd694e4de1a0a0d88562ff6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+--- !u!114 &3667649387446280923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570517566713246722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b973973e2909452782ca5fe8442fd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootObject: {fileID: 4547417476430531731, guid: 2e9e7b31e3b0a45799e862c6494902e7, type: 3}
+  wattime: 3
 --- !u!1 &5915869266700779577
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88afa362bf554c639af8eb2d391f181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startpos: {x: 0, y: 0, z: 0}
+  isStartpos: 1
   x: 0
   y: 1
   z: 0
