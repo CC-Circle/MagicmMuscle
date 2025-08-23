@@ -2750,6 +2750,46 @@ MonoBehaviour:
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
     basePosition: {x: -1.01, y: 0, z: -8.01}
     animationTrigger: 
+  - time: 30
+    pattern: 0
+    enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
+    basePosition: {x: -1.01, y: 0, z: -8.01}
+    animationTrigger: 
+  - time: 35
+    pattern: 1
+    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    basePosition: {x: 1, y: 0, z: -8.01}
+    animationTrigger: 
+  - time: 40
+    pattern: 2
+    enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
+    basePosition: {x: -1.1, y: 0, z: -5.2}
+    animationTrigger: 
+  - time: 40
+    pattern: 1
+    enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
+    basePosition: {x: 2.1, y: 0, z: -5.2}
+    animationTrigger: 
+  - time: 45
+    pattern: 1
+    enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
+    basePosition: {x: 1, y: 0, z: -6.4}
+    animationTrigger: 
+  - time: 50
+    pattern: 1
+    enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
+    basePosition: {x: 4, y: 0, z: -3}
+    animationTrigger: 
+  - time: 55
+    pattern: 1
+    enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
+    basePosition: {x: 3, y: 0, z: -2.7}
+    animationTrigger: 
+  - time: 55
+    pattern: 2
+    enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
+    basePosition: {x: 3, y: 0, z: -4.9}
+    animationTrigger: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

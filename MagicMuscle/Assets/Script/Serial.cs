@@ -59,7 +59,7 @@ public class Serial : MonoBehaviour
         {
             //Debug.Log("whilestart");
             cntx = this.serial.ReadLine();
-            //UnityEngine.Debug.Log("x" +cntx);
+            UnityEngine.Debug.Log("x" +cntx);
             connect_char = true;
             float.TryParse(cntx, out strong);
         }
