@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 7300043260001733650}
   - component: {fileID: 4209714478909758395}
   - component: {fileID: 3122491599270021940}
-  - component: {fileID: 8873618128005990078}
+  - component: {fileID: 1080376777355286178}
   m_Layer: 0
   m_Name: SphereATARI
   m_TagString: Enemy
@@ -288,7 +288,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &8873618128005990078
+--- !u!114 &1080376777355286178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,6 +297,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2905620013403395033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2987f811d8d0f4d499976d5c14d2210b, type: 3}
+  m_Script: {fileID: 11500000, guid: 929adddb17afc467294a3c379015e198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

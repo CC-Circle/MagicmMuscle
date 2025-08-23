@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BallMoveScreen : MonoBehaviour
 {
+    public AudioClip audioClip;
     ScreenToWorldShot sts;
     private Vector3 HD = new Vector3(1920, 1080, 0);
     public GameObject death_effect;
@@ -44,6 +45,7 @@ public class BallMoveScreen : MonoBehaviour
         
         if (collision.gameObject.tag == "Enemy")
         {
+            AudioSource.PlayClipAtPoint(audioClip ,new Vector3(0,1,-10));
             Instantiate(death_effect, transform.position, Quaternion.identity);
             this.gameObject.SetActive(false);
         }

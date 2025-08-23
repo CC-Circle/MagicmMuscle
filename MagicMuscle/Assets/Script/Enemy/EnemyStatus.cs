@@ -15,12 +15,21 @@ public class EnemyStatus : MonoBehaviour
 
     public float activeTime = 7;
 
+    private Slider slider;
+
+    //マッスルモードのはやさ
+    public float musclemodespeed = 0.02f;
+    public  float TargetPointZ;
+
+    public bool dieing = false;
+
     void Awake()
     {
         //HPを設定
         currentHP = maxHP;
         enemyanimator = GetComponent<EnemyAnima>();
         scriptanima = transform.Find("Main").GetComponent<EnemyScriptAnimation>();
+        slider = GameObject.Find("dash_slider").GetComponent<Slider>();
         StartCoroutine(nonActive());
     }
 
@@ -33,9 +42,17 @@ public class EnemyStatus : MonoBehaviour
             Die();
         }
     }
+    public void Update()
+    {
+        if (GameManager.muscleTime) {
+            muscleMode();
+        }
 
+    }
     void Die()
     {
+        dieing = true;
+        slider.CollectObject();
         Score.score += scoreadd;
         enemyanimator.PlayRandomAnimation();
     }
@@ -48,5 +65,14 @@ public class EnemyStatus : MonoBehaviour
     {
         yield return new WaitForSeconds(activeTime);
         Destroy(this.gameObject);
+    }
+
+    public void muscleMode()
+    {
+        if(this.transform.position.z < TargetPointZ&&!dieing)
+        {
+            this.transform.position = new Vector3(0, this.transform.position.y, this.transform.position.z - musclemodespeed);
+        }
+        
     }
 }
