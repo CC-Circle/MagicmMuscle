@@ -58,7 +58,7 @@ public class OrangePointer : MonoBehaviour
                 if (float.TryParse(val, out float px))
                 {
                     pointerX = px;
-                    UnityEngine.Debug.Log("X:" + pointerY);
+                    UnityEngine.Debug.Log("X:" + pointerX);
                 }
             }
             catch (IOException) { }
