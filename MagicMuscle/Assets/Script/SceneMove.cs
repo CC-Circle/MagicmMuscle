@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class SceneMove : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class SceneMove : MonoBehaviour
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(nextSceneName);
     }
-
 
 
 }
