@@ -770,11 +770,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6363837862069375462, guid: 94f9736866f5b4eb39cedff4a14c9eac, type: 3}
       propertyPath: m_Value
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363837862069375462, guid: 94f9736866f5b4eb39cedff4a14c9eac, type: 3}
       propertyPath: m_MaxValue
-      value: 5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7788600772458916812, guid: 94f9736866f5b4eb39cedff4a14c9eac, type: 3}
       propertyPath: m_Name
@@ -2827,7 +2827,7 @@ MonoBehaviour:
     animationTrigger: 
   - time: 35
     pattern: 1
-    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
     basePosition: {x: 1, y: 0, z: -8.01}
     animationTrigger: 
   - time: 40
@@ -2872,7 +2872,7 @@ MonoBehaviour:
     animationTrigger: 
   - time: 75
     pattern: 1
-    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
     basePosition: {x: -2.1, y: 0, z: -7.2}
     animationTrigger: 
   - time: 80
@@ -2917,17 +2917,17 @@ MonoBehaviour:
     animationTrigger: 
   - time: 105
     pattern: 1
-    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
     basePosition: {x: -0.3, y: 1, z: -5.3}
     animationTrigger: 
   - time: 105
     pattern: 1
-    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
     basePosition: {x: 0.3, y: 1, z: -3.3}
     animationTrigger: 
   - time: 110
     pattern: 1
-    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
     basePosition: {x: 0.3, y: 1, z: -3.3}
     animationTrigger: 
   - time: 115
@@ -2942,7 +2942,7 @@ MonoBehaviour:
     animationTrigger: 
   - time: 115
     pattern: 2
-    enemyPrefab: {fileID: 1153373543785896556, guid: 32ace213aeb184741a6a2f502e360a7c, type: 3}
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
     basePosition: {x: -3.22, y: 0, z: -5.4}
     animationTrigger: 
   - time: 115
