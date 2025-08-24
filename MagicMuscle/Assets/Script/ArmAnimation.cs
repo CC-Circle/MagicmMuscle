@@ -85,11 +85,11 @@ public class ArmAnimation : MonoBehaviour
         }
 
 
-        if (scw.charge)
-        {
-            float offset = Mathf.Sin(Time.time * frequency) * amplitude;
-            transform.localPosition = startPos + new Vector3(offset, 0, 0);
-        }
+        //if (scw.charge)
+        //{
+        //    float offset = Mathf.Sin(Time.time * frequency) * amplitude;
+        //    transform.localPosition = startPos + new Vector3(offset, 0, 0);
+        //}
 
     }
     public void StartAnime() {

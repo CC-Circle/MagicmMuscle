@@ -14,6 +14,7 @@ public class BallMoveScreen : MonoBehaviour
     public bool turanuki = false;
 
     public bool isSuper = false;
+    public bool isChild = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,15 +32,22 @@ public class BallMoveScreen : MonoBehaviour
         //{
         //    turanuki = true;
         //}
-        screenObj = Camera.main.ScreenToWorldPoint(input);
+        if (!isChild)
+        {
+            screenObj = Camera.main.ScreenToWorldPoint(input);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        input.z+=speed;
-        screenObj = Camera.main.ScreenToWorldPoint(input);
-        this.transform.position = screenObj;
+        if (!isChild)
+        {
+            input.z += speed;
+            screenObj = Camera.main.ScreenToWorldPoint(input);
+            this.transform.position = screenObj;
+        }
+       
     }
     
     private void OnCollisionEnter(Collision collision)
