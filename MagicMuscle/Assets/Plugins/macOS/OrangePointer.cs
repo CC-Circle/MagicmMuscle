@@ -20,6 +20,16 @@ public class OrangePointer : MonoBehaviour
         filePathX = "/tmp/pointingX.txt";
         filePathY = "/tmp/pointingY.txt";
 
+        //string exePath;
+        //if (Application.isEditor)
+        //{
+        //    exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
+        //}
+        //else
+        //{
+        //    exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
+        //}
+
         string exePath;
         if (Application.isEditor)
         {
@@ -27,7 +37,10 @@ public class OrangePointer : MonoBehaviour
         }
         else
         {
-            exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
+            // macOSビルド後は.appバンドル内のContents/Resources/Data/
+            exePath = Path.Combine(Application.streamingAssetsPath, "a.out");
+            // または
+            // exePath = Path.Combine(Application.dataPath, "../Resources/a.out");
         }
 
         ProcessStartInfo psi = new ProcessStartInfo
