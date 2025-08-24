@@ -64,6 +64,15 @@ public class ArmAnimation : MonoBehaviour
                 out localPoint
             );
 
+            // 1920x1080のピクセル座標へ変換
+            float pixelX = (OrangePointer.pointerX * 1920) ;
+            float pixelY = (OrangePointer.pointerY * 1080) ;
+
+            // UIの座標に変換して適用
+            if (Serial.isConect) {
+                localPoint = new Vector2(pixelX, pixelY);
+            }
+
             // 現在の Y/Z を維持し、X のみをマウスに合わせて更新
             RectTransform rectTransform = (RectTransform)transform;
             Vector3 currentPos = rectTransform.localPosition;

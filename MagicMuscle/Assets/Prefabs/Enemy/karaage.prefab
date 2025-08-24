@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 7568430473210255991}
   - component: {fileID: 2262876518246448413}
   m_Layer: 0
-  m_Name: Karaage
+  m_Name: karaage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,11 @@ MonoBehaviour:
   enemyanimator: {fileID: 0}
   scriptanima: {fileID: 0}
   maxHP: 4
-  scoreadd: 100
+  scoreadd: 300
+  activeTime: 7
+  musclemodespeed: 0.02
+  TargetPointZ: 0
+  dieing: 0
 --- !u!114 &7568430473210255991
 MonoBehaviour:
   m_ObjectHideFlags: 0
