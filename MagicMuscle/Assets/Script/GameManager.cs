@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static bool muscleTime = false;
     public int muscleTime_cnt = 10;
     public int startWaitTime = 1;
+    
     public Slider slider;
     //private static bool isStart = false;
     ////
