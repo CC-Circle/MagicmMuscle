@@ -498,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyanimator: {fileID: 0}
   scriptanima: {fileID: 0}
-  maxHP: 4
+  maxHP: 10
   scoreadd: 800
   activeTime: 7
   musclemodespeed: 0.02

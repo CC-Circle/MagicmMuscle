@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public float startTime = 0;
     public List<SpawnEvent> spawnEvents;
 
     private float elapsedTime = 0f;
-    private int nextEventIndex = 0;
 
+    private int nextEventIndex = 0;
+   
     private Dictionary<SpawnPatternType, Action<SpawnEvent>> patternFunctions;
 
     void Start()
     {
+        elapsedTime = startTime;
         // パターン関数を登録
         patternFunctions = new Dictionary<SpawnPatternType, Action<SpawnEvent>> {
             { SpawnPatternType.Single, SpawnSingle },
