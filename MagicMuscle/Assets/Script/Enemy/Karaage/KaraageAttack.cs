@@ -22,10 +22,13 @@ public class KaraageAttack : MonoBehaviour
     IEnumerator Attack(float waittime)
     {
         yield return new WaitForSeconds(waittime);
+
         if (!enemystate.IsDead) {
             OilControle.isOil = true;
             Score.score -= muinusScore; 
         }
+
+
     }
 
    
