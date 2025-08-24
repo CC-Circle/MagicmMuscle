@@ -72,7 +72,7 @@ public class MuscleModeAttack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemyに接触 → 一時停止開始");
+            //Debug.Log("Enemyに接触 → 一時停止開始");
             StartCoroutine(PauseGame());
         }
     }

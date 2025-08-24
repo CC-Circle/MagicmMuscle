@@ -32,6 +32,7 @@ public class ScreenToWorldShot : MonoBehaviour
         //センサーの場合
         if (Serial.strong > 100)
         {
+            
             if (maxpower < Serial.strong)
             {
                 maxpower = Serial.strong;
@@ -41,7 +42,12 @@ public class ScreenToWorldShot : MonoBehaviour
         }else if (charge)
         {
             camerashake.Shake();
-            shoot(new Vector3(HD.x/2,HD.y/2,0));
+            //shoot(new Vector3(HD.x/2,HD.y/2,0));
+            // 1920x1080のピクセル座標へ変換
+            float pixelX = (OrangePointer.pointerX * 1920);
+            float pixelY = (OrangePointer.pointerY * 1080);
+
+            shoot(new Vector3(pixelX, pixelY ));
             charge = false;
         }
         if (Input.GetMouseButtonUp(0))
@@ -49,6 +55,8 @@ public class ScreenToWorldShot : MonoBehaviour
             shoot(Input.mousePosition);
             maxpower = 200;
         }
+
+        
     }
     //発射したい地点を選択
     public void shoot(Vector3 yourinput)

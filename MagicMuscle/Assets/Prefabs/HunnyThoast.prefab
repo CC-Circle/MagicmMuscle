@@ -154,8 +154,8 @@ Transform:
   m_GameObject: {fileID: 1246897227203205253}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.035857, y: 0.92, z: 0.070004}
-  m_LocalScale: {x: 3.0676246, y: 2.7267776, z: 0.23859301}
+  m_LocalPosition: {x: -0.46, y: 2.48, z: 0.070004}
+  m_LocalScale: {x: 4.9465446, y: 5.120803, z: 0.23859301}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7019434760637818865}
@@ -175,7 +175,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246897227203205253}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -501,6 +501,9 @@ MonoBehaviour:
   maxHP: 4
   scoreadd: 100
   activeTime: 7
+  musclemodespeed: 0.02
+  TargetPointZ: 0
+  dieing: 0
 --- !u!114 &3018860560162734466
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,17 +1,24 @@
 using UnityEngine;
 using System.Collections;
+
 public class GameManager : MonoBehaviour
 {
+    
+    public static bool GameStart = false;
     public static bool muscleTime = false;
     public int muscleTime_cnt = 10;
+    public int startWaitTime = 1;
     public Slider slider;
+    public 
     //private static bool isStart = false;
     ////
     //private static bool isOil = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameStart = false;
         muscleTime = false;
+        StartCoroutine(StartGame());
     }
 
     // Update is called once per frame
@@ -33,5 +40,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(muscleTime_cnt);
         muscleTime = false;
         slider.pollenPoint = 0;
+    }
+
+    IEnumerator StartGame()
+    {
+
+        yield return new WaitForSeconds(startWaitTime);
+        GameStart = true;
     }
 }
