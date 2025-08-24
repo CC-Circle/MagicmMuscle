@@ -12,6 +12,8 @@ public class BallMoveScreen : MonoBehaviour
     private Vector3 screenObj;
     public float speed = 0.2f;
     public bool turanuki = false;
+
+    public bool isSuper = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +49,11 @@ public class BallMoveScreen : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(audioClip ,new Vector3(0,1,-10));
             Instantiate(death_effect, transform.position, Quaternion.identity);
-            this.gameObject.SetActive(false);
+            if (!isSuper) {
+                this.gameObject.SetActive(false);
+            }
+
+            
         }
         if (collision.gameObject.tag == "Ground")
         {
