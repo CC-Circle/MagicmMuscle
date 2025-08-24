@@ -11,12 +11,13 @@ public class ScreenToWorldShot : MonoBehaviour
     private Vector3 screenObj;
     public GameObject gameobject;
     public GameObject StrongBullet;
-    public bool charge = false;
+    public static bool charge = false;
     public static float maxpower = 0;
     private CameraShake camerashake;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        charge = false;
         aruanimation = GameObject.Find("Arm").GetComponent<ArmAnimation>();
         camerashake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
         audioSource = GetComponent<AudioSource>(); // 必要なら動的に取得
@@ -29,6 +30,17 @@ public class ScreenToWorldShot : MonoBehaviour
     void Update()
     {
         Serial.strong = Mathf.Abs(Serial.strong);
+        if (Input.GetKey(KeyCode.Space)) {
+            Serial.strong = 400;
+        }
+        else
+        {
+            if (!Serial.isConect)
+            {
+                Serial.strong = 0;
+            }
+        }
+
         //Debug.Log(Serial.strong);
         //センサーの場合
         if (Serial.strong > 100)

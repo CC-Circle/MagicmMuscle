@@ -2651,7 +2651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 240}
+  m_AnchoredPosition: {x: 0, y: -304}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694006768
@@ -2911,6 +2911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94604b28f8ee54510a2d96742bce26f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTime: 30
   spawnEvents:
   - time: 3
     pattern: 0
@@ -2963,9 +2964,9 @@ MonoBehaviour:
     basePosition: {x: -1.01, y: 0, z: -8.01}
     animationTrigger: 
   - time: 35
-    pattern: 1
+    pattern: 0
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: 1, y: 0, z: -8.01}
+    basePosition: {x: 0, y: 0, z: 2.5}
     animationTrigger: 
   - time: 40
     pattern: 2
@@ -2985,17 +2986,17 @@ MonoBehaviour:
   - time: 50
     pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 4, y: 0, z: -3}
+    basePosition: {x: 2, y: 0, z: -3}
     animationTrigger: 
   - time: 55
     pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 3, y: 0, z: -2.7}
+    basePosition: {x: 1, y: 0, z: -5}
     animationTrigger: 
   - time: 60
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 3, y: 0, z: -4.9}
+    basePosition: {x: 3, y: 0, z: 25}
     animationTrigger: 
   - time: 65
     pattern: 2
@@ -3010,12 +3011,12 @@ MonoBehaviour:
   - time: 75
     pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: -2.1, y: 0, z: -7.2}
+    basePosition: {x: 0, y: 0, z: 2}
     animationTrigger: 
   - time: 80
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: -2.1, y: 0, z: -7.2}
+    basePosition: {x: 0, y: 0, z: 1.5}
     animationTrigger: 
   - time: 80
     pattern: 2
@@ -3045,7 +3046,7 @@ MonoBehaviour:
   - time: 100
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: 0.2, y: 3, z: -4.3}
+    basePosition: {x: 0.2, y: 0, z: -4.3}
     animationTrigger: 
   - time: 100
     pattern: 2
@@ -3055,12 +3056,12 @@ MonoBehaviour:
   - time: 105
     pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: -0.3, y: 1, z: -5.3}
+    basePosition: {x: -0.3, y: 0, z: -5.3}
     animationTrigger: 
   - time: 105
     pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: 0.3, y: 1, z: -3.3}
+    basePosition: {x: 0.3, y: 0, z: -3.3}
     animationTrigger: 
   - time: 110
     pattern: 1
@@ -4170,7 +4171,6 @@ MonoBehaviour:
   input: {x: 0, y: 0, z: 2}
   gameobject: {fileID: 6745202238037208018, guid: b9d982b89f75945b3a1ce7255391e6c1, type: 3}
   StrongBullet: {fileID: 6745202238037208018, guid: 7a13c545e43eb45f890d3fe62b5ab51b, type: 3}
-  charge: 0
 --- !u!4 &1386675460
 Transform:
   m_ObjectHideFlags: 0
@@ -4740,6 +4740,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1754781878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019434760637818865, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+      propertyPath: m_Name
+      value: HunnyThoast
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
 --- !u!1 &1794590531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5914,3 +5971,4 @@ SceneRoots:
   - {fileID: 466346107}
   - {fileID: 1019417598}
   - {fileID: 3904176}
+  - {fileID: 1754781878}

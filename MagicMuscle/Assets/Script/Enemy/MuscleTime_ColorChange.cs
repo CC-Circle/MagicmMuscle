@@ -9,6 +9,8 @@ public class MuscleTime_ColorChange : MonoBehaviour
     Material material = null;
     RawImage rawImage = null; // RawImage対応用
 
+    bool isChangeColor = false;
+
     [Header("色変更スパン")]
     public float Chnge_Color_Time = 0.01f;
 
@@ -49,18 +51,29 @@ public class MuscleTime_ColorChange : MonoBehaviour
 
     void Update()
     {
+        
+        if (GameManager.muscleTime || ScreenToWorldShot.charge||YouSrPower.iscorrect) {
+            isChangeColor = true;
+        }
+        else
+        {
+            isChangeColor = false; 
+        }
+
         Color col = Color.HSVToRGB(HSV_Hue, HSV_Saturation, HSV_Brightness);
         ApplyColor(col);
 
-        if (GameManager.muscleTime && dash_flag)
+        if (isChangeColor && dash_flag)
         {
+
             StartCoroutine(Change_Color());
         }
+        
     }
 
-    IEnumerator Change_Color()
+    public IEnumerator Change_Color()
     {
-        if (GameManager.muscleTime)
+        if (isChangeColor)
         {
             HSV_Saturation = 0.6f;
             dash_flag = false;
