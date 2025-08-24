@@ -20,6 +20,7 @@ public class Serial : MonoBehaviour
     private bool isLoop = true;
     public float xfl = 10000f, zfl = 10000f;
     public string cntx, cntz, x = "50", z = "50";
+    public static bool isConect = false;
     public static float strong = 0, shake = 0;
     void Awake()
     {
@@ -46,11 +47,13 @@ public class Serial : MonoBehaviour
             //別スレッドで実行  
             Scheduler.ThreadPool.Schedule(() => ReadData()).AddTo(this);
             conect = true;
+            isConect = true;
         }
         catch (Exception e)
         {
             UnityEngine.Debug.Log("ポートが開けませんでした。設定している値が間違っている場合があります");
             conect = false;
+            isConect = false;
         }
     }
     //データ受信時に呼ばれる

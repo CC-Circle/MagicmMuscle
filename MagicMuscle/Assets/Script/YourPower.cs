@@ -18,6 +18,10 @@ public class YouSrPower : MonoBehaviour
 
     public string scenename = "GameScene";
 
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {

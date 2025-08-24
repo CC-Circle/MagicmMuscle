@@ -18,19 +18,19 @@ public class BallMoveScreen : MonoBehaviour
     void Start()
     {
         //Debug.Log(this.transform.position);
-        Serial.strong = Mathf.Abs(Serial.strong);
-        if ((powerscale / scalechange) < 20)
-        {
-            this.transform.localScale *= powerscale / scalechange;
-        }
-        else {
-            this.transform.localScale *= 10;
-        }
-        
-        if (powerscale > 400)
-        {
-            turanuki = true;
-        }
+        //Serial.strong = Mathf.Abs(Serial.strong);
+        //if ((powerscale / scalechange) < 20)
+        //{
+        //    this.transform.localScale *= powerscale / scalechange;
+        //}
+        //else {
+        //    this.transform.localScale *= 10;
+        //}
+
+        //if (powerscale > 400)
+        //{
+        //    turanuki = true;
+        //}
         screenObj = Camera.main.ScreenToWorldPoint(input);
     }
 
@@ -52,8 +52,6 @@ public class BallMoveScreen : MonoBehaviour
             if (!isSuper) {
                 this.gameObject.SetActive(false);
             }
-
-            
         }
         if (collision.gameObject.tag == "Ground")
         {

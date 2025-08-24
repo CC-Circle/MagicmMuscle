@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public int muscleTime_cnt = 10;
     public int startWaitTime = 1;
     public Slider slider;
-    public 
     //private static bool isStart = false;
     ////
     //private static bool isOil = false;

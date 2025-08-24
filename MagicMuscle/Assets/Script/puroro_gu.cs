@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;  // シーンを切り替えるために必�
 
 public class puroro_gu : MonoBehaviour
 {
+    public string  Scenename= "checkScene";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +23,7 @@ public class puroro_gu : MonoBehaviour
             Debug.Log("ステッキを握りました！（Enterキーまたはクリック）");
 
             // "TutorialScene" へ遷移します（シーン名に一致させてください）
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene(Scenename);
         }
             // ステッキを握る動作の代わりにEnterキーまたはマウスクリックで反応します
             // ↓キー入力またはクリックを検出
@@ -32,7 +33,7 @@ public class puroro_gu : MonoBehaviour
             Debug.Log("ステッキを握りました！（Enterキーまたはクリック）");
 
             // "TutorialScene" へ遷移します（シーン名に一致させてください）
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene(Scenename);
         }
     }
 }
