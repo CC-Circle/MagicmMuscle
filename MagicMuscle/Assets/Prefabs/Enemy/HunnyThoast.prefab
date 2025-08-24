@@ -499,7 +499,7 @@ MonoBehaviour:
   enemyanimator: {fileID: 0}
   scriptanima: {fileID: 0}
   maxHP: 4
-  scoreadd: 100
+  scoreadd: 800
   activeTime: 7
   musclemodespeed: 0.02
   TargetPointZ: 0

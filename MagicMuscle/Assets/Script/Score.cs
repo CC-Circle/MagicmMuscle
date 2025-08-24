@@ -16,6 +16,10 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreText.text = "kcal: " + score;
+        if(score < 0) {
+            score = 0;
+        }
+
     }
 
 
