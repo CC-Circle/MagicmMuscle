@@ -10,6 +10,7 @@ public class ScreenToWorldShot : MonoBehaviour
     public Vector3 input = new Vector3(0,0,2);
     private Vector3 screenObj;
     public GameObject gameobject;
+    public GameObject StrongBullet;
     public bool charge = false;
     public static float maxpower = 0;
     private CameraShake camerashake;
@@ -66,10 +67,30 @@ public class ScreenToWorldShot : MonoBehaviour
         aruanimation.StartAnime();
         Vector3 mousePosition = yourinput + input;
         screenObj = Camera.main.ScreenToWorldPoint(mousePosition);
-        GameObject obj = Instantiate(gameobject, screenObj, Quaternion.identity);
+
+        GameObject Bullet=gameobject;
+        if (Serial.isConect)
+        {
+            if (maxpower > YouSrPower.maxValue-500)
+            {
+                Bullet = StrongBullet;
+            }
+        }
+        else {
+            if (Input.GetKey(KeyCode.S))
+            {
+                Bullet = StrongBullet;
+            }
+            
+        }
+
+        
+
+        GameObject obj = Instantiate(Bullet, screenObj, Quaternion.identity);
         BallMoveScreen bms = obj.GetComponent<BallMoveScreen>();
         bms.input = mousePosition;
-        bms.powerscale = maxpower;
+
+        //bms.powerscale = maxpower;
         maxpower = 0;
 
     }
