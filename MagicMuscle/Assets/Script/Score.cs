@@ -15,7 +15,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "kcal: " + score;
+        scoreText.text =score+ "kcal: ";
         if(score < 0) {
             score = 0;
         }
