@@ -3001,7 +3001,7 @@ MonoBehaviour:
   - time: 65
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: 3, y: 0, z: -4.9}
+    basePosition: {x: 0, y: 0, z: -4.9}
     animationTrigger: 
   - time: 70
     pattern: 2
