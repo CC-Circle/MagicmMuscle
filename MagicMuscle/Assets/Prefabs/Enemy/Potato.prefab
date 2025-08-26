@@ -397,6 +397,7 @@ MonoBehaviour:
   animationNames:
   - isDeathR
   - isDeathL
+  rollingClip: {fileID: 8300000, guid: 70369ecaa73ae46ff97f99eae817bce4, type: 3}
 --- !u!1 &8328342981037387771
 GameObject:
   m_ObjectHideFlags: 0

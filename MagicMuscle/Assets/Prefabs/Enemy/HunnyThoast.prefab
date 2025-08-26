@@ -519,6 +519,7 @@ MonoBehaviour:
   animationNames:
   - isDeathR
   - isDeathL
+  rollingClip: {fileID: 8300000, guid: 70369ecaa73ae46ff97f99eae817bce4, type: 3}
 --- !u!114 &8039373715995541432
 MonoBehaviour:
   m_ObjectHideFlags: 0

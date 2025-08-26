@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        elapsedTime = startTime;
+        
         // パターン関数を登録
         patternFunctions = new Dictionary<SpawnPatternType, Action<SpawnEvent>> {
             { SpawnPatternType.Single, SpawnSingle },
@@ -26,7 +26,9 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
+        
         elapsedTime += Time.deltaTime;
+        startTime = elapsedTime;
         if (elapsedTime > 120f) return;
 
         while (nextEventIndex < spawnEvents.Count && elapsedTime >= spawnEvents[nextEventIndex].time)
