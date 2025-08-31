@@ -52,7 +52,7 @@ public class MuscleTime_ColorChange : MonoBehaviour
     void Update()
     {
         
-        if (GameManager.muscleTime || ScreenToWorldShot.charge||YouSrPower.iscorrect) {
+        if (GameManager.muscleTime || ScreenToWorldShot.charge||YourPower.iscorrect) {
             isChangeColor = true;
         }
         else

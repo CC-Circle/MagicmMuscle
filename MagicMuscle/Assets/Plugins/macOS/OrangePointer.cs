@@ -9,8 +9,10 @@ public class OrangePointer : MonoBehaviour
     Process cppProcess;
     string filePathX;
     string filePathY;
+    string filePathBool;
     public static float pointerX;
     public static float pointerY;
+    public static int isCatch;
     public TextMeshProUGUI TM;
     void Start()
     {
@@ -19,6 +21,7 @@ public class OrangePointer : MonoBehaviour
 
         filePathX = "/tmp/pointingX.txt";
         filePathY = "/tmp/pointingY.txt";
+        filePathBool = "/tmp/iscatch.txt";
 
         //string exePath;
         //exePath = Path.Combine(Application.streamingAssetsPath, "Plugins", "macOS", "a.out");
@@ -91,6 +94,20 @@ public class OrangePointer : MonoBehaviour
                 {
                     pointerY = py;
                     UnityEngine.Debug.Log("Y:" + pointerY);
+                }
+            }
+            catch (IOException) { }
+        }
+
+        if (File.Exists(filePathBool))
+        {
+            try
+            {
+                string val = File.ReadAllText(filePathBool);
+                if (int.TryParse(val, out int py))
+                {
+                    isCatch = py;
+                    UnityEngine.Debug.Log("FAFAFA:"+py);
                 }
             }
             catch (IOException) { }
