@@ -1757,6 +1757,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &364842016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883114479651443785, guid: b9d982b89f75945b3a1ce7255391e6c1, type: 3}
+  m_PrefabInstance: {fileID: 6597244681645429219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &389270449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2876,7 @@ RectTransform:
   - {fileID: 1635105848}
   - {fileID: 694006767}
   - {fileID: 912912188}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 364842016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2987,22 +2992,22 @@ MonoBehaviour:
   - time: 40
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: -1.1, y: 0, z: -5.2}
+    basePosition: {x: 0, y: 0, z: -5.4}
     animationTrigger: 
   - time: 40
     pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 2.1, y: 0, z: -8.2}
+    basePosition: {x: 1.01, y: 0, z: -3.3}
     animationTrigger: 
   - time: 45
     pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1, y: 0, z: -6.4}
+    basePosition: {x: 0, y: 0, z: -2.4}
     animationTrigger: 
   - time: 50
     pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 2, y: 0, z: -3}
+    basePosition: {x: 0.8, y: 0, z: -3.2}
     animationTrigger: 
   - time: 55
     pattern: 1
@@ -3012,7 +3017,7 @@ MonoBehaviour:
   - time: 60
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 3, y: 0, z: 25}
+    basePosition: {x: -5.2, y: 0, z: -1.1}
     animationTrigger: 
   - time: 65
     pattern: 2
@@ -3022,7 +3027,7 @@ MonoBehaviour:
   - time: 70
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: -1.2, y: 0, z: -8.3}
+    basePosition: {x: -1.2, y: 0, z: -2.3}
     animationTrigger: 
   - time: 75
     pattern: 1
@@ -3037,12 +3042,12 @@ MonoBehaviour:
   - time: 80
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 2.1, y: 0, z: -7.2}
+    basePosition: {x: -4.8, y: 0, z: -3.2}
     animationTrigger: 
   - time: 85
     pattern: 2
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1.01, y: 0, z: -6.3}
+    basePosition: {x: 1.06, y: 0, z: -4.3}
     animationTrigger: 
   - time: 90
     pattern: 2
@@ -3052,27 +3057,27 @@ MonoBehaviour:
   - time: 95
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -4.3}
+    basePosition: {x: -1.9, y: 0, z: -3.3}
     animationTrigger: 
   - time: 95
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: 0.2, y: 3, z: -4.3}
+    basePosition: {x: 0.2, y: 1, z: -4.3}
     animationTrigger: 
   - time: 100
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -4.3}
+    basePosition: {x: 0.5, y: 0, z: -4.37}
     animationTrigger: 
   - time: 100
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -5.3}
+    basePosition: {x: -3.2, y: 0, z: -4.3}
     animationTrigger: 
   - time: 105
     pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: -0.3, y: 0, z: -5.3}
+    basePosition: {x: -0.3, y: 0, z: -2.3}
     animationTrigger: 
   - time: 105
     pattern: 1
@@ -3082,32 +3087,32 @@ MonoBehaviour:
   - time: 110
     pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: 0.3, y: 1, z: -3.3}
+    basePosition: {x: -0.3, y: 0, z: -3.3}
     animationTrigger: 
   - time: 115
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0.3, y: 0, z: -4}
+    basePosition: {x: -0.3, y: 0, z: -2}
     animationTrigger: 
   - time: 115
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: -1.12, y: 0, z: -4.5}
+    basePosition: {x: -1.12, y: 0, z: -1.05}
     animationTrigger: 
   - time: 115
     pattern: 2
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: -3.22, y: 0, z: -5.4}
+    basePosition: {x: -3.22, y: 0, z: 2.4}
     animationTrigger: 
   - time: 115
     pattern: 2
     enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: 3.2, y: 0, z: -8.3}
+    basePosition: {x: 0.6, y: 0, z: -4.3}
     animationTrigger: 
   - time: 115
     pattern: 2
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1.23, y: 0, z: -3.3}
+    basePosition: {x: 0.3, y: 0, z: -3.3}
     animationTrigger: 
 --- !u!1 &832575517
 GameObject:
@@ -6524,7 +6529,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8883114479651443785, guid: b9d982b89f75945b3a1ce7255391e6c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 717543479}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9d982b89f75945b3a1ce7255391e6c1, type: 3}
 --- !u!1001 &8186494440081502302
@@ -6596,7 +6604,6 @@ SceneRoots:
   - {fileID: 630193195}
   - {fileID: 1386675460}
   - {fileID: 6597244681645429219}
-  - {fileID: 717543479}
   - {fileID: 21654557}
   - {fileID: 358584293}
   - {fileID: 1417719379}
