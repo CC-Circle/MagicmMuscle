@@ -11,6 +11,7 @@ using System.Diagnostics;
 
 public class Serial : MonoBehaviour
 {
+    
     private static Serial instance;
     [SerializeField] private string portName;
     [SerializeField] private int baurate;
@@ -22,9 +23,18 @@ public class Serial : MonoBehaviour
     public string cntx, cntz, x = "50", z = "50";
     public static bool isConect = false;
     public static float strong = 0, shake = 0;
+
+    //チャージ関連
+    
+    public int chargevalue = 100;//チャージ開始閾値
+    public bool ischarge = false;//チャージ中かどうか
+    public bool entercharge = false;//チャージ開始時
+    public bool ischargedown = false;//チャージを押した時
+    public bool ischargeup = false;
     void Awake()
     {
 
+        entercharge = false;
         if (instance == null)
         {
             instance = this;
@@ -42,6 +52,7 @@ public class Serial : MonoBehaviour
         serial.DtrEnable = true;
         try
         {
+            
             UnityEngine.Debug.Log("catch");
             this.serial.Open();
             //別スレッドで実行  
@@ -55,6 +66,58 @@ public class Serial : MonoBehaviour
             conect = false;
             isConect = false;
         }
+    }
+    private void Update()
+    {
+
+        //if (Input.GetKeyDown(KeyCode.Space)) {
+        //    entercharge = true;
+        //}
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            strong += 4000;
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            
+            strong = 0;
+        }
+       
+
+
+        if (strong > chargevalue) {
+            UnityEngine.Debug.Log("StartCarge!!!");
+            if (!ischarge)
+            {
+                
+                ischargedown = true;
+                entercharge = true;
+                
+            }
+            else {
+                UnityEngine.Debug.Log("ischargedown");
+                ischargedown = false;
+            }
+            ischarge = true;
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Nocharge");
+            entercharge = false;
+            if (ischarge)
+            {
+                ischargeup = true;
+            }
+            else
+            {
+                ischargeup = false;
+            }
+            ischarge = false;
+        }
+        UnityEngine.Debug.Log("Scencer"+entercharge);
+           
+
     }
     //データ受信時に呼ばれる
     public void ReadData()
@@ -72,6 +135,7 @@ public class Serial : MonoBehaviour
                 if (header == 'W')
                 {
                     strong = value;
+                    strong = Mathf.Abs(strong);
                     //UnityEngine.Debug.Log("Weight = " + strong);
                 }
                 else if (header == 'A')
@@ -80,15 +144,12 @@ public class Serial : MonoBehaviour
                    // UnityEngine.Debug.Log("AccelStrength = " +shake);
                 }
             }
-            ////Debug.Log("whilestart");
-            //cntx = this.serial.ReadLine();
-            //UnityEngine.Debug.Log("x" +cntx);
-            //connect_char = true;
-            //float.TryParse(cntx, out strong);
+
         }
 
         void OnDestroy()
         {
+            
             if (serial != null)
             {
                 this.isLoop = false;

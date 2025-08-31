@@ -35,7 +35,7 @@ public class EnemyStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //scriptanima.StartFlashingMaterial(0.1f,0.1f);
+        scriptanima.StartFlashing(0.2f, 0.01f);
         currentHP -= damage;
         if (currentHP <= 0)
         {
@@ -49,10 +49,16 @@ public class EnemyStatus : MonoBehaviour
         }
 
     }
+
+
     void Die()
     {
         dieing = true;
-        slider.CollectObject();
+        if (slider != null) {
+            slider.CollectObject();
+        }
+
+        
         Score.score += scoreadd;
         enemyanimator.PlayRandomAnimation();
     }

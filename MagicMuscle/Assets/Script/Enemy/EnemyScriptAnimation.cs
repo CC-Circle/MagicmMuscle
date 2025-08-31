@@ -1,89 +1,71 @@
 using UnityEngine;
 using System.Collections;
+
 public class EnemyScriptAnimation : MonoBehaviour
 {
-    //画像を左右反転させて歩くアニメーション
     private int animation_cnt = 0;
-    //アニメーションのスピード
     public int animation_speed = 20;
 
-    // Update is called once per frame
+    public Color flashcolor;
+
+    private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     void FixedUpdate()
     {
         animation_cnt++;
-        if (animation_speed==animation_cnt)
+        if (animation_cnt >= animation_speed)
         {
-            //カウンターの初期化
             animation_cnt = 0;
-            //レンダラーのxを反転することで画像を反転
-            Material mat = GetComponent<Renderer>().material;
-            Vector2 tiling = mat.mainTextureScale;
-            tiling.x *= -1; // x方向に反転
-            mat.mainTextureScale = tiling;
-        }
+
+            if (spriteRenderer != null)
+            {
+                // 左右反転
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
            
+            // または transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
 
-    ///// <summary>
-    ///// マテリアルを点滅させる関数
-    ///// </summary>
-    ///// <param name="duration">点滅する時間（秒）</param>
-    ///// <param name="interval">点滅の間隔（秒）</param>
-    //public void StartFlashingMaterial(float duration, float interval)
-    //{
-    //    StartCoroutine(FlashMaterialCoroutine(duration, interval));
-    //}
-
-    //private IEnumerator FlashMaterialCoroutine(float duration, float interval)
-    //{
-    //    float elapsed = 0f;
-    //    bool isVisible = true;
-
-    //    Material mat = GetComponent<Renderer>().material;
-    //    Color originalColor = mat.color;
-
-    //    while (elapsed < duration)
-    //    {
-    //        isVisible = !isVisible;
-    //        Color newColor = originalColor;
-    //        newColor.a = isVisible ? 1f : 0f;
-    //        mat.color = newColor;
-
-    //        yield return new WaitForSeconds(interval);
-    //        elapsed += interval;
-    //    }
-
-    //    // 最後に元の色に戻す
-    //    mat.color = originalColor;
-    //}
-    public void StartFlashingMaterial(float duration, float interval)
+    /// <summary>
+    /// 点滅処理開始
+    /// </summary>
+    public void StartFlashing(float duration, float interval)
     {
-        StartCoroutine(FlashMaterialCoroutine(duration, interval));
+        if (spriteRenderer != null)
+        {
+            StartCoroutine(FlashCoroutine(duration, interval));
+        }
+        
     }
 
-    private IEnumerator FlashMaterialCoroutine(float duration, float interval)
+    private IEnumerator FlashCoroutine(float duration, float interval)
     {
         float elapsed = 0f;
-        bool isWhite = true;
+        bool isVisible = true;
 
-        Material mat = GetComponent<Renderer>().material;
-        Color originalColor = mat.GetColor("_Color");
+        Color originalColor = spriteRenderer.color;
 
         while (elapsed < duration)
         {
-            // 白色（アルファ1）または透明（アルファ0）で切り替え
-            if (isWhite)
-                mat.SetColor("_Color", Color.white); // 明るく点滅
-            else
-                mat.SetColor("_Color", new Color(1f, 1f, 1f, 0f)); // 透明にする
+            isVisible = !isVisible;
 
-            isWhite = !isWhite;
+            if (isVisible)
+            spriteRenderer.color = new Color(flashcolor.r,flashcolor.g,flashcolor.b, spriteRenderer.color.a); // 完全な赤＋元の透明度
+            //spriteRenderer.color = flashcolor; // 白く点滅
+            else
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f); // 透明
 
             yield return new WaitForSeconds(interval);
             elapsed += interval;
         }
 
         // 終了後に元の色に戻す
-        mat.SetColor("_Color", originalColor);
+        spriteRenderer.color = originalColor;
     }
 }

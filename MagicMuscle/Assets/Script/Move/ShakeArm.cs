@@ -21,7 +21,7 @@ public class ShakeArm : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     void Update()
     {
-        if (YouSrPower.isMeasuring)
+        if (YourPower.isMeasuring)
         {
             // 振動：sin波を使うと滑らかに揺れる
             float offsetX = Mathf.Sin(Time.time * vibrationSpeed) * vibrationStrength;

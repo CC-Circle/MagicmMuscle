@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     
@@ -14,8 +14,16 @@ public class GameManager : MonoBehaviour
     ////
     //private static bool isOil = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        if (YourPower.maxValue == 0)
+        {
+            YourPower.maxValue = 3000;
+        }
+    }
     void Start()
     {
+        
         GameStart = false;
         muscleTime = false;
         StartCoroutine(StartGame());
@@ -25,6 +33,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         MuscleTimeControle();
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("");
+        }
     }
 
     void MuscleTimeControle()

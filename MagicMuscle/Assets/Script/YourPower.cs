@@ -102,7 +102,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class YouSrPower : MonoBehaviour
+public class YourPower : MonoBehaviour
 {
     [Header("しきい値")]
     public float threshold = 1.0f; // 計測開始するしきい値

@@ -14,9 +14,31 @@ public class ScreenToWorldShot : MonoBehaviour
     public static bool charge = false;
     public static float maxpower = 0;
     private CameraShake camerashake;
+
+    public SliderCharge slidercharge;
+    public bool sliderChargemode;
+    public int shakeend = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        try
+        {
+            slidercharge = GameObject.Find("barsmaster").GetComponent<SliderCharge>();
+        }
+        catch
+        {
+            slidercharge = null;
+        }
+       
+        if (slidercharge != null) {
+            sliderChargemode = true;
+        }
+        else
+        {
+            sliderChargemode = false;
+        }
+
         charge = false;
         aruanimation = GameObject.Find("Arm").GetComponent<ArmAnimation>();
         camerashake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
@@ -30,18 +52,39 @@ public class ScreenToWorldShot : MonoBehaviour
     void Update()
     {
         Serial.strong = Mathf.Abs(Serial.strong);
-        if (Input.GetKey(KeyCode.Space)) {
-            Serial.strong = 400;
+        //if (Input.GetKey(KeyCode.Space)) {
+        //    //Serial.strong +=10;
+        //}
+        //else
+        //{
+        //    if (!Serial.isConect)
+        //    {
+        //        Serial.strong = 0;
+        //    }
+        //}
+
+        //Debug.Log(Serial.strong);
+        if (sliderChargemode && Serial.shake>0.4) {
+            shakeend = 1;
+            
         }
         else
         {
-            if (!Serial.isConect)
+            if (shakeend == 1 && OrangePointer.isCatch==1)
             {
-                Serial.strong = 0;
+                camerashake.Shake();
+                //shoot(new Vector3(HD.x/2,HD.y/2,0));
+                // 1920x1080のピクセル座標へ変換
+                float pixelX = (OrangePointer.pointerX * 1920);
+                //float pixelY = (OrangePointer.pointerY * 1080);
+                float pixelY = 1080 / 2;
+
+                shoot(new Vector3(pixelX, pixelY));
+                shakeend = 0;
             }
+            
         }
 
-        //Debug.Log(Serial.strong);
         //センサーの場合
         if (Serial.strong > 100)
         {
@@ -54,17 +97,21 @@ public class ScreenToWorldShot : MonoBehaviour
             //Debug.Log("power!!!");
         }else if (charge)
         {
-            camerashake.Shake();
-            //shoot(new Vector3(HD.x/2,HD.y/2,0));
-            // 1920x1080のピクセル座標へ変換
-            float pixelX = (OrangePointer.pointerX * 1920);
-            float pixelY = (OrangePointer.pointerY * 1080);
+            if (!sliderChargemode) {
+                camerashake.Shake();
+                //shoot(new Vector3(HD.x/2,HD.y/2,0));
+                // 1920x1080のピクセル座標へ変換
+                float pixelX = (OrangePointer.pointerX * 1920);
+                float pixelY = (OrangePointer.pointerY * 1080);
+                shoot(new Vector3(pixelX, pixelY));
+            }
 
-            shoot(new Vector3(pixelX, pixelY ));
+           
             charge = false;
         }
         if (Input.GetMouseButtonUp(0))
         {
+           
             shoot(Input.mousePosition);
             maxpower = 200;
         }
@@ -83,7 +130,7 @@ public class ScreenToWorldShot : MonoBehaviour
         GameObject Bullet=gameobject;
         if (Serial.isConect)
         {
-            if (maxpower > YouSrPower.maxValue-500)
+            if (maxpower > YourPower.maxValue-500)
             {
                 Bullet = StrongBullet;
             }
@@ -95,9 +142,6 @@ public class ScreenToWorldShot : MonoBehaviour
             }
             
         }
-
-        
-
         GameObject obj = Instantiate(Bullet, screenObj, Quaternion.identity);
         BallMoveScreen bms = obj.GetComponent<BallMoveScreen>();
         bms.input = mousePosition;
@@ -106,4 +150,6 @@ public class ScreenToWorldShot : MonoBehaviour
         maxpower = 0;
 
     }
+
+
 }
