@@ -141,15 +141,15 @@ public class YourPower : MonoBehaviour
     {
         float currentValue = Serial.strong; // シリアルから取得した値
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            currentValue = 200;
-        }
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    currentValue = 200;
+        //}
 
         if (!isMeasuring && !iscorrect)
         {
             // しきい値を超えたら計測開始
-            if (currentValue >= threshold)
+            if (currentValue >= Serial.chargevalue)
             {
                 isMeasuring = true;
                 measureTimer = 0f;
@@ -169,7 +169,7 @@ public class YourPower : MonoBehaviour
         }
         else if (!iscorrect)
         {
-            if (currentValue <= threshold)
+            if (currentValue <= Serial.chargevalue)
             {
                 isMeasuring = false;
                 maxValue = 0;

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAnima : MonoBehaviour
 {
-    // アニメーション
     private Animator animator;
     public string[] animationNames = { "isDeathR", "isDeathL" };
 
@@ -33,9 +32,15 @@ public class EnemyAnima : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+
     void Roling()
     {
         audioSource.PlayOneShot(rollingClip);
-        
+
     }
+
+    public void Splash(){
+        animator.SetBool("isAttack", true);
+    }
+
 }

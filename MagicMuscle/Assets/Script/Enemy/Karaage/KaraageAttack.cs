@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class KaraageAttack : MonoBehaviour
 {
+    public EnemyAnima enemyanima;
     public GameObject shootObject;
     public float wattime;
     private EnemyStatus enemystate;
@@ -24,11 +25,19 @@ public class KaraageAttack : MonoBehaviour
         yield return new WaitForSeconds(waittime);
 
         if (!enemystate.IsDead) {
-            OilControle.isOil = true;
-            Score.score -= muinusScore; 
+            enemyanima.Splash();
         }
 
 
+    }
+
+    public void SplachAttack() {
+        if (!enemystate.IsDead)
+        {
+            
+            OilControle.isOil = true;
+            Score.score -= muinusScore;
+        }
     }
 
    

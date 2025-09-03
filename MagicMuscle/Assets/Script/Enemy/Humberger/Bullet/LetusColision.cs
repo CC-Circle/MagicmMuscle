@@ -15,8 +15,15 @@ public class LetusColision : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(this.gameObject);
+        }
 
-        
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -63,7 +63,7 @@ public class MuscleTime_ColorChange : MonoBehaviour
         Color col = Color.HSVToRGB(HSV_Hue, HSV_Saturation, HSV_Brightness);
         ApplyColor(col);
 
-        if (isChangeColor && dash_flag)
+        if (isChangeColor && Serial.ischarge)
         {
 
             StartCoroutine(Change_Color());
@@ -73,7 +73,7 @@ public class MuscleTime_ColorChange : MonoBehaviour
 
     public IEnumerator Change_Color()
     {
-        if (isChangeColor)
+        if (isChangeColor && Serial.isConect)
         {
             HSV_Saturation = 0.6f;
             dash_flag = false;
