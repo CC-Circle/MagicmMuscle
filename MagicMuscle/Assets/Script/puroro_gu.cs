@@ -17,7 +17,7 @@ public class puroro_gu : MonoBehaviour
     {
         Serial.strong = Mathf.Abs(Serial.strong);
         Debug.Log(Serial.strong);
-        if (Serial.strong > 100)
+        if (Serial.strong > Serial.chargevalue)
         {
             // Debugログで確認（開発中用）
             Debug.Log("ステッキを握りました！（Enterキーまたはクリック）");

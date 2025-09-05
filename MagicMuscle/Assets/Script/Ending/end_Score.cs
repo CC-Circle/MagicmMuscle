@@ -1,37 +1,47 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-
-public class ScoreAnimator : MonoBehaviour
+using DG.Tweening;
+public class end_Score : MonoBehaviour
 {
     public TextMeshProUGUI scoreText; // スコア表示用
     public int finalScore;            // 最終スコア（GameManagerから受け取る）
     public float duration = 2f;       // カウントアップにかける秒数
-
+    public static int countup_score;
     void Start()
     {
+        countup_score = 0;
         // ① Scoreからスコアを受け取る
         finalScore = Score.score;
 
+        if(finalScore == 0)
+        {
+            finalScore=30000;
+        }
         // ② カウントアップ開始
+        //StartCoroutine(CountUpScore());
+    }
+
+    public void StartCount()
+    {
         StartCoroutine(CountUpScore());
     }
 
     IEnumerator CountUpScore()
     {
+        scoreText.rectTransform.DOShakeAnchorPos(duration, 25f, 50, 90, true, true);
         float elapsed = 0f;
-        int currentScore = 0;
+        countup_score = 0;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
             float progress = Mathf.Clamp01(elapsed / duration);
-            currentScore = Mathf.RoundToInt(finalScore * progress);
-            scoreText.text = "kcal: " + currentScore.ToString();
+            countup_score = Mathf.RoundToInt(finalScore * progress);
+            scoreText.text = "kcal: " + countup_score.ToString();
             yield return null;
         }
 
-         scoreText.text = "kcal: " + finalScore.ToString();
-
+         scoreText.text =finalScore.ToString()+ "kcal: ";
     }
 }

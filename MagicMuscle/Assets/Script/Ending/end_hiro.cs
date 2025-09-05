@@ -17,12 +17,16 @@ public class end_hiro : MonoBehaviour
     void Start()
     {
         score = Score.score;
-        ShowEnding(score); // テスト用に固定スコアを使用
+        ShowEnding(end_Score.countup_score); // テスト用に固定スコアを使用
 
 
     }
 
-     // ここが ShowEnding の定義！
+    void Update()
+    {
+        ShowEnding(end_Score.countup_score); // テスト用に固定スコアを使用
+    }
+    // ここが ShowEnding の定義！
     void ShowEnding(int score)
     {
        string imageName = "";

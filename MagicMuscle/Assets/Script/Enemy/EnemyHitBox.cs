@@ -27,4 +27,16 @@ public class EnemyHitBox : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            status.TakeDamage(10);
+        }
+        if (other.gameObject.tag == "Player")
+        {
+            camerashake.Shake();
+            Destroy(transform.parent.gameObject);
+        }
+    }
 }
