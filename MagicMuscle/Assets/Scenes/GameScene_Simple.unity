@@ -1378,7 +1378,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0a06b1ae32bfa4a1ab66012fb3e79fa5, type: 3}
@@ -4728,6 +4728,7 @@ MonoBehaviour:
   slidercharge: {fileID: 0}
   sliderChargemode: 1
   shakeend: 0
+  isSimple: 0
   sliderpowercharge: {fileID: 210227436}
 --- !u!4 &1386675460
 Transform:
@@ -5310,8 +5311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570156179}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.079269506, y: -0.46864492, z: 0.14673445, w: 0.86750066}
-  m_LocalPosition: {x: -14.95903, y: 20.061365, z: 8.152915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.9, y: 19.7, z: 13.4}
   m_LocalScale: {x: 1.3255208, y: 1.3255209, z: 1.3255208}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5569,6 +5570,7 @@ GameObject:
   - component: {fileID: 1713525157}
   - component: {fileID: 1713525156}
   - component: {fileID: 1713525158}
+  - component: {fileID: 1713525159}
   m_Layer: 0
   m_Name: "\u7B4B\u8089\u8CEA\u306E\u8155\u3000\u30B9\u30C6\u30C3\u30AD"
   m_TagString: Untagged
@@ -5639,14 +5641,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713525155}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.079269506, y: 0.46864492, z: -0.14673445, w: 0.86750066}
-  m_LocalPosition: {x: 0.95, y: 0.67, z: -8.6}
-  m_LocalScale: {x: 0.05572983, y: 0.05572983, z: 0.05572983}
+  m_LocalRotation: {x: 0.43497837, y: 0.4590493, z: 0.17444995, w: 0.7547416}
+  m_LocalPosition: {x: 1.2914263, y: 1.0486904, z: -8.832334}
+  m_LocalScale: {x: 0.055729836, y: 0.05572983, z: 0.05572983}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1570156180}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 56.758, z: -19.201}
+  m_LocalEulerAnglesHint: {x: 29.764, y: 76.671, z: 49.764}
 --- !u!95 &1713525158
 Animator:
   serializedVersion: 7
@@ -5669,6 +5671,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1713525159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713525155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd7f08167d2f4535883dfb56b8f12b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1713525158}
+  stateName: ArmSimpleAttack
+  sensorValue: 45
 --- !u!114 &1742140317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6363837862069375462, guid: 94f9736866f5b4eb39cedff4a14c9eac, type: 3}

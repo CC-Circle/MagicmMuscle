@@ -22,7 +22,7 @@ public class Serial : MonoBehaviour
     public float xfl = 10000f, zfl = 10000f;
     public string cntx, cntz, x = "50", z = "50";
     public static bool isConect = false;
-    public static float strong = 0, shake = 0;
+    public static float strong = 0, shake = 0, deg = 0;
 
     //チャージ関連
 
@@ -35,8 +35,18 @@ public class Serial : MonoBehaviour
     //振る関連
     public static float shakevalue = 0.3f;
     public static bool isShake = false;
+
+    //振った角度の発射
+    public static float degshakeval = 10;
+    public static bool isDegShake = false;//振った時
+    public static bool isDeg = false;//振った閾値かどうか
+
     void Awake()
     {
+        degshakeval = 10;
+        isDegShake = false;//振った時
+        isDeg = false;//振った閾値かどうか
+        deg = 0;
         isShake = false;
         shakevalue = 1f;
         ischargeup = false;
@@ -78,7 +88,41 @@ public class Serial : MonoBehaviour
     }
     private void Update()
     {
+        if (deg < degshakeval) {
+            if (!isDeg) {
+                isDegShake = true;
+            }
+            else
+            {
+                isDegShake = false;
+            }
+                
+            isDeg = true;
+        }
+        else
+        {
+            isDegShake = false;
+            isDeg = false;
+        }
 
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            if (deg < 90) {
+                UnityEngine.Debug.Log("shake!!");
+                deg+=10;
+            }
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (deg > 0)
+            {
+                deg-=10;
+            }
+        }
+        if (deg == 0)
+        {
+
+        }
         //if (Input.GetKeyDown(KeyCode.Space)) {
         //    entercharge = true;
         //}
@@ -172,6 +216,7 @@ public class Serial : MonoBehaviour
             {
                 this.isLoop = false;
                 this.serial.Close();
+                this.serial.Dispose();
             }
         }
 

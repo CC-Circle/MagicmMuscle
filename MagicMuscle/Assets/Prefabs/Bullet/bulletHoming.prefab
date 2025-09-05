@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 3943305574291622598}
   - component: {fileID: 9121316749218682887}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: bulletHoming
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

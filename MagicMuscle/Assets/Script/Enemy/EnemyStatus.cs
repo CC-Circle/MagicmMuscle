@@ -63,6 +63,7 @@ public class EnemyStatus : MonoBehaviour
         enemyanimator.PlayRandomAnimation();
     }
 
+
     public int GetHP()
     {
         return currentHP;

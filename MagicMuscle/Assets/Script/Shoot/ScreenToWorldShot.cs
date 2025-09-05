@@ -22,6 +22,7 @@ public class ScreenToWorldShot : MonoBehaviour
     public int shakeend = 0;
     //モードチェンジ
     public bool isSimple;
+    public bool isshakeDeg;
 
     public SliderPowerCharge sliderpowercharge;
     
@@ -58,8 +59,30 @@ public class ScreenToWorldShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         Serial.strong = Mathf.Abs(Serial.strong);
-        if (!isSimple)
+
+        if (isshakeDeg) {
+            if (Serial.isDegShake)
+            {
+                Debug.Log("shake!!!");
+                camerashake.Shake();
+                //shoot(new Vector3(HD.x/2,HD.y/2,0));
+                // 1920x1080のピクセル座標へ変換
+                //float pixelX = 1920/2;
+                ////float pixelY = (OrangePointer.pointerY * 1080);
+                //float pixelY = 1080 / 2;
+                float pixelX = (OrangePointer.pointerX * 1920);
+                float pixelY = (OrangePointer.pointerY * 1080);
+                shoot(new Vector3(pixelX, pixelY));
+                shootCharge(new Vector3(pixelX, pixelY));
+
+                shootshake(new Vector3(pixelX, pixelY));
+
+            }
+        }
+        else if(!isSimple)
         {
             if (sliderChargemode && Serial.shake > 0.4)
             {

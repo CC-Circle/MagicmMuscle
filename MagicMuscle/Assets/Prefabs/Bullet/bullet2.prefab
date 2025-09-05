@@ -317,13 +317,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
-  input: {x: 400, y: 400, z: 20}
-  powerscale: 0
-  scalechange: 200
   speed: 0.2
-  turanuki: 0
   isSuper: 0
   isChild: 1
+  shootAtNearestEnemy: 0
+  input: {x: 400, y: 400, z: 20}
 --- !u!54 &5711053679074010643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -785,13 +783,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
-  input: {x: 400, y: 400, z: 20}
-  powerscale: 0
-  scalechange: 200
-  speed: 0.2
-  turanuki: 0
+  speed: 7
   isSuper: 1
   isChild: 0
+  shootAtNearestEnemy: 0
+  input: {x: 400, y: 400, z: 20}
 --- !u!54 &3943305574291622598
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1129,13 +1125,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
-  input: {x: 400, y: 400, z: 20}
-  powerscale: 0
-  scalechange: 200
   speed: 0.2
-  turanuki: 0
   isSuper: 0
   isChild: 1
+  shootAtNearestEnemy: 0
+  input: {x: 400, y: 400, z: 20}
 --- !u!54 &3879467717871530248
 Rigidbody:
   m_ObjectHideFlags: 0
