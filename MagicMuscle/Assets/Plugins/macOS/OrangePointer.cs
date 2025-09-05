@@ -16,26 +16,15 @@ public class OrangePointer : MonoBehaviour
     public TextMeshProUGUI TM;
     void Start()
     {
-        pointerX = 0.5f;
-        pointerY = 0.5f;
+        //pointerX = 0.5f;
+        //pointerY = 0.5f;
 
-        filePathX = "/tmp/pointingX.txt";
-        filePathY = "/tmp/pointingY.txt";
-        filePathBool = "/tmp/iscatch.txt";
+        //filePathX = "/tmp/pointingX.txt";
+        //filePathY = "/tmp/pointingY.txt";
+        //filePathBool = "/tmp/iscatch.txt";
 
-        //string exePath;
-        //exePath = Path.Combine(Application.streamingAssetsPath, "Plugins", "macOS", "a.out");
-        string exePath;
-        if (Application.isEditor)
-        {
-            exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
-        }
-        else
-        {
-            exePath = Path.Combine(Application.streamingAssetsPath, "a.out");
-            //exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
-        }
-
+        ////string exePath;
+        ////exePath = Path.Combine(Application.streamingAssetsPath, "Plugins", "macOS", "a.out");
         //string exePath;
         //if (Application.isEditor)
         //{
@@ -43,83 +32,94 @@ public class OrangePointer : MonoBehaviour
         //}
         //else
         //{
-        //    // macOSビルド後は.appバンドル内のContents/Resources/Data/
         //    exePath = Path.Combine(Application.streamingAssetsPath, "a.out");
-        //    // または
-        //    // exePath = Path.Combine(Application.dataPath, "../Resources/a.out");
+        //    //exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
         //}
 
-        ProcessStartInfo psi = new ProcessStartInfo
-        {
-            FileName = exePath,
-            UseShellExecute = false,
-            RedirectStandardOutput = false,
-            CreateNoWindow = true
-        };
+        ////string exePath;
+        ////if (Application.isEditor)
+        ////{
+        ////    exePath = Path.Combine(Application.dataPath, "Plugins/macOS/a.out");
+        ////}
+        ////else
+        ////{
+        ////    // macOSビルド後は.appバンドル内のContents/Resources/Data/
+        ////    exePath = Path.Combine(Application.streamingAssetsPath, "a.out");
+        ////    // または
+        ////    // exePath = Path.Combine(Application.dataPath, "../Resources/a.out");
+        ////}
 
-        try
-        {
-            cppProcess = Process.Start(psi);
-            TM.text = "成功";
-        }
-        catch (System.Exception e)
-        {
-            UnityEngine.Debug.LogError("C++プログラム起動失敗: " + e.Message);
-            TM.text = "失敗";
-        }
+        //ProcessStartInfo psi = new ProcessStartInfo
+        //{
+        //    FileName = exePath,
+        //    UseShellExecute = false,
+        //    RedirectStandardOutput = false,
+        //    CreateNoWindow = true
+        //};
+
+        //try
+        //{
+        //    cppProcess = Process.Start(psi);
+        //    TM.text = "成功";
+        //}
+        //catch (System.Exception e)
+        //{
+        //    UnityEngine.Debug.LogError("C++プログラム起動失敗: " + e.Message);
+        //    TM.text = "失敗";
+        //}
     }
 
     void Update()
     {
-        if (File.Exists(filePathX))
-        {
-            try
-            {
-                string val = File.ReadAllText(filePathX);
-                if (float.TryParse(val, out float px))
-                {
-                    pointerX = px;
-                    UnityEngine.Debug.Log("X:" + pointerX);
-                }
-            }
-            catch (IOException) { }
-        }
+        //if (File.Exists(filePathX))
+        //{
+        //    try
+        //    {
+        //        string val = File.ReadAllText(filePathX);
+        //        if (float.TryParse(val, out float px))
+        //        {
+        //            pointerX = px;
+        //            UnityEngine.Debug.Log("X:" + pointerX);
+        //        }
+        //    }
+        //    catch (IOException) { }
+        //}
 
-        if (File.Exists(filePathY))
-        {
-            try
-            {
-                string val = File.ReadAllText(filePathY);
-                if (float.TryParse(val, out float py))
-                {
-                    pointerY = py;
-                    UnityEngine.Debug.Log("Y:" + pointerY);
-                }
-            }
-            catch (IOException) { }
-        }
+        //if (File.Exists(filePathY))
+        //{
+        //    try
+        //    {
+        //        string val = File.ReadAllText(filePathY);
+        //        if (float.TryParse(val, out float py))
+        //        {
+        //            pointerY = py;
+        //            UnityEngine.Debug.Log("Y:" + pointerY);
+        //        }
+        //    }
+        //    catch (IOException) { }
+        //}
 
-        if (File.Exists(filePathBool))
-        {
-            try
-            {
-                string val = File.ReadAllText(filePathBool);
-                if (int.TryParse(val, out int py))
-                {
-                    isCatch = py;
-                    UnityEngine.Debug.Log("FAFAFA:"+py);
-                }
-            }
-            catch (IOException) { }
-        }
+        //if (File.Exists(filePathBool))
+        //{
+        //    try
+        //    {
+        //        string val = File.ReadAllText(filePathBool);
+        //        if (int.TryParse(val, out int py))
+        //        {
+        //            isCatch = py;
+        //            UnityEngine.Debug.Log("FAFAFA:"+py);
+        //        }
+        //    }
+        //    catch (IOException) { }
+        //}
     }
 
     void OnApplicationQuit()
     {
-        if (cppProcess != null && !cppProcess.HasExited)
-        {
-            cppProcess.Kill();
-        }
+        //if (cppProcess != null && !cppProcess.HasExited)
+        //{
+        //    cppProcess.Kill();
+        //}
     }
 }
 

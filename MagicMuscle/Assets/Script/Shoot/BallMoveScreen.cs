@@ -152,11 +152,16 @@ public class BallMoveScreen : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(currentPos, enemy.transform.position);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                nearest = enemy;
+            EnemyStatus enemystatus = enemy.GetComponent<EnemyStatus>();
+            if (enemystatus != null) {
+                if (distance < minDistance && !enemystatus.dieing)
+                {
+                    minDistance = distance;
+                    nearest = enemy;
+                }
             }
+
+           
         }
 
         return nearest;

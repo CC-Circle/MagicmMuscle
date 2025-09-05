@@ -37,13 +37,13 @@ public class Serial : MonoBehaviour
     public static bool isShake = false;
 
     //振った角度の発射
-    public static float degshakeval = 10;
+    public static float degshakeval = 85;
     public static bool isDegShake = false;//振った時
     public static bool isDeg = false;//振った閾値かどうか
 
     void Awake()
     {
-        degshakeval = 10;
+        degshakeval = 85;
         isDegShake = false;//振った時
         isDeg = false;//振った閾値かどうか
         deg = 0;
@@ -88,7 +88,7 @@ public class Serial : MonoBehaviour
     }
     private void Update()
     {
-        if (deg < degshakeval) {
+        if (deg > degshakeval) {
             if (!isDeg) {
                 isDegShake = true;
             }

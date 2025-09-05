@@ -4962,6 +4962,7 @@ MonoBehaviour:
   sliderChargemode: 1
   shakeend: 0
   isSimple: 1
+  isshakeDeg: 0
   sliderpowercharge: {fileID: 210227436}
 --- !u!4 &1386675460
 Transform:
@@ -5683,7 +5684,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666494054}
-  - component: {fileID: 1666494053}
   m_Layer: 0
   m_Name: OrangePointer
   m_TagString: Untagged
@@ -5691,19 +5691,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1666494053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666494052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499288a711ca349628174d40b31be106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TM: {fileID: 694006768}
 --- !u!4 &1666494054
 Transform:
   m_ObjectHideFlags: 0

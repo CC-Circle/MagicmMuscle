@@ -337,7 +337,7 @@ MonoBehaviour:
   speed: 7
   isSuper: 0
   isChild: 0
-  shootAtNearestEnemy: 0
+  shootAtNearestEnemy: 1
   input: {x: 400, y: 400, z: 20}
 --- !u!54 &3943305574291622598
 Rigidbody:
