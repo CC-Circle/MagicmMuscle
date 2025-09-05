@@ -48,8 +48,19 @@ public class ScreenToWorldShot : MonoBehaviour
         }
 
         charge = false;
-        aruanimation = GameObject.Find("Arm").GetComponent<ArmAnimation>();
-        camerashake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        try {
+            aruanimation = GameObject.Find("Arm").GetComponent<ArmAnimation>();
+        }
+        catch
+        {}
+        try
+        {
+            camerashake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        }
+        catch
+        {}
+
+
         audioSource = GetComponent<AudioSource>(); // 必要なら動的に取得
         maxpower = 0;
         screenObj = Camera.main.ScreenToWorldPoint(input);
@@ -73,12 +84,13 @@ public class ScreenToWorldShot : MonoBehaviour
                 //float pixelX = 1920/2;
                 ////float pixelY = (OrangePointer.pointerY * 1080);
                 //float pixelY = 1080 / 2;
-                float pixelX = (OrangePointer.pointerX * 1920);
-                float pixelY = (OrangePointer.pointerY * 1080);
-                shoot(new Vector3(pixelX, pixelY));
+                float pixelX = 1920 / 2;
+                
+                float pixelY = 1080 / 2;
+                //shoot(new Vector3(pixelX, pixelY));
                 shootCharge(new Vector3(pixelX, pixelY));
 
-                shootshake(new Vector3(pixelX, pixelY));
+                //shootshake(new Vector3(pixelX, pixelY));
 
             }
         }
@@ -174,11 +186,14 @@ public class ScreenToWorldShot : MonoBehaviour
         
         //効果音
         audioSource.PlayOneShot(clip1);
-        aruanimation.StartAnime();
+        if (aruanimation != null) {
+            aruanimation.StartAnime();
+        }
         Vector3 mousePosition = yourinput + input;
         screenObj = Camera.main.ScreenToWorldPoint(mousePosition);
 
         GameObject Bullet=gameobject;
+
         //if (Serial.isConect)
         //{
         //    if (maxpower > YourPower.maxValue - 500)
@@ -201,6 +216,7 @@ public class ScreenToWorldShot : MonoBehaviour
         //{
         //    Bullet = Bullet2;
         //}
+
         switch (sliderpowercharge.charge)
         {
             case 0:
@@ -216,7 +232,6 @@ public class ScreenToWorldShot : MonoBehaviour
                 Bullet = Bullet3;
                 break;
             case 3:
-
                 audioSource.PlayOneShot(clip2);
                 audioSource.PlayOneShot(clip1);
                 Bullet = Bullet4;
@@ -224,6 +239,8 @@ public class ScreenToWorldShot : MonoBehaviour
             default:
                 return;
         }
+
+
         GameObject obj = Instantiate(Bullet, screenObj, Quaternion.identity);
         BallMoveScreen bms = obj.GetComponent<BallMoveScreen>();
         bms.input = mousePosition;
@@ -239,7 +256,10 @@ public class ScreenToWorldShot : MonoBehaviour
         Debug.Log("shake");
         //効果音
         audioSource.PlayOneShot(clip1);
-        aruanimation.StartAnime();
+        if (aruanimation != null)
+        {
+            aruanimation.StartAnime();
+        }
         Vector3 mousePosition = yourinput + input;
         screenObj = Camera.main.ScreenToWorldPoint(mousePosition);
 
@@ -258,15 +278,16 @@ public class ScreenToWorldShot : MonoBehaviour
     //発射したい地点を選択
     public void shootCharge(Vector3 yourinput)
     {
-        
-
         //効果音
-        
-        aruanimation.StartAnime();
+        if (aruanimation != null)
+        {
+            aruanimation.StartAnime();
+        }
         Vector3 mousePosition = yourinput + input;
         screenObj = Camera.main.ScreenToWorldPoint(mousePosition);
 
         GameObject Bullet = gameobject;
+
 
         switch (slidercharge.charge){
             case 0:

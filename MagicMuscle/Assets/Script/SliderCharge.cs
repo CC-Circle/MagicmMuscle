@@ -19,6 +19,8 @@ public class SliderCharge : MonoBehaviour
 
     public bool feverFlag;
     public int charge = 0;
+    //センサーの値を保存するか
+    public bool isSaveVal = false;
 
     public bool endcharge = false;
     void Start()
@@ -110,7 +112,15 @@ public class SliderCharge : MonoBehaviour
             //{
             //    slider.value = Serial.strong;
             //}
-            slider.value += Serial.strong;
+            if (isSaveVal)
+            {
+                slider.value += Serial.strong;
+            }
+            else
+            {
+                slider.value = Serial.strong;
+            }
+            
         }
     }
 
