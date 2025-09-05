@@ -11,10 +11,10 @@ public class name : MonoBehaviour
         "先輩魔法少女",
         "先輩魔法少女",
         "先輩魔法少女",
-        "マスコット",
-        "マスコット",
-        "マスコット",
-        "マスコット"
+        "　　ラパン　",
+        "　　ラパン　",
+        "　　ラパン　",
+        "　　ラパン　"
     };
 
     private int currentIndex = 0;
