@@ -1,5 +1,3 @@
-
-
 using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections;
@@ -23,6 +21,12 @@ public class SliderCharge : MonoBehaviour
     public bool isSaveVal = false;
 
     public bool endcharge = false;
+
+
+    //最大の場合は音を鳴らす
+    public bool isMaxSound = false;
+
+    public float sliderPersent = 0;//0~1の値でどれほどチャージできたか
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
@@ -33,7 +37,7 @@ public class SliderCharge : MonoBehaviour
         {
             if (s != null)
             {
-                s.maxValue = YourPower.maxValue*200;
+                s.maxValue = YourPower.maxValue;
                 s.value = 0;
                 slider[0].value = 0;
                 pollenPoint = 0;
@@ -54,14 +58,25 @@ public class SliderCharge : MonoBehaviour
 
                 //serial.entercharge = false;
                 //audiosource.Stop();
-                audiosource.PlayOneShot(chargedone);
+                if (isMaxSound)
+                {
+                    audiosource.PlayOneShot(chargedone);
+                    isMaxSound = false;
+                }
+                
                 FazeChange(); // ここで振動させたい
             }
-            if (serial.entercharge && charge < slider.Length )
+            else {
+                isMaxSound = true;
+            }
+
+            if (charge < slider.Length )
             {
 
                 UpdateSlider(slider[charge]);
             }
+
+            
         }
         
         if (serial.ischargedown)
@@ -91,7 +106,7 @@ public class SliderCharge : MonoBehaviour
         {
             audiosource.pitch = startpitch + charge / 2.0f;
             audiosource.Play();
-            charge++;
+            //charge++;
         }
         else
         {
@@ -107,25 +122,28 @@ public class SliderCharge : MonoBehaviour
     {
         if (slider != null)
         {
+            
             Debug.Log(Serial.strong);
             //if (slider.value < Serial.strong)
             //{
             //    slider.value = Serial.strong;
             //}
-            if (isSaveVal)
-            {
-                slider.value += Serial.strong;
-            }
-            else
-            {
-                slider.value = Serial.strong;
-            }
-            
+            slider.value = Serial.strong;
+            //if (isSaveVal)
+            //{
+            //    slider.value += Serial.strong;
+            //}
+            //else
+            //{
+            //    slider.value = Serial.strong;
+            //}
+            sliderPersent = slider.value / slider.maxValue;
         }
     }
 
     public void InitAllSliderValue()
     {
+        sliderPersent = 0;
         audiosource.Stop();
         charge = 0;
         int initall = 0;
