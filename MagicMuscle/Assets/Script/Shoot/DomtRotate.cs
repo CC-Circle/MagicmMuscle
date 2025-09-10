@@ -39,7 +39,8 @@ public class DomtRotate : MonoBehaviour
     {
         Small,
         Medium,
-        Large
+        Large,
+        Max
     }
 
     void Start()
@@ -115,6 +116,7 @@ public class DomtRotate : MonoBehaviour
 
             // 解除後のスケールを基準スケールに設定
             StartBig = transform.localScale;
+            DecideBallType();
 
             isShoot = true;
             SetNearObject();
@@ -194,13 +196,14 @@ public class DomtRotate : MonoBehaviour
     // 発射時にサイズからタイプを決定
     private void DecideBallType()
     {
-        float scale = transform.localScale.x;
-        if (scale < 0.5f)
+        float sliderval = slider.sliderPersent;
+        if (sliderval < 0.3f)
             ballType = BallSizeType.Small;
-        else if (scale < 1.5f)
+        else if (sliderval < 0.8f)
             ballType = BallSizeType.Medium;
-        else
+        else if (sliderval < 0.9f)
             ballType = BallSizeType.Large;
+        else ballType = BallSizeType.Max;
     }
 
 }

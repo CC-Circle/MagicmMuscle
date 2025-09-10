@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        
+        elapsedTime = startTime;
         // パターン関数を登録
         patternFunctions = new Dictionary<SpawnPatternType, Action<SpawnEvent>> {
             { SpawnPatternType.Single, SpawnSingle },
@@ -26,15 +26,15 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        
+       
         elapsedTime += Time.deltaTime;
-        startTime = elapsedTime;
+        //startTime = elapsedTime;
         if (elapsedTime > 120f) return;
 
-        while (nextEventIndex < spawnEvents.Count && elapsedTime >= spawnEvents[nextEventIndex].time)
+        while (nextEventIndex < spawnEvents.Count && elapsedTime >= spawnEvents[nextEventIndex].time )
         {
             SpawnEvent e = spawnEvents[nextEventIndex];
-            if (patternFunctions.ContainsKey(e.pattern))
+            if (patternFunctions.ContainsKey(e.pattern) && startTime <= spawnEvents[nextEventIndex].time)
             {
                 patternFunctions[e.pattern](e);  // 登録された関数を呼び出す
             }
