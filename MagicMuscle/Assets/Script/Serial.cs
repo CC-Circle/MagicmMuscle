@@ -37,13 +37,13 @@ public class Serial : MonoBehaviour
     public static bool isShake = false;
 
     //振った角度の発射
-    public static float degshakeval = 85;
+    public static float degshakeval = 0.9f;
     public static bool isDegShake = false;//振った時
     public static bool isDeg = false;//振った閾値かどうか
 
     void Awake()
     {
-        degshakeval = 85;
+        degshakeval = 0.9f;
         isDegShake = false;//振った時
         isDeg = false;//振った閾値かどうか
         deg = 0;
@@ -107,18 +107,23 @@ public class Serial : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            if (deg < 90) {
+            deg = deg * 180f;
+            if (deg < 180) {
                 UnityEngine.Debug.Log("shake!!");
                 deg+=10;
             }
+            deg = deg / 180f;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
+            deg = deg * 180f;
             if (deg > 0)
             {
                 deg-=10;
             }
+            deg = deg / 180f;
         }
+
         if (deg == 0)
         {
 
@@ -178,6 +183,7 @@ public class Serial : MonoBehaviour
             ischarge = false;
         }
         UnityEngine.Debug.Log("Scencer" + entercharge);
+        UnityEngine.Debug.Log("Deg:" + deg);
 
     }
     //データ受信時に呼ばれる
@@ -203,6 +209,35 @@ public class Serial : MonoBehaviour
                 else if (header == 'Y')
                 {
                     shake = value;
+                    //UnityEngine.Debug.Log("shake= " + shake);
+                }
+                else if (header == 'D')
+                {
+                    deg = value;
+                    if (deg < 0)
+                    {
+                        if (deg > -90) {
+                            deg = 0;
+                        }
+                        else {
+                            deg = 180;
+                        }
+
+
+                        
+
+                    }
+                    deg = 180 - deg;
+                    deg = deg / 180f;
+                    //if (deg > 90)
+                    //{
+                    //    deg = 90;
+                    //}
+                    //if (deg < 0)
+                    //{
+                    //    deg = 0;
+                    //}
+                    //deg = 90 - deg;
                     //UnityEngine.Debug.Log("shake= " + shake);
                 }
             }

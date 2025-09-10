@@ -120,7 +120,7 @@ public class YourPower : MonoBehaviour
     public static bool iscorrect = false;
     public float measureTimer = 0f;
     public static float maxValue = 0f;
-    public string scenename = "GameScene";
+    public string scenename = "GameScene_Simple";
 
     private bool successMusicPlayed = false; // 成功音楽が再生されたかの管理
 
