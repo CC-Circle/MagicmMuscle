@@ -775,27 +775,39 @@ MonoBehaviour:
   - minScore: 0
     prefab: {fileID: 6012080749944548519, guid: 1a6a7b103445b48709cc82fe9fcee5da, type: 3}
     audioclip: {fileID: 0}
-    isSound: 1
+    isSound: 0
+    text: "\u3064\u3046\u3058\u3087\u3046"
+    textod: {fileID: 0}
   - minScore: 1
     prefab: {fileID: 1567274125449744781, guid: f26f9d3d025704a82a0c9a6ff15a7eed, type: 3}
     audioclip: {fileID: 8300000, guid: f9cc869fa40b74c77b8910f2f84ce89e, type: 3}
     isSound: 1
+    text: "\u3064\u3046\u3058\u3087\u3046"
+    textod: {fileID: 0}
   - minScore: 2000
     prefab: {fileID: 1567274125449744781, guid: 89081087a98b24c50b313fac85ce1461, type: 3}
     audioclip: {fileID: 8300000, guid: c86f482d4575f4924954ae1043a4f73b, type: 3}
     isSound: 1
+    text: "\u30D5\u30E9\u30C3\u30C8"
+    textod: {fileID: 0}
   - minScore: 5000
     prefab: {fileID: 1567274125449744781, guid: 93d301094dcc34cb8ad0a70a19e81a72, type: 3}
     audioclip: {fileID: 8300000, guid: 170a87b18ba2848f5bd934f900fcebe0, type: 3}
     isSound: 1
+    text: "\u7406\u60F3\u306E\u7B4B\u8089"
+    textod: {fileID: 0}
   - minScore: 15000
     prefab: {fileID: 1567274125449744781, guid: f33d02bf499f14d91a3e7f871e0a539a, type: 3}
     audioclip: {fileID: 8300000, guid: 0483e009f046340a4914f2f38877b7e6, type: 3}
     isSound: 1
+    text: "\u935B\u3048\u3059\u304E\u305F\u7B4B\u8089"
+    textod: {fileID: 0}
   - minScore: 20000
     prefab: {fileID: 1567274125449744781, guid: 8565c0f76e5014886bbd45a9c54f39f7, type: 3}
     audioclip: {fileID: 8300000, guid: 0483e009f046340a4914f2f38877b7e6, type: 3}
     isSound: 1
+    text: "\u6B21\u5143\u3092\u8D85\u3048\u305F\u7B4B\u8089"
+    textod: {fileID: 0}
   audiosource: {fileID: 857200033}
   spawnParent: {fileID: 1749531695}
 --- !u!4 &857200030

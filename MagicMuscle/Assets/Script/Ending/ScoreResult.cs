@@ -11,6 +11,7 @@
 
 //}
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class ScoreResult
@@ -19,4 +20,7 @@ public class ScoreResult
     public GameObject prefab;     // 生成するプレハブ
     public AudioClip audioclip;
     public bool isSound = true;
+    public string text;
+    public TextMeshProUGUI textod;
+    
 }
