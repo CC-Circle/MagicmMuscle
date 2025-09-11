@@ -3040,7 +3040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94604b28f8ee54510a2d96742bce26f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 26
+  startTime: 80
   spawnEvents:
   - time: 3
     pattern: 0
