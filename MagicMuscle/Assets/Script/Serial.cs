@@ -141,7 +141,7 @@ public class Serial : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            strong += 4000;
+            strong += 20;
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -222,9 +222,6 @@ public class Serial : MonoBehaviour
                         else {
                             deg = 180;
                         }
-
-
-                        
 
                     }
                     deg = 180 - deg;

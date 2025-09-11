@@ -19,4 +19,5 @@ public class ScoreResult
     public GameObject prefab;     // 生成するプレハブ
     public AudioClip audioclip;
     public bool isSound = true;
+
 }

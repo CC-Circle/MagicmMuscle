@@ -104,10 +104,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRotate: {x: 0, y: 0, z: 0, w: 1}
   slider: {fileID: 0}
+  ballType: 0
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
   speed: 18
-  isSuper: 1
+  isSuper: 0
   isChild: 0
   shootAtNearestEnemy: 1
   input: {x: 0, y: 0, z: 0}
