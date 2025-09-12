@@ -47,6 +47,10 @@ public class ArmControl : MonoBehaviour
             SetCurrentBullet();
         }
 
+        if (Serial.isDegShakeEnd) {
+            armbulletmanage.ChangeObject();
+        }
+
     }
 
 
@@ -54,7 +58,15 @@ public class ArmControl : MonoBehaviour
     public void ArmRotateAnimation() {
         if (Serial.isDegShake)
         {
-            audiosource.PlayOneShot(suka);
+            if (armbulletmanage.ballType == BallSizeType.Small) {
+                audiosource.PlayOneShot(suka);
+            }
+            else
+            {
+                audiosource.PlayOneShot(shootClip);
+            }
+
+            
         }
         // センサー値を0〜1に正規化
         float targetNormalized = Mathf.Clamp01(Serial.deg);
@@ -113,9 +125,9 @@ public class ArmControl : MonoBehaviour
         float sliderval = slider.sliderPersent;
         if (sliderval < 0.3f)
             ballType = BallSizeType.Small;
-        else if (sliderval < 0.8f)
+        else if (sliderval < 0.5f)
             ballType = BallSizeType.Medium;
-        else if (sliderval < 0.9f)
+        else if (sliderval < 0.7f)
             ballType = BallSizeType.Large;
         else ballType = BallSizeType.Max;
     }

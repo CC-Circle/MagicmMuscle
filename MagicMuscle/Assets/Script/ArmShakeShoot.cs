@@ -1,36 +1,59 @@
+
 using UnityEngine;
 using DG.Tweening;
-using static DomtRotate;
 
 public class ArmShakeShoot : MonoBehaviour
 {
-    public float duration = 0.5f;     // 振動時間
-    public float strength = 1.0f;     // 振動の強さ
-    public int vibrato = 10;          // 振動回数
-    public bool canShake = true;      // 振動できる条件フラグ
+    [Header("振動設定")]
+    public float strength = 0.1f;   // 振動の大きさ
 
-    private Tween shakeTween;
+    public float interval = 0.05f;  // 1ステップの間隔（秒）
+    public int loops = 20;          // 繰り返す回数
 
-    void Update()
+    public SliderCharge slider;
+    private Vector3 startPos;
+
+    void Start()
+    {
+        startPos = transform.localPosition;
+        //DoJaggyShake();
+    }
+
+    private void Update()
     {
         
-        if (Serial.isDegShake) { TryShake(); }
-    }
-
-    public void TryShake()
-    {
-        if (!canShake) return; // 条件チェック
-
-        // 既存のTweenが残っていれば停止
-        if (shakeTween != null && shakeTween.IsActive())
-        {
-            shakeTween.Kill();
+        if (Serial.ischarge) {
+            DoJaggyShake();
         }
 
-        // 振動アニメーションを開始
-        shakeTween = transform.DOShakePosition(duration, strength, vibrato)
-                              .SetEase(Ease.OutQuad);
     }
 
+    public void DoJaggyShake()
+    {
+        float shakeval = strength * slider.sliderPersent;
+        Sequence seq = DOTween.Sequence();
+
+        for (int i = 0; i < loops; i++)
+        {
+            // ランダムに飛ばす
+            Vector3 offset = new Vector3(
+                Random.Range(-shakeval, shakeval),
+                Random.Range(-shakeval, shakeval),
+                0f
+            );
+
+            seq.AppendCallback(() =>
+            {
+                transform.localPosition = startPos + offset;
+            });
+            seq.AppendInterval(interval);
+        }
+
+        // 最後に元の位置に戻す
+        seq.AppendCallback(() =>
+        {
+            transform.localPosition = startPos;
+        });
+    }
 }
 

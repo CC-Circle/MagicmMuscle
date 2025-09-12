@@ -2553,63 +2553,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1417719379}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &624889703
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1713525157}
-    m_Modifications:
-    - target: {fileID: 32462813156003657, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_Name
-      value: 90pink
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00007271283
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.000025037034
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.000009680309
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8754576
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.076017275
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.45423758
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.14650449
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 15.438
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -53.321
-      objectReference: {fileID: 0}
-    - target: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 11.214
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
 --- !u!1 &630193191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,11 +4841,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5920772268025643593, guid: 5c4ff9a07905f4d38941b37113f45777, type: 3}
   m_PrefabInstance: {fileID: 1800372418}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1240191830 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3839136172286731668, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-  m_PrefabInstance: {fileID: 624889703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1279236645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5674,10 +5612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be1fe0c6203541a1a47bbd726c78137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.5
-  strength: 0.08
-  vibrato: 10
-  canShake: 1
+  strength: 0.03
+  interval: 0.01
+  loops: 10
+  slider: {fileID: 912912189}
 --- !u!82 &1614541852
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6004,8 +5942,7 @@ Transform:
   m_LocalPosition: {x: 1.084962, y: 0.09, z: -8.782894}
   m_LocalScale: {x: 0.055729836, y: 0.05572983, z: 0.05572982}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1240191830}
+  m_Children: []
   m_Father: {fileID: 1614541850}
   m_LocalEulerAnglesHint: {x: 0, y: 54.846, z: -19}
 --- !u!95 &1713525158
@@ -6063,11 +6000,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36baaaabebae6454dada57d941ef37f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 32462813156003657, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
+  bullet: {fileID: 4641577235640842110, guid: 3f2f088f9f5df463489aa75c7f3ed6af, type: 3}
   bulletMidium: {fileID: 32462813156003657, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
-  bulletLarge: {fileID: 3368759050270659137, guid: 800a437f2bd554712b710d48cd0faf46, type: 3}
+  bulletLarge: {fileID: 1802216613886397156, guid: 010f687cee0564fc3bf731b43bd69ce7, type: 3}
   bulletMax: {fileID: 3368759050270659137, guid: 800a437f2bd554712b710d48cd0faf46, type: 3}
-  CurrentObject: {fileID: 0}
+  CurrentObject: {fileID: 4361696268703835620, guid: 6a9f3b36620fc4304ae92057832f010e, type: 3}
   childname: 90pink
   slider: {fileID: 912912189}
   ballType: 0

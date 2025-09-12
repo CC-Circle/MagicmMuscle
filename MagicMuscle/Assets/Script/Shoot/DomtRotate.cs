@@ -8,6 +8,7 @@ public class DomtRotate : MonoBehaviour
 {
     private Quaternion initialRotation;
     public Quaternion startRotate;
+    public Vector3 Startpos;
 
     public SliderCharge slider;
 
@@ -37,7 +38,7 @@ public class DomtRotate : MonoBehaviour
 
     void Start()
     {
-
+        this.transform.localPosition = Startpos;
         slider = GameObject.Find("barsmaster").GetComponent<SliderCharge>();
         initialRotation = startRotate;
         baseScale = StartBig * 0;

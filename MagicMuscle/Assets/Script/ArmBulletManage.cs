@@ -108,7 +108,7 @@ public class ArmBulletManage : MonoBehaviour
         if (sliderval < 0.3f) {
             ballType = BallSizeType.Small;
         }
-        else if (sliderval < 0.8f)
+        else if (sliderval < 0.6f)
         {
             ballType = BallSizeType.Medium;
         }
@@ -118,9 +118,14 @@ public class ArmBulletManage : MonoBehaviour
         }
         else ballType = BallSizeType.Max;
 
-        if (curtent != ballType && !Serial.isDeg)
+        //ボールタイプに変化があった場合呼び出される
+        if (curtent != ballType)
         {
-            ChangeObject();
+            //待機状態の場合
+            if (!Serial.isDeg)
+            {
+                ChangeObject();
+            }
         }
  
     }
