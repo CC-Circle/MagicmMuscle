@@ -1628,6 +1628,7 @@ GameObject:
   - component: {fileID: 1720146752}
   - component: {fileID: 1720146751}
   - component: {fileID: 1720146753}
+  - component: {fileID: 1720146754}
   m_Layer: 0
   m_Name: TutorialUI
   m_TagString: Untagged
@@ -1642,14 +1643,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720146750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 414bb18da41e5445bbf5ba0684e045a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 440918381}
   nextButton: {fileID: 2030141224}
-  nextSceneName: NextScene
 --- !u!4 &1720146752
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,6 +1678,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 588048696}
+  nextButton: {fileID: 2030141224}
+--- !u!114 &1720146754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720146750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fee565b83134d8d9c5c3d496529dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 440918381}
   nextButton: {fileID: 2030141224}
 --- !u!1 &1784623762
 GameObject:

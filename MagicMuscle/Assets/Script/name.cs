@@ -14,6 +14,7 @@ public class name : MonoBehaviour
         "　　ラパン　",
         "　　ラパン　",
         "　　ラパン　",
+        "　　ラパン　",
         "　　ラパン　"
     };
 
@@ -34,11 +35,13 @@ public class name : MonoBehaviour
 
         if (currentIndex < dialogues.Length)
         {
+            // まだ残りがある場合は次のセリフを表示
             dialogueText.text = dialogues[currentIndex];
         }
         else
         {
-            // 全部表示したらチュートリアル終了（非表示）
+            // 🔽 修正ポイント：
+            // 全部表示した後にボタンを押すと非表示になる
             dialogueText.gameObject.SetActive(false);
             nextButton.gameObject.SetActive(false);
         }

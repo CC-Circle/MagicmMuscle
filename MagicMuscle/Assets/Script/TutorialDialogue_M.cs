@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class TutorialDialogue : MonoBehaviour
+public class TutorialDialogue_M : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // セリフ表示用
     public Button nextButton;            // 次へボタン
@@ -12,10 +12,10 @@ public class TutorialDialogue : MonoBehaviour
         "隣の子は”ラパン”よ",
         "今からこの子が君のサポートをしてくれるはずだ！",
         "よろしくね！　ステッキは持ってるな？",
-        "ステッキは強く握り続けるんや！",
+        "ステッキはカチッと鳴るまで握るんだ！",
         "ステッキを振ると球を放てるよ！",
-        "力が強いほど強い球が出せるぞ!",
-        "まずは変身だ！　ステッキを強く握り続けてくれ！"
+        "振る前に何回も握ると強い球が出せるぞ!",
+        "まずは変身だ！　１回グッと握ってくれ！"
     };
 
     private int currentIndex = 0;
