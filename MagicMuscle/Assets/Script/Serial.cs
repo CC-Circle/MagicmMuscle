@@ -53,7 +53,7 @@ public class Serial : MonoBehaviour
         ischargeup = false;
         ischargedown = false;//チャージを押した時
         ischarge = false;//チャージ中かどうか
-        chargevalue = 400;
+        chargevalue = 100;
         entercharge = false;
         if (instance == null)
         {

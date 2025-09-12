@@ -4,27 +4,28 @@ using System.Collections;
 
 public class SliderCharge : MonoBehaviour
 {
+//バーが一本のみで、シュート後にリセットなどをしないモードはtrue
+    public bool IsSingleMode = false;
+//スライダーたち
     public UnityEngine.UI.Slider[] slider = new UnityEngine.UI.Slider[2];
+//効果音
     public AudioClip audioclip, chargedone;
     private AudioSource audiosource;
+    //初期のピッチ
     private float startpitch = 1;
-    public float pollenPoint;
-    public int pollenReleaseRate;
-    public UnityEngine.UI.Image sliderImage;
-    [HideInInspector] public bool noseScaleChange = false;
-
+//シリアル通信
     public Serial serial;
-
-    public bool feverFlag;
+//チャージの段階
     public int charge = 0;
-    //センサーの値を保存するか
-    public bool isSaveVal = false;
-
+//センサーの値を保存するか
+ 
     public bool endcharge = false;
-
-
     //最大の場合は音を鳴らす
     public bool isMaxSound = false;
+
+    //ゲージ更新時にチャージしないようにする
+    private bool limitCharge = false;
+    
 
     public float sliderPersent = 0;//0~1の値でどれほどチャージできたか
     void Start()
@@ -37,11 +38,10 @@ public class SliderCharge : MonoBehaviour
         {
             if (s != null)
             {
-                s.maxValue = YourPower.maxValue;
+                
+                s.maxValue = YourPower.maxValue/2;
                 s.value = 0;
                 slider[0].value = 0;
-                pollenPoint = 0;
-                feverFlag = false;
             }
             cnt++;
         }
@@ -49,15 +49,12 @@ public class SliderCharge : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log("CanCharge:" + limitCharge);
         //serial.entercharge = false;
         if(charge < slider.Length)
         {
             if (slider[charge].value >= slider[charge].maxValue && !endcharge)
             {
-
-                //serial.entercharge = false;
-                //audiosource.Stop();
                 if (isMaxSound)
                 {
                     audiosource.PlayOneShot(chargedone);
@@ -72,13 +69,22 @@ public class SliderCharge : MonoBehaviour
 
             if (charge < slider.Length )
             {
-
-                UpdateSlider(slider[charge]);
+                if (!limitCharge)
+                {
+                    UpdateSlider(slider[charge]);
+                }
             }
+
+           
+
 
             
         }
-        
+        if (limitCharge && !Serial.ischarge)
+        {
+            limitCharge = false;
+        }
+
         if (serial.ischargedown)
         {
             audiosource.pitch = startpitch + charge/2.0f;
@@ -92,6 +98,7 @@ public class SliderCharge : MonoBehaviour
 
     public void FazeChange()
     {
+        limitCharge = true;
         // 全てのスライダーを振動させる
         foreach (var s in slider)
         {
@@ -101,20 +108,19 @@ public class SliderCharge : MonoBehaviour
             }
            
         }
-
         if (charge < slider.Length)
         {
-            //audiosource.pitch = startpitch + charge / 2.0f;
-            //audiosource.Play();
-            //charge++;
+            if (!IsSingleMode)
+            {
+                audiosource.pitch = startpitch + charge / 2.0f;
+                audiosource.Play();
+                charge++;
+            }
         }
         else
         {
             endcharge = true;
         }
-        //else {
-        //    endcharge = true;
-        //}
 
     }
 
@@ -138,6 +144,7 @@ public class SliderCharge : MonoBehaviour
             //    slider.value = Serial.strong;
             //}
             sliderPersent = slider.value / slider.maxValue;
+
         }
     }
 
@@ -150,12 +157,6 @@ public class SliderCharge : MonoBehaviour
         foreach (var a in slider)
         {
             a.value =0;
-            if (a != null)
-            {
-                
-                pollenPoint = 0;
-                feverFlag = false;
-            }
             if (a.value <= 0)
             {
                 a.value = 0;
