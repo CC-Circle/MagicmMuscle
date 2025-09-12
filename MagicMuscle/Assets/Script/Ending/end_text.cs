@@ -116,7 +116,7 @@ public class EndResultSpawner : MonoBehaviour
     public List<ScoreResult> results; // スコアごとの結果リスト
     public AudioSource audiosource;
     public Transform spawnParent;     // UIを置く親(Canvas配下を指定)
-
+    
     private GameObject currentInstance; // 今表示しているUIプレハブ
 
     void Update()

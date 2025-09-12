@@ -1,12 +1,14 @@
 
 using UnityEngine;
 using DG.Tweening;
-using UnityEditorInternal;
+
+using static ArmControl;
 
 public class DomtRotate : MonoBehaviour
 {
     private Quaternion initialRotation;
     public Quaternion startRotate;
+    public Vector3 Startpos;
 
     public SliderCharge slider;
 
@@ -34,20 +36,13 @@ public class DomtRotate : MonoBehaviour
 
     public Vector3 StartBig;
 
-
-    public enum BallSizeType
-    {
-        Small,
-        Medium,
-        Large,
-        Max
-    }
-
     void Start()
     {
+        this.transform.localPosition = Startpos;
         slider = GameObject.Find("barsmaster").GetComponent<SliderCharge>();
         initialRotation = startRotate;
         baseScale = StartBig * 0;
+        transform.localScale = baseScale;
         //// DOTweenでスケールアニメーション設定
         //DOTween.Sequence()
         //    .AppendCallback(() =>
@@ -81,9 +76,12 @@ public class DomtRotate : MonoBehaviour
             transform.localScale = Vector3.zero;
         }
 
+
+
         // 発射後の移動処理
         if (isShoot)
         {
+
             if (shootAtNearestEnemy)
             {
                 // 敵方向へ直進
@@ -91,6 +89,7 @@ public class DomtRotate : MonoBehaviour
             }
             else
             {
+
                 // スクリーン座標から前進
                 zOffset += speed * Time.deltaTime;
                 Vector3 inputWithZ = new Vector3(input.x, input.y, input.z + zOffset);
@@ -99,10 +98,52 @@ public class DomtRotate : MonoBehaviour
             }
         }
 
-        // 発射処理（親を外すのはこの瞬間のみ）
-        if (Serial.isDegShake && !isShoot)
-        {
+        //// 発射処理（親を外すのはこの瞬間のみ）
+        //if (Serial.isDegShake && !isShoot)
+        //{
+        //    DecideBallType();
+        //    switch (ballType)
+        //    {
+        //        case BallSizeType.Small:
+        //            // 小さい玉
+        //            Destroy(this.gameObject);
+        //            break;
 
+        //        case BallSizeType.Medium:
+        //            // 中くらいは普通
+        //            //transform.position += moveDirection * speed * Time.deltaTime;
+        //            break;
+
+        //        case BallSizeType.Large:
+        //            // 大きい玉は遅いが貫通する
+        //            //transform.position += moveDirection * (speed * 0.7f) * Time.deltaTime;
+        //            // 例えば「敵に当たっても消えない処理」にできる
+        //            break;
+        //    }
+        //    slider.InitAllSliderValue();
+
+        //    // 親を外す前のワールドスケールを記録
+        //    Vector3 worldScale = transform.lossyScale;
+
+        //    // 親を解除
+        //    transform.SetParent(null);
+
+        //    // 親が外れた後の localScale を worldScale に合わせる
+        //    transform.localScale = worldScale;
+
+        //    // 解除後のスケールを基準スケールに設定
+        //    StartBig = transform.localScale;
+
+
+        //    isShoot = true;
+        //    SetNearObject();
+        //}
+    }
+
+    public void IsShoot() {
+        // 発射処理（親を外すのはこの瞬間のみ）
+        if (!isShoot)
+        {
             slider.InitAllSliderValue();
 
             // 親を外す前のワールドスケールを記録
@@ -116,12 +157,13 @@ public class DomtRotate : MonoBehaviour
 
             // 解除後のスケールを基準スケールに設定
             StartBig = transform.localScale;
-            DecideBallType();
+
 
             isShoot = true;
             SetNearObject();
         }
     }
+
 
     void LateUpdate()
     {
@@ -191,19 +233,6 @@ public class DomtRotate : MonoBehaviour
             }
         }
         return nearest;
-    }
-
-    // 発射時にサイズからタイプを決定
-    private void DecideBallType()
-    {
-        float sliderval = slider.sliderPersent;
-        if (sliderval < 0.3f)
-            ballType = BallSizeType.Small;
-        else if (sliderval < 0.8f)
-            ballType = BallSizeType.Medium;
-        else if (sliderval < 0.9f)
-            ballType = BallSizeType.Large;
-        else ballType = BallSizeType.Max;
     }
 
 }

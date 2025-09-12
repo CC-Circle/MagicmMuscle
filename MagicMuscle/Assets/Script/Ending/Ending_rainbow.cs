@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class Ending_rainbow : MonoBehaviour
 {
     public Image targetImage;       // 対象のUI Image

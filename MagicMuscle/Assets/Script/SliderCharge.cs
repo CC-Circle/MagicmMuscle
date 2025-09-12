@@ -104,8 +104,8 @@ public class SliderCharge : MonoBehaviour
 
         if (charge < slider.Length)
         {
-            audiosource.pitch = startpitch + charge / 2.0f;
-            audiosource.Play();
+            //audiosource.pitch = startpitch + charge / 2.0f;
+            //audiosource.Play();
             //charge++;
         }
         else

@@ -15,7 +15,8 @@ public class RotateObject : MonoBehaviour
         if (!isRotating) return;
 
         // 回転
-        transform.Rotate(rotationAxis.normalized * rotationSpeed * Time.deltaTime);
+        //transform.Rotate(rotationAxis.normalized * rotationSpeed * Time.deltaTime);
+        transform.Rotate(rotationAxis.normalized * rotationSpeed * Time.deltaTime, Space.Self);
 
         // 制限時間がある場合
         if (rotationTime > 0f)

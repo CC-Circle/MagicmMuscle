@@ -39,6 +39,7 @@ public class Serial : MonoBehaviour
     //振った角度の発射
     public static float degshakeval = 0.9f;
     public static bool isDegShake = false;//振った時
+    public static bool isDegShakeEnd = false;//振った状態を解除した時
     public static bool isDeg = false;//振った閾値かどうか
 
     void Awake()
@@ -88,7 +89,9 @@ public class Serial : MonoBehaviour
     }
     private void Update()
     {
+        //一定の角度以上の場合
         if (deg > degshakeval) {
+            //振った瞬間を判定
             if (!isDeg) {
                 isDegShake = true;
             }
@@ -96,12 +99,21 @@ public class Serial : MonoBehaviour
             {
                 isDegShake = false;
             }
-                
+            //振っている
             isDeg = true;
+            isDegShakeEnd = false;
         }
         else
         {
+            //振った状態から解除された場合
+            if (isDeg) {
+                isDegShakeEnd = true;
+            }
+            else {
+                isDegShakeEnd = false;
+            }
             isDegShake = false;
+            //振っているかどうか
             isDeg = false;
         }
 
@@ -141,7 +153,7 @@ public class Serial : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            strong += 4000;
+            strong += 20;
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -222,9 +234,6 @@ public class Serial : MonoBehaviour
                         else {
                             deg = 180;
                         }
-
-
-                        
 
                     }
                     deg = 180 - deg;

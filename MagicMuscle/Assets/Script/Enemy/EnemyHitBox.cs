@@ -19,6 +19,7 @@ public class EnemyHitBox : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet")
         {
+            
             status.TakeDamage(10);
         }
         if (collision.gameObject.tag == "Player")
