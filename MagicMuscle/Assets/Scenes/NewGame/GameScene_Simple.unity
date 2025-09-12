@@ -3040,57 +3040,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94604b28f8ee54510a2d96742bce26f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 80
+  startTime: 0
   spawnEvents:
   - time: 3
     pattern: 0
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0, y: 0, z: -6.3}
+    basePosition: {x: 0, y: 0, z: 1}
     animationTrigger: 
   - time: 6
     pattern: 0
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: -2, y: 0, z: -5}
+    basePosition: {x: -3, y: 0, z: 5}
     animationTrigger: 
   - time: 7
     pattern: 0
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 1, y: 0, z: -4}
+    basePosition: {x: 3, y: 0, z: 5}
     animationTrigger: 
   - time: 12
     pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0, y: 0, z: -4}
+    basePosition: {x: 0, y: 0, z: -1.2}
     animationTrigger: 
   - time: 17
     pattern: 0
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 0, y: 0, z: -6.3}
+    basePosition: {x: 2, y: 0, z: -1.2}
     animationTrigger: 
   - time: 20
     pattern: 0
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: -2, y: 0, z: -4}
+    basePosition: {x: -4, y: 0, z: 1.2}
     animationTrigger: 
   - time: 23
     pattern: 0
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: 0, y: 0, z: -8.01}
+    basePosition: {x: 2.3, y: 0, z: 3}
     animationTrigger: 
   - time: 26
     pattern: 0
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: 1.01, y: 0, z: -8.01}
+    basePosition: {x: 2.01, y: 0, z: 6}
     animationTrigger: 
   - time: 26
     pattern: 0
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: -1.01, y: 0, z: -8.01}
+    basePosition: {x: -2.01, y: 0, z: 6}
     animationTrigger: 
   - time: 30
-    pattern: 0
+    pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: -1.01, y: 0, z: -8.01}
+    basePosition: {x: 1.94, y: 0, z: 3}
     animationTrigger: 
   - time: 35
     pattern: 0
@@ -3098,19 +3098,19 @@ MonoBehaviour:
     basePosition: {x: 0, y: 0, z: 2.5}
     animationTrigger: 
   - time: 40
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: -1.1, y: 0, z: -5.2}
+    basePosition: {x: -0.6, y: 0, z: 2}
     animationTrigger: 
   - time: 40
     pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 2.1, y: 0, z: -8.2}
+    basePosition: {x: 0.6, y: 0, z: 6}
     animationTrigger: 
   - time: 45
     pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1, y: 0, z: -6.4}
+    basePosition: {x: -1, y: 0, z: -3.1}
     animationTrigger: 
   - time: 50
     pattern: 1
@@ -3120,107 +3120,112 @@ MonoBehaviour:
   - time: 55
     pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1, y: 0, z: -5}
+    basePosition: {x: 0, y: 0, z: -3.2}
     animationTrigger: 
   - time: 60
     pattern: 2
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 3, y: 0, z: 25}
+    basePosition: {x: -4, y: 0, z: 3.4}
     animationTrigger: 
   - time: 65
     pattern: 2
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: 0, y: 0, z: -4.9}
+    basePosition: {x: 0, y: 0, z: 4.9}
     animationTrigger: 
   - time: 70
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: -1.2, y: 0, z: -8.3}
+    basePosition: {x: -1.2, y: 0, z: 2.1}
     animationTrigger: 
   - time: 75
-    pattern: 1
+    pattern: 0
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: 0, y: 0, z: 2}
+    basePosition: {x: 3.5, y: 0, z: 4}
+    animationTrigger: 
+  - time: 75
+    pattern: 0
+    enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
+    basePosition: {x: -3.5, y: 0, z: 4}
     animationTrigger: 
   - time: 80
-    pattern: 2
+    pattern: 0
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0, y: 0, z: 1.5}
+    basePosition: {x: 0, y: 0, z: 3.2}
     animationTrigger: 
   - time: 80
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 2.1, y: 0, z: -7.2}
+    basePosition: {x: -3.1, y: 0, z: -2.9}
     animationTrigger: 
   - time: 85
     pattern: 2
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1.01, y: 0, z: -6.3}
+    basePosition: {x: -1.01, y: 0, z: -2.5}
     animationTrigger: 
   - time: 90
     pattern: 2
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -4.3}
+    basePosition: {x: 0.2, y: 0, z: 5}
     animationTrigger: 
   - time: 95
-    pattern: 2
+    pattern: 0
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -4.3}
+    basePosition: {x: 0, y: 0, z: 6}
     animationTrigger: 
   - time: 95
-    pattern: 2
-    enemyPrefab: {fileID: 1452900111244786725, guid: 37d654707383e40fb912539a72c9e4bd, type: 3}
-    basePosition: {x: 0.2, y: 3, z: -4.3}
-    animationTrigger: 
-  - time: 100
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -4.3}
+    basePosition: {x: -0.8, y: 0, z: 1}
     animationTrigger: 
   - time: 100
-    pattern: 2
+    pattern: 0
+    enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
+    basePosition: {x: 0, y: 0, z: 6}
+    animationTrigger: 
+  - time: 100
+    pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: 0.2, y: 0, z: -5.3}
+    basePosition: {x: -3.2, y: 0, z: 1}
     animationTrigger: 
   - time: 105
-    pattern: 1
+    pattern: 0
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: -0.3, y: 0, z: -5.3}
+    basePosition: {x: -3.3, y: 0, z: 10}
     animationTrigger: 
   - time: 105
-    pattern: 1
+    pattern: 0
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: 0.3, y: 0, z: -3.3}
+    basePosition: {x: 3.3, y: 0, z: 1}
     animationTrigger: 
   - time: 110
     pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: 0.3, y: 1, z: -3.3}
+    basePosition: {x: -1.3, y: 0, z: 3}
     animationTrigger: 
   - time: 115
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 59d3c7619b91644389e87d7292e59c8b, type: 3}
-    basePosition: {x: 0.3, y: 0, z: -4}
+    basePosition: {x: 0, y: 0, z: -2.8}
     animationTrigger: 
   - time: 115
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 570517566713246722, guid: 282834559b8cb493bab12a9aa97ddd56, type: 3}
-    basePosition: {x: -1.12, y: 0, z: -4.5}
+    basePosition: {x: -4.2, y: 0, z: -1.01}
     animationTrigger: 
   - time: 115
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 9105811535860323414, guid: eea181c6ec0c94f2eaec0fe98e3bfa10, type: 3}
-    basePosition: {x: -3.22, y: 0, z: -5.4}
+    basePosition: {x: 0, y: 0, z: 8}
     animationTrigger: 
   - time: 115
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 1454833879661085346, guid: d7278c5ba831e4854a2a79f96df88b62, type: 3}
-    basePosition: {x: 3.2, y: 0, z: -8.3}
+    basePosition: {x: -0.9, y: 0, z: 5}
     animationTrigger: 
   - time: 115
-    pattern: 2
+    pattern: 1
     enemyPrefab: {fileID: 3823834812900923554, guid: ba0fe326811d84dc9bab3cb9e429d3fd, type: 3}
-    basePosition: {x: 1.23, y: 0, z: -3.3}
+    basePosition: {x: 1.23, y: 0, z: -1.3}
     animationTrigger: 
 --- !u!1 &832575517
 GameObject:
