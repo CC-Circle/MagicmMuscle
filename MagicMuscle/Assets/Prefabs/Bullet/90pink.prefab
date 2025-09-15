@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4361696268703835620}
   - component: {fileID: 6517738061674305564}
   - component: {fileID: 1439871425659434736}
+  - component: {fileID: 6763879104466664630}
   m_Layer: 0
   m_Name: 90pink
   m_TagString: Bullet
@@ -103,14 +104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startRotate: {x: 0, y: 0, z: 0, w: 1}
+  Startpos: {x: -10.28551, y: 20.38675, z: 0.6200158}
   slider: {fileID: 0}
+  ballType: 0
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
   speed: 18
-  isSuper: 1
+  isSuper: 0
   isChild: 0
   shootAtNearestEnemy: 1
   input: {x: 0, y: 0, z: 0}
+  isShoot: 0
   StartBig: {x: 1, y: 1, z: 1}
 --- !u!54 &6517738061674305564
 Rigidbody:
@@ -160,3 +164,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6763879104466664630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32462813156003657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 10

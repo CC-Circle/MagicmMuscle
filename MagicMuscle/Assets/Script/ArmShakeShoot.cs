@@ -1,91 +1,91 @@
+
 using UnityEngine;
 using DG.Tweening;
 
 public class ArmShakeShoot : MonoBehaviour
 {
-    public AudioSource audiosource;
-    public AudioClip shootClip;
-    public float duration = 0.5f;     // 振動時間
-    public float strength = 1.0f;     // 振動の強さ
-    public int vibrato = 10;          // 振動回数
-    public bool canShake = true;      // 振動できる条件フラグ
+    [Header("振動設定")]
+    public float strength = 0.1f;   // 振動の大きさ
 
-    private Tween shakeTween;
+    public float interval = 0.05f;  // 1ステップの間隔（秒）
+    public int loops = 20;          // 繰り返す回数
 
-    void Update()
+    public SliderCharge slider;
+    private Vector3 startPos;
+
+    void Start()
     {
-        // スペースキーで振動を発生させる
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    TryShake();
-        //}
-        if (Serial.isDegShake) { TryShake(); }
+        startPos = transform.localPosition;
+        //DoJaggyShake();
+    }
 
-        if (Serial.isDegShake)
+    private void Update()
+    {
+        
+        if (Serial.ischarge) {
+            DoJaggyShake(strength);
+        }
+
+        if (Serial.isDeg)
         {
-            audiosource.PlayOneShot(shootClip);
+            DoShake(strength*2);
         }
 
     }
 
-    public void TryShake()
+    public void DoJaggyShake(float strength)
     {
-        if (!canShake) return; // 条件チェック
+        float shakeval = strength * slider.sliderPersent;
+        Sequence seq = DOTween.Sequence();
 
-        // 既存のTweenが残っていれば停止
-        if (shakeTween != null && shakeTween.IsActive())
+        for (int i = 0; i < loops; i++)
         {
-            shakeTween.Kill();
+            // ランダムに飛ばす
+            Vector3 offset = new Vector3(
+                Random.Range(-shakeval, shakeval),
+                Random.Range(-shakeval, shakeval),
+                0f
+            );
+
+            seq.AppendCallback(() =>
+            {
+                transform.localPosition = startPos + offset;
+            });
+            seq.AppendInterval(interval);
         }
 
-        // 振動アニメーションを開始
-        shakeTween = transform.DOShakePosition(duration, strength, vibrato)
-                              .SetEase(Ease.OutQuad);
+        // 最後に元の位置に戻す
+        seq.AppendCallback(() =>
+        {
+            transform.localPosition = startPos;
+        });
     }
+    public void DoShake(float strength)
+    {
+        float shakeval = strength;
+        Sequence seq = DOTween.Sequence();
 
+        for (int i = 0; i < loops; i++)
+        {
+            // ランダムに飛ばす
+            Vector3 offset = new Vector3(
+                Random.Range(-shakeval, shakeval),
+                Random.Range(-shakeval, shakeval),
+                0f
+            );
+
+            seq.AppendCallback(() =>
+            {
+                transform.localPosition = startPos + offset;
+            });
+            seq.AppendInterval(interval);
+        }
+
+        // 最後に元の位置に戻す
+        seq.AppendCallback(() =>
+        {
+            transform.localPosition = startPos;
+        });
+    }
 }
-//using UnityEngine;
-//using DG.Tweening;
 
-//public class ArmShakeShoot : MonoBehaviour
-//{
-//    public float strength = 1f;    // 振動の強さ
-//    public int vibrato = 10;       // 振動回数
-//    public float duration = 0.5f;  // 1回の振動の時間
-
-//    public bool isShaking = false; // 振動条件
-
-//    private Tween shakeTween;
-
-//    void Update()
-//    {
-//        if (Serial.isDegShake)
-//        {
-//            StartShaking();
-//        }
-//        else
-//        {
-//            StopShaking();
-//        }
-//    }
-
-//    void StartShaking()
-//    {
-//        if (shakeTween == null || !shakeTween.IsActive())
-//        {
-//            shakeTween = transform.DOShakePosition(duration, strength, vibrato)
-//                                  .SetLoops(-1, LoopType.Restart) // 無限ループ
-//                                  .SetEase(Ease.Linear);
-//        }
-//    }
-
-//    void StopShaking()
-//    {
-//        if (shakeTween != null && shakeTween.IsActive())
-//        {
-//            shakeTween.Kill(); // Tween を止める
-//            shakeTween = null;
-//            transform.localPosition = Vector3.zero; // 元の位置に戻す
-//        }
-//    }
-//}

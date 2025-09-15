@@ -22,5 +22,5 @@ public class ScoreResult
     public bool isSound = true;
     public string text;
     public TextMeshProUGUI textod;
-    
+
 }

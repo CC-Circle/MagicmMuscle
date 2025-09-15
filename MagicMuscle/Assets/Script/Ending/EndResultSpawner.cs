@@ -1,54 +1,3 @@
-//using UnityEngine;
-//using UnityEngine.UI;
-//using System.Collections.Generic;
-//using TMPro;
-
-
-//public class end_text : MonoBehaviour
-//{
-//    public Image resultImage;      // UIのImageコンポーネント
-//    public TextMeshProUGUI resultText;        // UIのTextコンポーネント
-//    public List<ScoreResult> results; // スコアごとの結果リスト
-//    public AudioSource audiosource;
-
-
-//    public void Update()
-//    {
-//        ShowResult(end_Score.countup_score);
-//    }
-//    public void ShowResult(int score)
-//    {
-//        ScoreResult bestMatch = null;
-
-//        foreach (var r in results)
-//        {
-//            if (score >= r.minScore)
-//            {
-//                bestMatch = r; // 条件を満たす中で一番スコアが高いものを採用
-//            }
-//        }
-
-//        if (bestMatch != null)
-//        {
-//            resultImage.sprite = bestMatch.image;
-//            resultText.text = bestMatch.message;
-//            if (bestMatch.isSound)
-//            {
-//                audiosource.Stop();
-//                audiosource.PlayOneShot(bestMatch.audioclip);
-//            }
-//            bestMatch.isSound = false;
-
-
-//        }
-//        else
-//        {
-//            // 閾値未満のときの処理
-//            resultImage.sprite = null;
-//            resultText.text = "スコアが低すぎます...";
-//        }
-//    }
-//}
 
 //using UnityEngine;
 //using System.Collections.Generic;
@@ -57,13 +6,15 @@
 //{
 //    public List<ScoreResult> results; // スコアごとの結果リスト
 //    public AudioSource audiosource;
-//    public Transform spawnParent;     // 生成先（空オブジェクトなどを設定しておく）
+//    public Transform spawnParent;     // UIを置く親(Canvas配下を指定)
 
-//    private GameObject currentInstance; // 今表示しているオブジェクト
+//    private GameObject currentInstance; // 今表示しているUIプレハブ
+
+//    public bool IsImageChange = false;
 
 //    void Update()
 //    {
-//        ShowResult(end_Score.countup_score);
+//        //ShowResult(end_Score.countup_score);
 //    }
 
 //    public void ShowResult(int score)
@@ -74,19 +25,20 @@
 //        {
 //            if (score >= r.minScore)
 //            {
-//                bestMatch = r;
+//                bestMatch = r; // 一番スコアが高い条件を採用
 //            }
 //        }
 
 //        if (bestMatch != null)
 //        {
-//            // すでに出ているものを削除
-//            if (currentInstance != null)
+//            Debug.Log("現在のオブジェウトを削除");
+//            // 表示中のUIを削除
+//            if (currentInstance != null )
 //            {
+
 //                Destroy(currentInstance);
 //            }
-
-//            // プレハブを生成
+//            // UIプレハブを生成
 //            currentInstance = Instantiate(bestMatch.prefab, spawnParent);
 
 //            // サウンド再生
@@ -99,6 +51,7 @@
 //        }
 //        else
 //        {
+//            // どの条件も満たさないときはUIを消す
 //            if (currentInstance != null)
 //            {
 //                Destroy(currentInstance);
@@ -107,24 +60,25 @@
 //        }
 //    }
 //}
-
 using UnityEngine;
 using System.Collections.Generic;
-
+using TMPro;
 public class EndResultSpawner : MonoBehaviour
 {
+    public TextMeshProUGUI Text;
     public List<ScoreResult> results; // スコアごとの結果リスト
     public AudioSource audiosource;
     public Transform spawnParent;     // UIを置く親(Canvas配下を指定)
 
-    private GameObject currentInstance; // 今表示しているUIプレハブ
+    private GameObject currentInstance;   // 今表示しているUIプレハブ
+    private ScoreResult lastResult = null; // 最後に表示した結果
+    public end_Score endscore;
 
-    void Update()
-    {
-        ShowResult(end_Score.countup_score);
-    }
+    public bool IsImageChange = false;
 
-    public void ShowResult(int score)
+    public bool isChange = false;
+
+    public bool ShowResult(int score)
     {
         ScoreResult bestMatch = null;
 
@@ -138,6 +92,15 @@ public class EndResultSpawner : MonoBehaviour
 
         if (bestMatch != null)
         {
+            // 直前と同じプレハブなら処理しない
+            if (lastResult == bestMatch)
+            {
+                isChange = true;
+                return false;
+            }
+            Debug.Log("UIを切り替え");
+
+            
             // 表示中のUIを削除
             if (currentInstance != null)
             {
@@ -146,7 +109,7 @@ public class EndResultSpawner : MonoBehaviour
 
             // UIプレハブを生成
             currentInstance = Instantiate(bestMatch.prefab, spawnParent);
-
+           
             // サウンド再生
             if (bestMatch.isSound)
             {
@@ -154,6 +117,12 @@ public class EndResultSpawner : MonoBehaviour
                 audiosource.PlayOneShot(bestMatch.audioclip);
                 bestMatch.isSound = false;
             }
+            Text.text = bestMatch.text;
+            // 現在の結果を記録
+            lastResult = bestMatch;
+            end_Score.countup_score =  bestMatch.minScore;
+            endscore.scoreText.text = end_Score.countup_score + "kcal: ";
+            return true;
         }
         else
         {
@@ -163,6 +132,8 @@ public class EndResultSpawner : MonoBehaviour
                 Destroy(currentInstance);
                 currentInstance = null;
             }
+            lastResult = null;
+            return true;
         }
     }
 }

@@ -1,12 +1,14 @@
 
 using UnityEngine;
 using DG.Tweening;
-using UnityEditorInternal;
+
+using static ArmControl;
 
 public class DomtRotate : MonoBehaviour
 {
     private Quaternion initialRotation;
     public Quaternion startRotate;
+    public Vector3 Startpos;
 
     public SliderCharge slider;
 
@@ -30,24 +32,18 @@ public class DomtRotate : MonoBehaviour
     public Vector3 input;   // 従来の入力用
     private float zOffset = 0f;
 
-    private bool isShoot = false; // 玉が発射されたかどうか
+    [HideInInspector]public bool isShoot = false; // 玉が発射されたかどうか
+    private Vector3 shootPos;
 
     public Vector3 StartBig;
 
-
-    public enum BallSizeType
-    {
-        Small,
-        Medium,
-        Large,
-        Max
-    }
-
     void Start()
     {
+        this.transform.localPosition = Startpos;
         slider = GameObject.Find("barsmaster").GetComponent<SliderCharge>();
         initialRotation = startRotate;
         baseScale = StartBig * 0;
+        transform.localScale = baseScale;
         //// DOTweenでスケールアニメーション設定
         //DOTween.Sequence()
         //    .AppendCallback(() =>
@@ -65,14 +61,23 @@ public class DomtRotate : MonoBehaviour
     private void Update()
     {
         // スライダーの値を基準スケールに反映
-        if (!isShoot)
+
+        if (slider.IsSingleMode)
         {
-            baseScale = StartBig * slider.sliderPersent;
+            if (!isShoot)
+            {
+                baseScale = StartBig * slider.sliderPersent;
+            }
+            else
+            {
+                baseScale = StartBig;
+            }
         }
-        else
-        {
+        else {
             baseScale = StartBig;
         }
+
+       
 
         // 最終スケール = 基準サイズ + アニメーション分
         transform.localScale = baseScale + animOffset;
@@ -81,9 +86,12 @@ public class DomtRotate : MonoBehaviour
             transform.localScale = Vector3.zero;
         }
 
+
+
         // 発射後の移動処理
         if (isShoot)
         {
+
             if (shootAtNearestEnemy)
             {
                 // 敵方向へ直進
@@ -91,18 +99,24 @@ public class DomtRotate : MonoBehaviour
             }
             else
             {
+                float pixelX = 1920 / 2;
+
+                float pixelY = 1080 / 2;
+
                 // スクリーン座標から前進
                 zOffset += speed * Time.deltaTime;
-                Vector3 inputWithZ = new Vector3(input.x, input.y, input.z + zOffset);
-                screenObj = Camera.main.ScreenToWorldPoint(inputWithZ);
-                transform.position = screenObj;
+                Vector3 inputWithZ = new Vector3(pixelX,pixelY,zOffset);
+                screenObj = Camera.main.ScreenToWorldPoint(inputWithZ)-new Vector3(0,0,shootPos.z);
+                transform.position += Vector3.forward *speed*Time.deltaTime;
             }
         }
+    }
 
+    public void IsShoot() {
         // 発射処理（親を外すのはこの瞬間のみ）
-        if (Serial.isDegShake && !isShoot)
+        if (!isShoot)
         {
-
+            shootPos = this.transform.position;
             slider.InitAllSliderValue();
 
             // 親を外す前のワールドスケールを記録
@@ -116,12 +130,12 @@ public class DomtRotate : MonoBehaviour
 
             // 解除後のスケールを基準スケールに設定
             StartBig = transform.localScale;
-            DecideBallType();
 
             isShoot = true;
             SetNearObject();
         }
     }
+
 
     void LateUpdate()
     {
@@ -132,7 +146,7 @@ public class DomtRotate : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
             AudioSource.PlayClipAtPoint(audioClip, new Vector3(0, 1, -10));
             Instantiate(death_effect, transform.position, Quaternion.identity);
             if (!isSuper)
@@ -143,7 +157,11 @@ public class DomtRotate : MonoBehaviour
         else if (collision.gameObject.CompareTag("Ground"))
         {
             Instantiate(death_effect, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
+            if (!isSuper)
+            {
+                this.gameObject.SetActive(false);
+            }
+            //gameObject.SetActive(false);
         }
     }
 
@@ -191,19 +209,6 @@ public class DomtRotate : MonoBehaviour
             }
         }
         return nearest;
-    }
-
-    // 発射時にサイズからタイプを決定
-    private void DecideBallType()
-    {
-        float sliderval = slider.sliderPersent;
-        if (sliderval < 0.3f)
-            ballType = BallSizeType.Small;
-        else if (sliderval < 0.8f)
-            ballType = BallSizeType.Medium;
-        else if (sliderval < 0.9f)
-            ballType = BallSizeType.Large;
-        else ballType = BallSizeType.Max;
     }
 
 }

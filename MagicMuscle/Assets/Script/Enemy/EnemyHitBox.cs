@@ -19,7 +19,7 @@ public class EnemyHitBox : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet")
         {
-            status.TakeDamage(10);
+            GetDamageFromBullet(collision.gameObject);
         }
         if (collision.gameObject.tag == "Player")
         {
@@ -31,12 +31,21 @@ public class EnemyHitBox : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            status.TakeDamage(10);
+            GetDamageFromBullet(other.gameObject);
         }
         if (other.gameObject.tag == "Player")
         {
             camerashake.Shake();
             Destroy(transform.parent.gameObject);
+        }
+    }
+
+    public void GetDamageFromBullet(GameObject DamageObject)
+    {
+        BulletState bsm = DamageObject.GetComponent<BulletState>();
+        if (bsm != null)
+        {
+            status.TakeDamage(bsm.Attack);
         }
     }
 }
