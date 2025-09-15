@@ -168,20 +168,21 @@ public class Serial : MonoBehaviour
             UnityEngine.Debug.Log("StartCarge!!!");
             if (!ischarge)
             {
-
+                UnityEngine.Debug.Log("ischargedown");
                 ischargedown = true;
                 entercharge = true;
 
             }
             else
             {
-                UnityEngine.Debug.Log("ischargedown");
+                
                 ischargedown = false;
             }
             ischarge = true;
         }
         else
         {
+            ischargedown = false;
             UnityEngine.Debug.Log("Nocharge");
             entercharge = false;
             if (ischarge)

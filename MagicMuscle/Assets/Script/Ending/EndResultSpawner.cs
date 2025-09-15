@@ -1,65 +1,4 @@
 
-//using UnityEngine;
-//using System.Collections.Generic;
-
-//public class EndResultSpawner : MonoBehaviour
-//{
-//    public List<ScoreResult> results; // スコアごとの結果リスト
-//    public AudioSource audiosource;
-//    public Transform spawnParent;     // UIを置く親(Canvas配下を指定)
-
-//    private GameObject currentInstance; // 今表示しているUIプレハブ
-
-//    public bool IsImageChange = false;
-
-//    void Update()
-//    {
-//        //ShowResult(end_Score.countup_score);
-//    }
-
-//    public void ShowResult(int score)
-//    {
-//        ScoreResult bestMatch = null;
-
-//        foreach (var r in results)
-//        {
-//            if (score >= r.minScore)
-//            {
-//                bestMatch = r; // 一番スコアが高い条件を採用
-//            }
-//        }
-
-//        if (bestMatch != null)
-//        {
-//            Debug.Log("現在のオブジェウトを削除");
-//            // 表示中のUIを削除
-//            if (currentInstance != null )
-//            {
-
-//                Destroy(currentInstance);
-//            }
-//            // UIプレハブを生成
-//            currentInstance = Instantiate(bestMatch.prefab, spawnParent);
-
-//            // サウンド再生
-//            if (bestMatch.isSound)
-//            {
-//                audiosource.Stop();
-//                audiosource.PlayOneShot(bestMatch.audioclip);
-//                bestMatch.isSound = false;
-//            }
-//        }
-//        else
-//        {
-//            // どの条件も満たさないときはUIを消す
-//            if (currentInstance != null)
-//            {
-//                Destroy(currentInstance);
-//                currentInstance = null;
-//            }
-//        }
-//    }
-//}
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
@@ -121,7 +60,7 @@ public class EndResultSpawner : MonoBehaviour
             // 現在の結果を記録
             lastResult = bestMatch;
             end_Score.countup_score =  bestMatch.minScore;
-            endscore.scoreText.text = end_Score.countup_score + "kcal: ";
+            endscore.scoreText.text = end_Score.countup_score + "kcal ";
             return true;
         }
         else

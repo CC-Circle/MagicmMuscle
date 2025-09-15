@@ -1269,7 +1269,7 @@ MonoBehaviour:
   correctMusic: {fileID: 8300000, guid: bf51f2d057ff443bbb1e30eae2b485fa, type: 3}
   successMusic: {fileID: 8300000, guid: ca7ba649ac38047db8abe4bfd9213f78, type: 3}
   measureTimer: 6
-  scenename: GameScene
+  scenename: 3_checkScene(W)
 --- !u!4 &1014210508
 Transform:
   m_ObjectHideFlags: 0
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8800bc9a76694128921990da68f1fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: /dev/cu.usbserial-6D5A4B0A96
+  portName: /dev/cu.M5StickCPlus_Stecki
   baurate: 115200
   conect: 0
   connect_char: 0
@@ -1878,6 +1878,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d2281309a94724be6abab0d4355fd586, type: 3}
   - {fileID: 8300000, guid: 15cb3df8fb900476d8bcbdbf5ad27779, type: 3}
   - {fileID: 8300000, guid: 062a953d638704b6a8def55b4bb0f421, type: 3}
+  serial: {fileID: 1444421416}
+  scenename: 3_checkScene(W)
 --- !u!82 &1720146755
 AudioSource:
   m_ObjectHideFlags: 0
