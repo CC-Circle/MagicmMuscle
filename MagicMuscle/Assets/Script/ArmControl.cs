@@ -31,6 +31,11 @@ public class ArmControl : MonoBehaviour
         Max
     }
 
+    private void Start()
+    {
+        armbulletmanage.ChangeObject();
+    }
+
     void Update()
     {
         //腕をふるアニメーション

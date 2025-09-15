@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 8602900755796314343}
   - component: {fileID: 4660662677708038554}
   - component: {fileID: 8735653974093471693}
+  - component: {fileID: 7273046169077902322}
   m_Layer: 0
   m_Name: BigCircle
   m_TagString: Bullet
@@ -402,10 +403,11 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
   speed: 18
-  isSuper: 0
+  isSuper: 1
   isChild: 0
   shootAtNearestEnemy: 1
   input: {x: 0, y: 0, z: 0}
+  isShoot: 0
   StartBig: {x: 0.4, y: 0.4, z: 0.4}
 --- !u!54 &4660662677708038554
 Rigidbody:
@@ -455,6 +457,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 21
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7273046169077902322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802216613886397156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 50
 --- !u!1 &2443329416660923194
 GameObject:
   m_ObjectHideFlags: 0

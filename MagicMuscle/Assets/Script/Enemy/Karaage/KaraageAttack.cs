@@ -34,7 +34,6 @@ public class KaraageAttack : MonoBehaviour
     public void SplachAttack() {
         if (!enemystate.IsDead)
         {
-            
             OilControle.isOil = true;
             Score.score -= muinusScore;
         }

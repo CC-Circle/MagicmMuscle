@@ -4,7 +4,7 @@ using DG.Tweening;
 
 using static ArmControl;
 
-public class DomtRotate : MonoBehaviour
+public class SuperBullet : MonoBehaviour
 {
     private Quaternion initialRotation;
     public Quaternion startRotate;
@@ -32,8 +32,7 @@ public class DomtRotate : MonoBehaviour
     public Vector3 input;   // 従来の入力用
     private float zOffset = 0f;
 
-    [HideInInspector]public bool isShoot = false; // 玉が発射されたかどうか
-    private Vector3 shootPos;
+    private bool isShoot = false; // 玉が発射されたかどうか
 
     public Vector3 StartBig;
 
@@ -99,15 +98,12 @@ public class DomtRotate : MonoBehaviour
             }
             else
             {
-                float pixelX = 1920 / 2;
-
-                float pixelY = 1080 / 2;
 
                 // スクリーン座標から前進
                 zOffset += speed * Time.deltaTime;
-                Vector3 inputWithZ = new Vector3(pixelX,pixelY,zOffset);
-                screenObj = Camera.main.ScreenToWorldPoint(inputWithZ)-new Vector3(0,0,shootPos.z);
-                transform.position += Vector3.forward *speed*Time.deltaTime;
+                Vector3 inputWithZ = new Vector3(input.x, input.y, input.z + zOffset);
+                screenObj = Camera.main.ScreenToWorldPoint(inputWithZ);
+                transform.position = screenObj;
             }
         }
     }
@@ -116,7 +112,6 @@ public class DomtRotate : MonoBehaviour
         // 発射処理（親を外すのはこの瞬間のみ）
         if (!isShoot)
         {
-            shootPos = this.transform.position;
             slider.InitAllSliderValue();
 
             // 親を外す前のワールドスケールを記録

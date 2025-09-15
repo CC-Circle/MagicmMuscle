@@ -6,7 +6,7 @@ public class EnemyAnima : MonoBehaviour
     public string[] animationNames = { "isDeathR", "isDeathL" };
 
     // サウンド
-    public AudioClip rollingClip;   // 鳴らす音（Inspectorで設定）
+    public AudioClip rollingClip,popClip;   // 鳴らす音（Inspectorで設定）
     private AudioSource audioSource;
 
     void Start()
@@ -31,7 +31,7 @@ public class EnemyAnima : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
+     
 
     void Roling()
     {

@@ -1103,7 +1103,7 @@ MonoBehaviour:
   muscleclip: {fileID: 8300000, guid: 4ea624e2988784c0d82a013738390477, type: 3}
   isPlaymuscle: 1
   charanimator: {fileID: 1338958726}
-  Scenename: checkScene
+  Scenename: 2a_CheckScene
   waitseconds: 6
   isMove: 0
   image: {fileID: 1629769864}
