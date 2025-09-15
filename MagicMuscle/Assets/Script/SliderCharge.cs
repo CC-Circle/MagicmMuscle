@@ -39,7 +39,7 @@ public class SliderCharge : MonoBehaviour
             if (s != null)
             {
                 
-                s.maxValue = YourPower.maxValue/2;
+                s.maxValue = YourPower.maxValue/2+ cnt*(YourPower.maxValue / 3);
                 s.value = 0;
                 slider[0].value = 0;
             }
@@ -49,7 +49,6 @@ public class SliderCharge : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("CanCharge:" + limitCharge);
         //serial.entercharge = false;
         if(charge < slider.Length)
         {
@@ -75,10 +74,6 @@ public class SliderCharge : MonoBehaviour
                 }
             }
 
-           
-
-
-            
         }
         if (limitCharge && !Serial.ischarge)
         {
@@ -150,6 +145,7 @@ public class SliderCharge : MonoBehaviour
 
     public void InitAllSliderValue()
     {
+        limitCharge = false;
         sliderPersent = 0;
         audiosource.Stop();
         charge = 0;

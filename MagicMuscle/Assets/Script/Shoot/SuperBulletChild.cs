@@ -3,20 +3,12 @@ using UnityEngine;
 using DG.Tweening;
 
 using static ArmControl;
+using System.Collections.Generic;
 
-public class DomtRotate : MonoBehaviour
+public class SuperBulletChild : MonoBehaviour
 {
+    public DomtRotate domtrotate;
     private Quaternion initialRotation;
-    public Quaternion startRotate;
-    public Vector3 Startpos;
-
-    public SliderCharge slider;
-
-    private Vector3 baseScale;   // スライダーで決まる基準の大きさ
-    private Vector3 animOffset;  // DOTweenのアニメーションによる補正値
-
-    //ボールの大きさ
-    public BallSizeType ballType;
 
     public AudioClip audioClip;
     public GameObject death_effect;
@@ -32,65 +24,41 @@ public class DomtRotate : MonoBehaviour
     public Vector3 input;   // 従来の入力用
     private float zOffset = 0f;
 
-    [HideInInspector]public bool isShoot = false; // 玉が発射されたかどうか
-    private Vector3 shootPos;
+    private bool isShoot = false; // 玉が発射されたかどうか
 
     public Vector3 StartBig;
 
+
     void Start()
     {
-        this.transform.localPosition = Startpos;
-        slider = GameObject.Find("barsmaster").GetComponent<SliderCharge>();
-        initialRotation = startRotate;
-        baseScale = StartBig * 0;
-        transform.localScale = baseScale;
-        //// DOTweenでスケールアニメーション設定
-        //DOTween.Sequence()
-        //    .AppendCallback(() =>
-        //    {
-        //        animOffset = Vector3.zero;
-        //        DOTween.To(() => animOffset, x => animOffset = x,
-        //                   new Vector3(0.1f, 0.1f, 0f), 0.1f)
-        //               .SetEase(Ease.InOutSine)
-        //               .SetLoops(-1, LoopType.Yoyo);
-        //    });
-
         SetNearObject();
+
     }
 
     private void Update()
     {
-        // スライダーの値を基準スケールに反映
 
-        if (slider.IsSingleMode)
-        {
-            if (!isShoot)
-            {
-                baseScale = StartBig * slider.sliderPersent;
-            }
-            else
-            {
-                baseScale = StartBig;
-            }
+        if (domtrotate.isShoot) {
+            IsShoot();
         }
-        else {
-            baseScale = StartBig;
-        }
-
-       
-
-        // 最終スケール = 基準サイズ + アニメーション分
-        transform.localScale = baseScale + animOffset;
-        if (baseScale.x == 0)
-        {
-            transform.localScale = Vector3.zero;
-        }
-
-
 
         // 発射後の移動処理
         if (isShoot)
         {
+            // すでにRigidbodyがアタッチされていなければ追加
+            if (GetComponent<Rigidbody>() == null)
+            {
+                Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+
+                // 初期設定（必要に応じて調整）
+                rb.mass = 0f;                 // 質量
+                rb.linearDamping = 0f;                 // 空気抵抗
+                rb.angularDamping = 0f;       // 回転の抵抗
+                rb.useGravity = false;         // 重力を使うか
+                rb.isKinematic = false;       // 物理演算を適用するか
+                                              // 位置を固定（すべての軸）
+                rb.constraints = RigidbodyConstraints.FreezePosition;
+            }
 
             if (shootAtNearestEnemy)
             {
@@ -99,15 +67,12 @@ public class DomtRotate : MonoBehaviour
             }
             else
             {
-                float pixelX = 1920 / 2;
-
-                float pixelY = 1080 / 2;
 
                 // スクリーン座標から前進
                 zOffset += speed * Time.deltaTime;
-                Vector3 inputWithZ = new Vector3(pixelX,pixelY,zOffset);
-                screenObj = Camera.main.ScreenToWorldPoint(inputWithZ)-new Vector3(0,0,shootPos.z);
-                transform.position += Vector3.forward *speed*Time.deltaTime;
+                Vector3 inputWithZ = new Vector3(input.x, input.y, input.z + zOffset);
+                screenObj = Camera.main.ScreenToWorldPoint(inputWithZ);
+                transform.position = screenObj;
             }
         }
     }
@@ -116,8 +81,6 @@ public class DomtRotate : MonoBehaviour
         // 発射処理（親を外すのはこの瞬間のみ）
         if (!isShoot)
         {
-            shootPos = this.transform.position;
-            slider.InitAllSliderValue();
 
             // 親を外す前のワールドスケールを記録
             Vector3 worldScale = transform.lossyScale;
@@ -134,12 +97,6 @@ public class DomtRotate : MonoBehaviour
             isShoot = true;
             SetNearObject();
         }
-    }
-
-
-    void LateUpdate()
-    {
-        transform.rotation = initialRotation;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -170,7 +127,7 @@ public class DomtRotate : MonoBehaviour
         if (shootAtNearestEnemy)
         {
             // --- 敵方向に発射 ---
-            GameObject nearestEnemy = FindNearestEnemy();
+            GameObject nearestEnemy = FindRandomEnemy();
             if (nearestEnemy != null)
             {
                 moveDirection = (nearestEnemy.transform.position - transform.position).normalized;
@@ -210,5 +167,29 @@ public class DomtRotate : MonoBehaviour
         }
         return nearest;
     }
+    // ランダムなEnemyを探す関数
+    GameObject FindRandomEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> validEnemies = new List<GameObject>();
+
+        foreach (GameObject enemy in enemies)
+        {
+            EnemyStatus enemystatus = enemy.GetComponent<EnemyStatus>();
+            if (enemystatus != null && !enemystatus.dieing)
+            {
+                validEnemies.Add(enemy);
+            }
+        }
+
+        if (validEnemies.Count == 0)
+        {
+            return null; // 敵がいなければ null を返す
+        }
+
+        int randomIndex = Random.Range(0, validEnemies.Count);
+        return validEnemies[randomIndex];
+    }
+
 
 }

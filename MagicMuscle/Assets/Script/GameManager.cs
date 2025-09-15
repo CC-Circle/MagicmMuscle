@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         if (YourPower.maxValue == 0)
         {
-            YourPower.maxValue = 3000;
+            YourPower.maxValue = 400;
         }
     }
     void Start()

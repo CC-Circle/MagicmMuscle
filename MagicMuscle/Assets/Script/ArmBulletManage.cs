@@ -105,18 +105,39 @@ public class ArmBulletManage : MonoBehaviour
         float sliderval = slider.sliderPersent;
         BallSizeType curtent = ballType;
 
-        if (sliderval < 0.3f) {
-            ballType = BallSizeType.Small;
+        if (slider.IsSingleMode) {
+            if (sliderval < 0.3f)
+            {
+                ballType = BallSizeType.Small;
+            }
+            else if (sliderval < 0.6f)
+            {
+                ballType = BallSizeType.Medium;
+            }
+            else if (sliderval < 0.9f)
+            {
+                ballType = BallSizeType.Large;
+            }
+            else ballType = BallSizeType.Max;
         }
-        else if (sliderval < 0.6f)
-        {
-            ballType = BallSizeType.Medium;
+        else {
+            if (slider.charge == 0)
+            {
+                ballType = BallSizeType.Small;
+            }
+            else if (slider.charge == 1)
+            {
+                ballType = BallSizeType.Medium;
+            }
+            else if (slider.charge == 2)
+            {
+                ballType = BallSizeType.Large;
+            }
+            else if(slider.charge ==3){
+                ballType = BallSizeType.Max;
+            }
+  
         }
-        else if (sliderval < 0.9f)
-        {
-            ballType = BallSizeType.Large;
-        }
-        else ballType = BallSizeType.Max;
 
         //ボールタイプに変化があった場合呼び出される
         if (curtent != ballType)

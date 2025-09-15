@@ -10,9 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5275881594546189569}
   - component: {fileID: 5047839514343720201}
+  - component: {fileID: 6145398902927402214}
+  - component: {fileID: 6385841645631467151}
+  - component: {fileID: 5804569038699831419}
   m_Layer: 0
   m_Name: 90pink (5)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +90,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6145398902927402214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11996634662166460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &6385841645631467151
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11996634662166460}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.0000019073486, y: 0.0000009536743, z: 0.0000009536743}
+--- !u!114 &5804569038699831419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11996634662166460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &619582519129648765
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,9 +155,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8362461741415429436}
   - component: {fileID: 7271836729596816220}
+  - component: {fileID: 6664917862987822257}
+  - component: {fileID: 5388201967942812290}
+  - component: {fileID: 4372359023863268133}
   m_Layer: 0
   m_Name: 90pink (10)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +235,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6664917862987822257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619582519129648765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &5388201967942812290
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619582519129648765}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: 0, y: 0, z: 0.0000014305115}
+--- !u!114 &4372359023863268133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619582519129648765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &958625279754288321
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,9 +300,12 @@ GameObject:
   m_Component:
   - component: {fileID: 649397749894295007}
   - component: {fileID: 1584213587521365527}
+  - component: {fileID: 6371630357088663681}
+  - component: {fileID: 7510336705273810630}
+  - component: {fileID: 491508587056781610}
   m_Layer: 0
   m_Name: 90pink (3)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,6 +380,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6371630357088663681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958625279754288321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &7510336705273810630
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958625279754288321}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.0000019073486, y: -0.0000019073486, z: 0.0000009536743}
+--- !u!114 &491508587056781610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958625279754288321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &2638723076456412953
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,9 +445,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6616932375490336757}
   - component: {fileID: 4890572243936840790}
+  - component: {fileID: 1126345509967508266}
+  - component: {fileID: 3423343260153943765}
+  - component: {fileID: 8642204178556114753}
   m_Layer: 0
   m_Name: 90pink (13)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,6 +525,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1126345509967508266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638723076456412953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &3423343260153943765
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638723076456412953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: 0, y: 0, z: 0.0000021457672}
+--- !u!114 &8642204178556114753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638723076456412953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &2861842418244800711
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,9 +590,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8108424539226185438}
   - component: {fileID: 867790008643669060}
+  - component: {fileID: 3117714030280739877}
+  - component: {fileID: 6939745774247121915}
+  - component: {fileID: 2863252221836730500}
   m_Layer: 0
   m_Name: 90pink (1)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,6 +670,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3117714030280739877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861842418244800711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &6939745774247121915
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861842418244800711}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: 0.0000009536743, y: -0.0000038146973, z: -0.00000071525574}
+--- !u!114 &2863252221836730500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861842418244800711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &3280337990656406612
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,9 +735,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8031607908732105958}
   - component: {fileID: 543863520711134412}
+  - component: {fileID: 9126459481388121874}
+  - component: {fileID: 7944850260673451695}
+  - component: {fileID: 8895384174752183718}
   m_Layer: 0
   m_Name: 90pink (12)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,6 +815,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9126459481388121874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280337990656406612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &7944850260673451695
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280337990656406612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: 0.0000009536743, y: 0.0000038146973, z: 0.0000009536743}
+--- !u!114 &8895384174752183718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280337990656406612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &3337726346974429066
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,9 +880,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6364893703619351537}
   - component: {fileID: 125980297520746491}
+  - component: {fileID: 749890793514866443}
+  - component: {fileID: 5830794772361612919}
+  - component: {fileID: 7097150738043911218}
   m_Layer: 0
   m_Name: 90pink (7)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -609,6 +960,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &749890793514866443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337726346974429066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &5830794772361612919
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337726346974429066}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.00000047683716, y: 0, z: 0.0000011920929}
+--- !u!114 &7097150738043911218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337726346974429066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &3368759050270659137
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +1028,7 @@ GameObject:
   - component: {fileID: 4161774513119213513}
   - component: {fileID: 5622102431538167577}
   - component: {fileID: 7456621735672008239}
+  - component: {fileID: 1805169869095549602}
   m_Layer: 0
   m_Name: 90pinkCircle
   m_TagString: Bullet
@@ -719,10 +1126,11 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
   death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
   speed: 18
-  isSuper: 0
+  isSuper: 1
   isChild: 0
-  shootAtNearestEnemy: 1
+  shootAtNearestEnemy: 0
   input: {x: 0, y: 0, z: 0}
+  isShoot: 0
   StartBig: {x: 1, y: 1, z: 1}
 --- !u!54 &5622102431538167577
 Rigidbody:
@@ -772,6 +1180,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1805169869095549602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368759050270659137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 20
 --- !u!1 &3928318678265594282
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,9 +1203,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1289961494958037021}
   - component: {fileID: 5911659287155811574}
+  - component: {fileID: 3984458233414611980}
+  - component: {fileID: 2392650356063276541}
+  - component: {fileID: 4886837262946063398}
   m_Layer: 0
   m_Name: 90pink (6)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -859,6 +1283,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3984458233414611980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928318678265594282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &2392650356063276541
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928318678265594282}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.0000009536743, y: 0.0000009536743, z: 0.00000071525574}
+--- !u!114 &4886837262946063398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928318678265594282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &4076938554182695963
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,9 +1348,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3410508052559227810}
   - component: {fileID: 7209551953984722803}
+  - component: {fileID: 3103276182095329912}
+  - component: {fileID: 96796564332619742}
+  - component: {fileID: 8114151647439692228}
   m_Layer: 0
   m_Name: 90pink (4)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -946,6 +1428,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3103276182095329912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076938554182695963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &96796564332619742
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076938554182695963}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.0000019073486, y: 0, z: 0}
+--- !u!114 &8114151647439692228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076938554182695963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &4490127298941502622
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,9 +1493,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5086820763617316172}
   - component: {fileID: 6481788028804809930}
+  - component: {fileID: 7014200054200847974}
+  - component: {fileID: 7522514674530740140}
+  - component: {fileID: 8934884261876778882}
   m_Layer: 0
   m_Name: 90pink (11)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1033,6 +1573,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7014200054200847974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490127298941502622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &7522514674530740140
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490127298941502622}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.0000009536743, y: 0, z: 0.0000021457672}
+--- !u!114 &8934884261876778882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490127298941502622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &5952553678140108081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,9 +1638,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6042473043552723552}
   - component: {fileID: 2267387455613014746}
+  - component: {fileID: 8500220825951464936}
+  - component: {fileID: 6796320831925075227}
+  - component: {fileID: 4420537825531310034}
   m_Layer: 0
   m_Name: 90pink (8)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1120,6 +1718,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8500220825951464936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952553678140108081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &6796320831925075227
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952553678140108081}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: 0.0000009536743, y: 0, z: 0.00000166893}
+--- !u!114 &4420537825531310034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952553678140108081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &6103254686567772761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,9 +1783,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5133714075703127487}
   - component: {fileID: 3842319643998739026}
+  - component: {fileID: 5816450319298922988}
+  - component: {fileID: 5746124301452236845}
+  - component: {fileID: 2680244481486421791}
   m_Layer: 0
   m_Name: 90pink (9)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1207,6 +1863,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5816450319298922988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103254686567772761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &5746124301452236845
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103254686567772761}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: 0, y: -0.0000019073486, z: 0.00000166893}
+--- !u!114 &2680244481486421791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103254686567772761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5
 --- !u!1 &6650221361078902249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,9 +1988,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4583784015741649181}
   - component: {fileID: 212196787971463375}
+  - component: {fileID: 4496832448207937837}
+  - component: {fileID: 6012004425325069430}
+  - component: {fileID: 3912840197773887792}
   m_Layer: 0
   m_Name: 90pink (2)
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1354,3 +2068,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4496832448207937837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937625769627757408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b619975c86f94ee5b9ff64ecf0440f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  domtrotate: {fileID: 4161774513119213513}
+  audioClip: {fileID: 8300000, guid: ccaa7aed9169448debf499b19065c8eb, type: 3}
+  death_effect: {fileID: 8335012652733583083, guid: b4c46e4ce718f4211b6c1293f66ba389, type: 3}
+  speed: 15
+  isSuper: 0
+  isChild: 0
+  shootAtNearestEnemy: 1
+  input: {x: 0, y: 0, z: 0}
+  StartBig: {x: 0, y: 0, z: 0}
+--- !u!135 &6012004425325069430
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937625769627757408}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.9749994
+  m_Center: {x: -0.0000019073486, y: -0.0000038146973, z: -0.00000023841858}
+--- !u!114 &3912840197773887792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937625769627757408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc48ddf6f0f44119076e5429a3aaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attack: 5

@@ -23,14 +23,46 @@ public class ArmShakeShoot : MonoBehaviour
     {
         
         if (Serial.ischarge) {
-            DoJaggyShake();
+            DoJaggyShake(strength);
+        }
+
+        if (Serial.isDeg)
+        {
+            DoShake(strength*2);
         }
 
     }
 
-    public void DoJaggyShake()
+    public void DoJaggyShake(float strength)
     {
         float shakeval = strength * slider.sliderPersent;
+        Sequence seq = DOTween.Sequence();
+
+        for (int i = 0; i < loops; i++)
+        {
+            // ランダムに飛ばす
+            Vector3 offset = new Vector3(
+                Random.Range(-shakeval, shakeval),
+                Random.Range(-shakeval, shakeval),
+                0f
+            );
+
+            seq.AppendCallback(() =>
+            {
+                transform.localPosition = startPos + offset;
+            });
+            seq.AppendInterval(interval);
+        }
+
+        // 最後に元の位置に戻す
+        seq.AppendCallback(() =>
+        {
+            transform.localPosition = startPos;
+        });
+    }
+    public void DoShake(float strength)
+    {
+        float shakeval = strength;
         Sequence seq = DOTween.Sequence();
 
         for (int i = 0; i < loops; i++)
