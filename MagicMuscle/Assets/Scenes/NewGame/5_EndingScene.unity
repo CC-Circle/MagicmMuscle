@@ -340,6 +340,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &561612080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561612082}
+  - component: {fileID: 561612081}
+  m_Layer: 0
+  m_Name: Serial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &561612081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561612080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8800bc9a76694128921990da68f1fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: /dev/cu.M5StickCPlus_Stecki
+  baurate: 115200
+  conect: 0
+  connect_char: 0
+  xfl: 10000
+  zfl: 10000
+  cntx: 
+  cntz: 
+  x: 50
+  z: 50
+  entercharge: 0
+  ischargedown: 0
+  ischargeup: 0
+--- !u!4 &561612082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561612080}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 982.5, y: 0, z: 2912.9338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629993294
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 1_OpeningScene
-  time: 19
+  time: 50
 --- !u!4 &629993296
 Transform:
   m_ObjectHideFlags: 0
@@ -1128,7 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audiosource: {fileID: 2112021653}
   notValue: {fileID: 8300000, guid: 05edf1af22b3b460f97129bd5bb73170, type: 3}
-  Value: {fileID: 8300000, guid: 5a55f85db78d84f1d834390c2f644d43, type: 3}
+  Value: {fileID: 8300000, guid: efc9aec3046ef43e5a3950077267af91, type: 3}
   daietto: {fileID: 1498923218}
   end_score: {fileID: 857200032}
   endresultspawner: {fileID: 857200029}
@@ -2371,3 +2428,4 @@ SceneRoots:
   - {fileID: 823743650}
   - {fileID: 1032775122}
   - {fileID: 1124161059016890121}
+  - {fileID: 561612082}

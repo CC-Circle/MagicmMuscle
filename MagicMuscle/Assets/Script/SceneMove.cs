@@ -12,7 +12,7 @@ public class SceneMove : MonoBehaviour
     // 開始時にシーン移動のコルーチンを開始
     void Start()
     {
-        //StartCoroutine(DelayAndLoadScene(time)); // 5秒後に移動
+        StartCoroutine(DelayAndLoadScene(time)); // 5秒後に移動
     }
 
     IEnumerator DelayAndLoadScene(float delay)

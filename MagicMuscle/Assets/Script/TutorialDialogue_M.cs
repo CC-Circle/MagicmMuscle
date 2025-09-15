@@ -1,14 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class TutorialDialogue_M : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // セリフ表示用
     public Button nextButton;            // 次へボタン
     public AudioSource audioSource;      // ボイス再生用
     public AudioClip[] voiceClips;       // セリフに対応するボイス
-
+    public Serial serial;
+    public string scenename;
     private string[] dialogues = {
         "初めまして、君が新しい魔法少女か！",
         "隣の子は”ラパン”よ",
@@ -24,6 +25,7 @@ public class TutorialDialogue_M : MonoBehaviour
 
     void Start()
     {
+        serial = GameObject.Find("Serial").GetComponent<Serial>();
         // 最初のセリフとボイスを表示・再生
         dialogueText.text = dialogues[currentIndex];
         PlayVoice(currentIndex);
@@ -31,6 +33,13 @@ public class TutorialDialogue_M : MonoBehaviour
         nextButton.onClick.AddListener(ShowNextDialogue);
     }
 
+    private void Update()
+    {
+        if (serial.ischargedown) {
+            ShowNextDialogue();
+        }
+
+    }
     void ShowNextDialogue()
     {
         currentIndex++;
@@ -42,6 +51,7 @@ public class TutorialDialogue_M : MonoBehaviour
         }
         else if (currentIndex == dialogues.Length)
         {
+            SceneManager.LoadScene(scenename);
             dialogueText.gameObject.SetActive(false);
             nextButton.gameObject.SetActive(false);
         }

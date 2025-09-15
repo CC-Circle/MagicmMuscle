@@ -19,12 +19,13 @@ public class EndingGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        if (endresultspawner.ShowResult(end_Score.countup_score))
+        //
+        if (endresultspawner.ShowResult(end_Score.countup_score)||!Serial.ischarge)
         {
             end_score.StopCount();
         }
 
+        //カウント中なら音楽を変更する
         if (end_score.IsCount)
         {
             ChangeMusic(notValue);

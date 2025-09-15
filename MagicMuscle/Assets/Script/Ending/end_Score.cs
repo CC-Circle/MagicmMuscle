@@ -38,7 +38,7 @@ public class end_Score : MonoBehaviour
     IEnumerator CountUpScore()
     {
        
-            scoreText.rectTransform.DOShakeAnchorPos(duration, 25f, 50, 90, true, true);
+            //scoreText.rectTransform.DOShakeAnchorPos(duration, 25f, 50, 90, true, true);
             float elapsed = 0f;
             countup_score = 0;
             while (elapsed < duration)
@@ -48,13 +48,13 @@ public class end_Score : MonoBehaviour
                     elapsed += Time.deltaTime;
                     float progress = Mathf.Clamp01(elapsed / duration);
                     countup_score = Mathf.RoundToInt(finalScore * progress);
-                    scoreText.text = "kcal: " + countup_score.ToString();
+                    scoreText.text =  countup_score.ToString()+ "kcal ";
                 }
             yield return null;
 
             }
 
-            scoreText.text = finalScore.ToString() + "kcal: ";
+            scoreText.text = finalScore.ToString() + "kcal ";
 
        
     }
