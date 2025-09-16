@@ -988,6 +988,7 @@ MonoBehaviour:
   endscore: {fileID: 857200032}
   IsImageChange: 0
   isChange: 0
+  isPauseByCharge: 0
 --- !u!4 &857200030
 Transform:
   m_ObjectHideFlags: 0
@@ -1020,6 +1021,7 @@ MonoBehaviour:
   duration: 25
   StopTime: 4
   IsCount: 1
+  isPauseByCharge: 0
 --- !u!82 &857200033
 AudioSource:
   m_ObjectHideFlags: 0

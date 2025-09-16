@@ -20,11 +20,18 @@ public class EndingGameManager : MonoBehaviour
     void Update()
     {
         //
-        if (endresultspawner.ShowResult(end_Score.countup_score)||!Serial.ischarge)
+        if (Serial.ischarge)
+        {
+            end_score.isPauseByCharge = true;
+        }
+        else {
+            end_score.isPauseByCharge = false;
+        }
+
+        if (endresultspawner.ShowResult(end_Score.countup_score))
         {
             end_score.StopCount();
         }
-
         //カウント中なら音楽を変更する
         if (end_score.IsCount)
         {
