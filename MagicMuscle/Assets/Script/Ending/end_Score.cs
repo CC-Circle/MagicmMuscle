@@ -10,6 +10,7 @@ public class end_Score : MonoBehaviour
     public float StopTime;
     public static int countup_score;
     public bool IsCount = true;
+    public bool isPauseByCharge = false;
     void Start()
     {
         countup_score = 0;
@@ -43,7 +44,7 @@ public class end_Score : MonoBehaviour
             countup_score = 0;
             while (elapsed < duration)
             {
-                if (IsCount)
+                if (IsCount&&isPauseByCharge)
                 {
                     elapsed += Time.deltaTime;
                     float progress = Mathf.Clamp01(elapsed / duration);

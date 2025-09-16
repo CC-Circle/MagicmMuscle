@@ -16,6 +16,7 @@ public class EndResultSpawner : MonoBehaviour
     public bool IsImageChange = false;
 
     public bool isChange = false;
+    public bool isPauseByCharge = false;
 
     public bool ShowResult(int score)
     {
