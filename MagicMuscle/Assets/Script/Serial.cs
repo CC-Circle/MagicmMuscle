@@ -161,8 +161,6 @@ public class Serial : MonoBehaviour
             strong = 0;
         }
 
-
-
         if (strong > chargevalue)
         {
             UnityEngine.Debug.Log("StartCarge!!!");
@@ -239,16 +237,6 @@ public class Serial : MonoBehaviour
                     }
                     deg = 180 - deg;
                     deg = deg / 180f;
-                    //if (deg > 90)
-                    //{
-                    //    deg = 90;
-                    //}
-                    //if (deg < 0)
-                    //{
-                    //    deg = 0;
-                    //}
-                    //deg = 90 - deg;
-                    //UnityEngine.Debug.Log("shake= " + shake);
                 }
             }
 

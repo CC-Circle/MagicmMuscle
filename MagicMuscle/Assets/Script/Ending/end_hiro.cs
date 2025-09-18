@@ -18,8 +18,6 @@ public class end_hiro : MonoBehaviour
     {
         score = Score.score;
         ShowEnding(end_Score.countup_score); // テスト用に固定スコアを使用
-
-
     }
 
     void Update()
