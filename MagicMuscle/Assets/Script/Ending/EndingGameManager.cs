@@ -4,42 +4,109 @@ using UnityEngine.Audio;
 
 public class EndingGameManager : MonoBehaviour
 {
+    //trueの場合、カウントダウンが早い
+    public bool isSpeedChangeMode = true;
+    public bool isAutoCount;
+
+    //結果表示が終わったか
+    private bool iscomit = false;
+    private bool iscomitdone = true;
+
     public AudioSource audiosource;
     public AudioClip notValue,Value;
     public GameObject daietto;
     public end_Score end_score;
     public EndResultSpawner endresultspawner;
+    public SceneMove scenemove;
+    public BG_ColorChange bg;
     public bool isCount= false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(GameStart());
+        if (isSpeedChangeMode)
+        {
+            endresultspawner.ShowResult(end_Score.countup_score);
+        }
     }
-
     // Update is called once per frame
     void Update()
     {
-        //
-        if (Serial.ischarge)
+        if (isSpeedChangeMode)
         {
-            end_score.isPauseByCharge = true;
+            
+            if (Serial.ischarge||isAutoCount==true)
+            {
+                end_score.isPauseByCharge = true;
+            }
+            else
+            {
+                end_score.isPauseByCharge = false;
+            }
+
+            if (Score.score <= end_Score.countup_score)
+            {
+                if (endresultspawner.ShowResult(end_Score.countup_score))
+                {
+                    iscomit = true;
+                    ChangeMusic(Value);
+                }
+
+            }
+            if (Serial.ischarge)
+            {
+                Debug.Log("MaxScoreInput:"+endresultspawner.maxScoreInputScore(Score.score));
+               
+            }
+            //カウント中なら音楽を変更する
+            if (end_score.IsCount)
+            {
+                ChangeMusic(notValue);
+            }
+            else
+            {
+                ChangeMusic(Value);
+            }
         }
         else {
-            end_score.isPauseByCharge = false;
+            if (Score.score <= end_Score.countup_score)
+            {
+                iscomit = true;
+
+            }
+            if (Serial.ischarge)
+            {
+                end_score.isPauseByCharge = true;
+            }
+            else
+            {
+                end_score.isPauseByCharge = false;
+            }
+            if (endresultspawner.ShowResult(end_Score.countup_score))
+            {
+                end_score.StopCount();
+            }
+            //カウント中なら音楽を変更する
+            if (end_score.IsCount)
+            {
+                ChangeMusic(notValue);
+            }
+            else
+            {
+                ChangeMusic(Value);
+            }
         }
 
-        if (endresultspawner.ShowResult(end_Score.countup_score))
+        //カウントが終わった後の処理
+
+        if (iscomit && iscomitdone)
         {
-            end_score.StopCount();
+            scenemove.MoveScene();
+            iscomitdone = false;
         }
-        //カウント中なら音楽を変更する
-        if (end_score.IsCount)
+        if (iscomit)
         {
-            ChangeMusic(notValue);
-        }
-        else
-        {
-            ChangeMusic(Value);
+            bg.ColorLerp();
         }
 
     }

@@ -15,11 +15,13 @@ public class end_Score : MonoBehaviour
     {
         countup_score = 0;
         // ① Scoreからスコアを受け取る
+        //finalScore = end_Score.countup_score;
         finalScore = Score.score;
 
-        if(finalScore == 0)
+        if (finalScore == 0)
         {
-            finalScore=30000;
+            Score.score = 30000;
+            finalScore =30000;
         }
         // ② カウントアップ開始
         //StartCoroutine(CountUpScore());
@@ -38,7 +40,6 @@ public class end_Score : MonoBehaviour
 
     IEnumerator CountUpScore()
     {
-       
             //scoreText.rectTransform.DOShakeAnchorPos(duration, 25f, 50, 90, true, true);
             float elapsed = 0f;
             countup_score = 0;
@@ -54,7 +55,7 @@ public class end_Score : MonoBehaviour
             yield return null;
 
             }
-
+            IsCount = false;
             scoreText.text = finalScore.ToString() + "kcal ";
 
        
