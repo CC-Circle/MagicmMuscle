@@ -1470,6 +1470,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50021157993546a086e1894e6705494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1188532543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188532544}
+  - component: {fileID: 1188532546}
+  - component: {fileID: 1188532545}
+  m_Layer: 5
+  m_Name: sute
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1188532544
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188532543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.4301, y: 4.4301, z: 4.4301}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1375728241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0, y: 72}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1188532545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188532543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1188532546
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188532543}
+  m_CullTransparentMesh: 1
 --- !u!1 &1197532385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1727,7 @@ RectTransform:
   - {fileID: 440918379}
   - {fileID: 2008864493}
   - {fileID: 588048698}
+  - {fileID: 1188532544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1870,16 +1946,18 @@ MonoBehaviour:
   nextButton: {fileID: 2030141224}
   audioSource: {fileID: 1720146755}
   voiceClips:
-  - {fileID: 8300000, guid: b09d0b32fb906498e9e67984cae0fa2c, type: 3}
-  - {fileID: 8300000, guid: ba8f45c9df84242b48c955273d274038, type: 3}
-  - {fileID: 8300000, guid: f53ef5e2ebc834b388881645a3c0bd40, type: 3}
-  - {fileID: 8300000, guid: 2a706c62ef1f04d4ba51dd92c493ee31, type: 3}
-  - {fileID: 8300000, guid: 2880d7baf9c574d89b5e40979b4f18ff, type: 3}
-  - {fileID: 8300000, guid: d2281309a94724be6abab0d4355fd586, type: 3}
-  - {fileID: 8300000, guid: 15cb3df8fb900476d8bcbdbf5ad27779, type: 3}
-  - {fileID: 8300000, guid: 062a953d638704b6a8def55b4bb0f421, type: 3}
+  - {fileID: 8300000, guid: b92bd8227b07443e9b070d7e10ad9cc2, type: 3}
+  - {fileID: 8300000, guid: ab7b060a313c0400b940b131dc86b118, type: 3}
+  - {fileID: 8300000, guid: 7a75864ad1e01437089de736cf66738a, type: 3}
+  - {fileID: 8300000, guid: 40258ab2e6db942ebaf4e0b9f77adc4e, type: 3}
+  - {fileID: 8300000, guid: 2645da26aa8f641eb8b64e664e4fb1a6, type: 3}
+  - {fileID: 8300000, guid: d20738fd6b0494395a2cfe6eeee2fee8, type: 3}
+  - {fileID: 8300000, guid: 39dd5cad8b63b4bc686ce4599c9162ca, type: 3}
+  - {fileID: 8300000, guid: 82c5bc332fe8d4f3ea0535f4ed7927f0, type: 3}
   serial: {fileID: 1444421416}
   scenename: 3_checkScene(W)
+  illustrationImage: {fileID: 1188532545}
+  finalIllustration: {fileID: 21300000, guid: f4474945f929f4fdc9c0e2a1e9a1e38b, type: 3}
 --- !u!82 &1720146755
 AudioSource:
   m_ObjectHideFlags: 0
