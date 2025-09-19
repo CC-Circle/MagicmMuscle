@@ -8,13 +8,13 @@ public class name : MonoBehaviour
     public Button nextButton;            // 次へボタン
 
     private string[] dialogues = {
+        "　　主人公　",
         "先輩魔法少女",
         "先輩魔法少女",
+        "　　主人公　",
+        "　　主人公　",
+        "　　主人公　",
         "先輩魔法少女",
-        "　　ラパン　",
-        "　　ラパン　",
-        "　　ラパン　",
-        "　　ラパン　",
         "　　ラパン　"
     };
 

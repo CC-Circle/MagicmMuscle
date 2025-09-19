@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class TutorialDialogue_M : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // セリフ表示用
@@ -10,15 +11,20 @@ public class TutorialDialogue_M : MonoBehaviour
     public AudioClip[] voiceClips;       // セリフに対応するボイス
     public Serial serial;
     public string scenename;
+
+    [Header("イラスト表示用")]
+    public Image illustrationImage;      // 表示させたいイラスト
+    public Sprite finalIllustration;     // 最後に表示するイラスト
+
     private string[] dialogues = {
-        "初めまして、君が新しい魔法少女か！",
-        "隣の子は”ラパン”よ",
-        "今からこの子が君のサポートをしてくれるはずだ！",
-        "よろしくね！　ステッキは持ってるな？",
-        "ステッキは強く握り続けるんや！",
-        "ステッキを振ると球を放てるよ！",
-        "力が強いほど強い球が出せるぞ!",
-        "まずは変身だ！　ステッキを強く握り続けてくれ！"
+        "私を魔法少女にしてください！",
+        "敵は人を太らせることを企む組織’ギトギター’だ！",
+        "君に戦う覚悟はあるか？！",
+        "私はこの体型で沢山、たいへんなことがありました",
+        "そんな辛い思いを広めたくない！",
+        "だから私、戦います！！",
+        "良い気合だ。隣の’ラパン’が君を魔法少女にしてくれる",
+        "よろしゅうな新人！　このステッキを握るんや"
     };
 
     private int currentIndex = 0;
@@ -26,9 +32,16 @@ public class TutorialDialogue_M : MonoBehaviour
     void Start()
     {
         serial = GameObject.Find("Serial").GetComponent<Serial>();
+
         // 最初のセリフとボイスを表示・再生
         dialogueText.text = dialogues[currentIndex];
         PlayVoice(currentIndex);
+
+        // イラストは最初は非表示にしておく
+        if (illustrationImage != null)
+        {
+            illustrationImage.gameObject.SetActive(false);
+        }
 
         nextButton.onClick.AddListener(ShowNextDialogue);
     }
@@ -38,19 +51,33 @@ public class TutorialDialogue_M : MonoBehaviour
         if (serial.ischargedown) {
             ShowNextDialogue();
         }
-
     }
+
     void ShowNextDialogue()
     {
         currentIndex++;
 
-        if (currentIndex < dialogues.Length)
+        if (currentIndex < dialogues.Length - 1)
         {
+            // 通常のセリフ
             dialogueText.text = dialogues[currentIndex];
-            PlayVoice(currentIndex); // セリフに対応したボイスを再生
+            PlayVoice(currentIndex);
         }
-        else if (currentIndex == dialogues.Length)
+        else if (currentIndex == dialogues.Length - 1)
         {
+            // 🔽 最後のセリフ＋イラスト表示
+            dialogueText.text = dialogues[currentIndex];
+            PlayVoice(currentIndex);
+
+            if (illustrationImage != null && finalIllustration != null)
+            {
+                illustrationImage.sprite = finalIllustration;
+                illustrationImage.gameObject.SetActive(true);
+            }
+        }
+        else if (currentIndex >= dialogues.Length)
+        {
+            // 全部終わったらシーン遷移
             SceneManager.LoadScene(scenename);
             dialogueText.gameObject.SetActive(false);
             nextButton.gameObject.SetActive(false);
