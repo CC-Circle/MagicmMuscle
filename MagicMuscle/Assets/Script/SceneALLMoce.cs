@@ -7,19 +7,23 @@ public class SceneALLMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SceneManager.LoadScene("OpeningScene");
+            SceneManager.LoadScene("1_OpeningScene");
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            SceneManager.LoadScene("checkScene");
+            SceneManager.LoadScene("2a_CheckScene");
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("3_checkScene(W)");
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("EndingScene");
+            SceneManager.LoadScene("4_Tutorial");
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("4_Tutorial");
         }
     }
 }

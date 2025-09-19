@@ -25,7 +25,8 @@ public class SliderCharge : MonoBehaviour
 
     //ゲージ更新時にチャージしないようにする
     private bool limitCharge = false;
-    
+
+    private Vector3 StartLocalPos;
 
     public float sliderPersent = 0;//0~1の値でどれほどチャージできたか
     void Start()
@@ -42,15 +43,20 @@ public class SliderCharge : MonoBehaviour
                 s.maxValue = YourPower.maxValue/2+ cnt*(YourPower.maxValue / 3);
                 s.value = 0;
                 slider[0].value = 0;
+                RectTransform rect = s.GetComponent<RectTransform>();
+                StartLocalPos = rect.transform.localPosition;
             }
             cnt++;
         }
+
     }
 
     void Update()
     {
+        
+
         //serial.entercharge = false;
-        if(charge < slider.Length)
+        if (charge < slider.Length)
         {
             if (slider[charge].value >= slider[charge].maxValue && !endcharge)
             {
@@ -125,19 +131,7 @@ public class SliderCharge : MonoBehaviour
         {
             
             Debug.Log(Serial.strong);
-            //if (slider.value < Serial.strong)
-            //{
-            //    slider.value = Serial.strong;
-            //}
             slider.value = Serial.strong;
-            //if (isSaveVal)
-            //{
-            //    slider.value += Serial.strong;
-            //}
-            //else
-            //{
-            //    slider.value = Serial.strong;
-            //}
             sliderPersent = slider.value / slider.maxValue;
 
         }
@@ -174,8 +168,9 @@ public class SliderCharge : MonoBehaviour
     // スライダーを振動させるコルーチン
     private IEnumerator ShakeSlider(UnityEngine.UI.Slider s)
     {
+
         RectTransform rect = s.GetComponent<RectTransform>();
-        Vector3 originalPos = rect.localPosition;
+        Vector3 originalPos = StartLocalPos;
 
         float duration = 0.3f; // 振動時間
         float magnitude = 10f; // 揺れ幅(px)
