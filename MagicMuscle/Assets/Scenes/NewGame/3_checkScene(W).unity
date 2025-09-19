@@ -966,7 +966,7 @@ MonoBehaviour:
   correctMusic: {fileID: 8300000, guid: bf51f2d057ff443bbb1e30eae2b485fa, type: 3}
   successMusic: {fileID: 8300000, guid: ca7ba649ac38047db8abe4bfd9213f78, type: 3}
   measureTimer: 6
-  scenename: 4_GameScene_Simple
+  scenename: 4_TutorialScene
 --- !u!4 &1014210508
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8800bc9a76694128921990da68f1fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: /dev/cu.M5StickCPlus_Stecki
+  portName: /dev/cu.M5StickCPlus_Magick
   baurate: 115200
   conect: 0
   connect_char: 0
