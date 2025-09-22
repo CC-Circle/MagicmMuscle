@@ -23,8 +23,11 @@ public class EnemyStatus : MonoBehaviour
 
     public bool dieing = false;
 
+    public Score score;
+
     void Awake()
     {
+        score = GameObject.Find("Score").GetComponent<Score>();
         //HPを設定
         currentHP = maxHP;
         enemyanimator = GetComponent<EnemyAnima>();
@@ -57,9 +60,11 @@ public class EnemyStatus : MonoBehaviour
         if (slider != null) {
             slider.CollectObject();
         }
-
-        
-        Score.score += scoreadd;
+        if (score != null)
+        {
+            score.ScoreAdd(scoreadd);
+        }
+        //Score.score += scoreadd;
         enemyanimator.PlayRandomAnimation();
     }
 

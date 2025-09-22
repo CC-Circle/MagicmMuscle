@@ -5,10 +5,13 @@ using UnityEngine.Audio;
 
 public class ArmControl : MonoBehaviour
 {
+    public SpriteFlash spriteflash;
+
     public SliderCharge slider;
     public AudioSource audiosource;
     //腕の球管理
     public ArmBulletManage armbulletmanage;
+
     //球の情報
     public DomtRotate domtrotate;
 
@@ -33,6 +36,7 @@ public class ArmControl : MonoBehaviour
 
     private void Start()
     {
+
         armbulletmanage.ChangeObject();
     }
 
@@ -53,6 +57,7 @@ public class ArmControl : MonoBehaviour
         }
 
         if (Serial.isDegShakeEnd) {
+            
             armbulletmanage.ChangeObject();
         }
 
@@ -70,8 +75,9 @@ public class ArmControl : MonoBehaviour
             {
                 audiosource.PlayOneShot(shootClip);
             }
-
             
+
+
         }
         // センサー値を0〜1に正規化
         float targetNormalized = Mathf.Clamp01(Serial.deg);
@@ -106,11 +112,11 @@ public class ArmControl : MonoBehaviour
     //ステッキを傾けていない場合
     public void StanBay()
     {
+
         if (!Serial.isDeg)
         {
             //armbulletmanage.SetBall();
         }
-        
     }
 
 

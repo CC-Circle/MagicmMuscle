@@ -6,16 +6,25 @@ public class GameManager : MonoBehaviour
     
     public static bool GameStart = false;
     public static bool muscleTime = false;
+
+    public static int Time = 120;
+    public int time = 120;
+
     public int muscleTime_cnt = 10;
     public int startWaitTime = 1;
     
     public Slider slider;
+
+    public SpawnManager spawnmanager;
+
+    public SceneMove scenemove;
     //private static bool isStart = false;
     ////
     //private static bool isOil = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        Time = time;
         if (YourPower.maxValue == 0)
         {
             YourPower.maxValue = 400;
@@ -28,7 +37,6 @@ public class GameManager : MonoBehaviour
         muscleTime = false;
         StartCoroutine(StartGame());
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +46,17 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Escape))
             {
                 SceneManager.LoadScene("");
+            }
+        }
+        if (spawnmanager != null)
+        {
+            if (spawnmanager.isEnd)
+            {
+                if (scenemove != null)
+                {
+                    scenemove.MoveScene();
+                }
+                
             }
         }
        

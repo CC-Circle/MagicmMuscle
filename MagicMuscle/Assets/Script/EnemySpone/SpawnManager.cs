@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     private float elapsedTime = 0f;
 
     private int nextEventIndex = 0;
+    public bool isEnd = false;
    
     private Dictionary<SpawnPatternType, Action<SpawnEvent>> patternFunctions;
 
@@ -29,7 +30,11 @@ public class SpawnManager : MonoBehaviour
        
         elapsedTime += Time.deltaTime;
         //startTime = elapsedTime;
-        if (elapsedTime > 120f) return;
+        if (elapsedTime > GameManager.Time)
+        {
+            isEnd = true;
+            return;
+        }
 
         while (nextEventIndex < spawnEvents.Count && elapsedTime >= spawnEvents[nextEventIndex].time )
         {

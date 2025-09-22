@@ -23,7 +23,11 @@ public class SceneALLMove : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
-            SceneManager.LoadScene("4_Tutorial");
+            SceneManager.LoadScene("5_GameScene_Simple");
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            SceneManager.LoadScene("6_EndingScene");
         }
     }
 }

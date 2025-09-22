@@ -130,8 +130,6 @@ GameObject:
   - component: {fileID: 303071318}
   - component: {fileID: 303071322}
   - component: {fileID: 303071321}
-  - component: {fileID: 303071320}
-  - component: {fileID: 303071319}
   m_Layer: 5
   m_Name: "\u30DE\u30B9\u30B3\u30C3\u30C8"
   m_TagString: Untagged
@@ -158,39 +156,6 @@ RectTransform:
   m_AnchoredPosition: {x: -364, y: 75}
   m_SizeDelta: {x: 162.72, y: 96.368}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &303071319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303071317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7cfcaa37fd95441eb1ef227f3d0146b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vibrationStrength: 40
-  vibrationSpeed: 10
---- !u!114 &303071320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303071317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ccc15adad924b6d9f4924125221093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Chnge_Color_Time: 0.01
-  Smooth: 0.1
-  HSV_Hue: 1
-  HSV_Saturation: 1
-  HSV_Brightness: 1
-  HSV_Hue_max: 1
-  HSV_Hue_min: 0
 --- !u!114 &303071321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,8 +1013,6 @@ GameObject:
   - component: {fileID: 809020314}
   - component: {fileID: 809020318}
   - component: {fileID: 809020317}
-  - component: {fileID: 809020315}
-  - component: {fileID: 809020319}
   m_Layer: 5
   m_Name: Senpai
   m_TagString: Untagged
@@ -1076,25 +1039,6 @@ RectTransform:
   m_AnchoredPosition: {x: 509, y: 47}
   m_SizeDelta: {x: 162.72, y: 96.368}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &809020315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809020313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ccc15adad924b6d9f4924125221093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Chnge_Color_Time: 0.01
-  Smooth: 0.1
-  HSV_Hue: 1
-  HSV_Saturation: 1
-  HSV_Brightness: 1
-  HSV_Hue_max: 1
-  HSV_Hue_min: 0
 --- !u!114 &809020317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,20 +1074,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809020313}
   m_CullTransparentMesh: 1
---- !u!114 &809020319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809020313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7cfcaa37fd95441eb1ef227f3d0146b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vibrationStrength: 40
-  vibrationSpeed: 10
 --- !u!1 &890747779
 GameObject:
   m_ObjectHideFlags: 0

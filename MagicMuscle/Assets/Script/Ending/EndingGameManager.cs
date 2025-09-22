@@ -20,7 +20,9 @@ public class EndingGameManager : MonoBehaviour
     public SceneMove scenemove;
     public BG_ColorChange bg;
     public bool isCount= false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    //アニメーター
+    public Animator ScoreAnimation;
     void Start()
     {
         StartCoroutine(GameStart());
@@ -65,6 +67,7 @@ public class EndingGameManager : MonoBehaviour
             }
             else
             {
+                iscomit = true;
                 ChangeMusic(Value);
             }
         }
@@ -72,7 +75,6 @@ public class EndingGameManager : MonoBehaviour
             if (Score.score <= end_Score.countup_score)
             {
                 iscomit = true;
-
             }
             if (Serial.ischarge)
             {
@@ -98,12 +100,14 @@ public class EndingGameManager : MonoBehaviour
         }
 
         //カウントが終わった後の処理
-
+        //１回だけよぶ
         if (iscomit && iscomitdone)
         {
+            StartCoroutine(ShowScore());
             scenemove.MoveScene();
             iscomitdone = false;
         }
+        //ループさせてる
         if (iscomit)
         {
             bg.ColorLerp();
@@ -117,6 +121,12 @@ public class EndingGameManager : MonoBehaviour
         end_score.StartCount();
         //オープニング画像を変更
         daietto.SetActive(false);
+    }
+
+    IEnumerator ShowScore()
+    {
+        yield return new WaitForSeconds(3.0f);
+        ScoreAnimation.SetBool("isScore", true);
     }
 
     // 曲を切り替える関数

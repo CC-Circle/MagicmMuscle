@@ -97,7 +97,7 @@ public class EndResultSpawner : MonoBehaviour
             }
 
             // UIプレハブを生成
-            currentInstance = Instantiate(bestMatch.prefab, spawnParent);
+            currentInstance = Instantiate(bestMatch.prefab, transform);
 
             // サウンド再生
             if (bestMatch.isSound)
@@ -156,7 +156,7 @@ public class EndResultSpawner : MonoBehaviour
             }
 
             // UIプレハブを生成
-            currentInstance = Instantiate(bestMatch.prefab, spawnParent);
+            currentInstance = Instantiate(bestMatch.prefab, transform);
            
             // サウンド再生
             if (bestMatch.isSound)
