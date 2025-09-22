@@ -13,6 +13,10 @@ public class TutorialStep
 
 public class Tutorial_GameManager : MonoBehaviour
 {
+
+    private bool IsSteckUp = false;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     
     // 複数のステップを管理できるようにリスト化
     public List<TutorialStep> tutorialSteps = new List<TutorialStep>();
@@ -23,6 +27,12 @@ public class Tutorial_GameManager : MonoBehaviour
     public SliderCharge slider;
     private bool isMoveTextTimer = false;
     public string scenename;
+
+    // クラスのメンバに追加
+    public AudioSource audioSource;   // 音声再生用
+    public AudioClip[] voiceClips;    // 各セリフに対応する音声
+
+
     void Start()
     {
         serial = GameObject.Find("Serial").GetComponent<Serial>();
@@ -35,6 +45,14 @@ public class Tutorial_GameManager : MonoBehaviour
 
         switch (currentStepIndex)
         {
+
+            if (audioSource != null && voiceClips != null && currentStepIndex < voiceClips.Length)
+        {
+            audioSource.Stop();
+            audioSource.clip = voiceClips[currentStepIndex];
+            audioSource.Play();
+        }
+
             case 0:
                 //教えたる
                 if (!isMoveTextTimer)
