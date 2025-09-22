@@ -22,6 +22,22 @@ public class EndResultSpawner : MonoBehaviour
 
 
     //入力された値よりも以下で、一番大きいものを
+    public ScoreResult maxScoreGameObjectInputScore(int score)
+    {
+        int maxcurrentscore = -1;
+        ScoreResult maxobject = null;
+        foreach (var r in results)
+        {
+            if (r.minScore >= maxcurrentscore && r.minScore <= score)
+            {
+                maxobject = r;
+                maxcurrentscore = r.minScore;
+            }
+        }
+      
+        return maxobject;
+    }
+    //入力された値よりも以下で、一番大きいものを
     public int maxScoreInputScore(int score)
     {
         int maxcurrentscore = -1;

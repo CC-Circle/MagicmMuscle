@@ -4,9 +4,13 @@ using UnityEngine.Audio;
 
 public class EndingGameManager : MonoBehaviour
 {
+    public bool SimpleScore = false;
+
     //trueの場合、カウントダウンが早い
     public bool isSpeedChangeMode = true;
     public bool isAutoCount;
+
+    public bool isSqeezeStart = false;
 
     //結果表示が終わったか
     private bool iscomit = false;
@@ -15,16 +19,22 @@ public class EndingGameManager : MonoBehaviour
     public AudioSource audiosource;
     public AudioClip notValue,Value;
     public GameObject daietto;
+    public GameObject sqeeze;
+    public GameObject sqeeze_sqeeze;
     public end_Score end_score;
     public EndResultSpawner endresultspawner;
     public SceneMove scenemove;
     public BG_ColorChange bg;
     public bool isCount= false;
+    public Animator animator;
 
     //アニメーター
     public Animator ScoreAnimation;
     void Start()
     {
+        sqeeze.SetActive(false);
+        sqeeze_sqeeze.SetActive(false);
+
         StartCoroutine(GameStart());
         if (isSpeedChangeMode)
         {
@@ -34,6 +44,7 @@ public class EndingGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isSpeedChangeMode)
         {
             
@@ -70,6 +81,39 @@ public class EndingGameManager : MonoBehaviour
                 iscomit = true;
                 ChangeMusic(Value);
             }
+
+            if(isSqeezeStart)
+            {
+                if (Serial.ischarge)
+                {
+                    
+                    if (!iscomit)
+                    {
+                        sqeeze.SetActive(true);
+                    }
+                    else
+                    {
+                        sqeeze.SetActive(false);
+                    }
+                    sqeeze_sqeeze.SetActive(false);
+                }
+                else
+                {
+                    sqeeze.SetActive(false);
+                    if (!iscomit) {
+                        sqeeze_sqeeze.SetActive(true);
+                    }
+                    else
+                    {
+                        sqeeze_sqeeze.SetActive(false);
+                    }
+
+                    
+                }
+                
+            }
+
+            
         }
         else {
             if (Score.score <= end_Score.countup_score)
@@ -103,6 +147,7 @@ public class EndingGameManager : MonoBehaviour
         //１回だけよぶ
         if (iscomit && iscomitdone)
         {
+            
             StartCoroutine(ShowScore());
             scenemove.MoveScene();
             iscomitdone = false;
@@ -121,12 +166,22 @@ public class EndingGameManager : MonoBehaviour
         end_score.StartCount();
         //オープニング画像を変更
         daietto.SetActive(false);
+        isSqeezeStart = true;
     }
 
     IEnumerator ShowScore()
     {
         yield return new WaitForSeconds(3.0f);
-        ScoreAnimation.SetBool("isScore", true);
+        if (SimpleScore)
+        {
+            ScoreAnimation.SetBool("isScore", true);
+        }
+        else
+        {
+            animator.SetBool("UIMove", true);
+        }
+       
+        //
     }
 
     // 曲を切り替える関数

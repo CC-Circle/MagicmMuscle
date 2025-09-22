@@ -7,6 +7,7 @@ public class Ranking : MonoBehaviour
     [SerializeField, Header("数値")]
     int point;
 
+    public int rankingSize = 100;
     string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
     public int ranknumber;
 
