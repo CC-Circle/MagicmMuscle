@@ -35,6 +35,7 @@ public class Tutorial_GameManager : MonoBehaviour
 
     void Start()
     {
+        
         serial = GameObject.Find("Serial").GetComponent<Serial>();
     }
     void Update()
@@ -43,16 +44,9 @@ public class Tutorial_GameManager : MonoBehaviour
 
         if (tutorialSteps.Count == 0) return;
 
+       
         switch (currentStepIndex)
         {
-
-            if (audioSource != null && voiceClips != null && currentStepIndex < voiceClips.Length)
-        {
-            audioSource.Stop();
-            audioSource.clip = voiceClips[currentStepIndex];
-            audioSource.Play();
-        }
-
             case 0:
                 //教えたる
                 if (!isMoveTextTimer)
@@ -180,6 +174,12 @@ public class Tutorial_GameManager : MonoBehaviour
 
     void NextStep()
     {
+        if (audioSource != null && voiceClips != null && currentStepIndex < voiceClips.Length)
+        {
+            audioSource.Stop();
+            audioSource.clip = voiceClips[currentStepIndex];
+            audioSource.Play();
+        }
         currentStepIndex++;
         if (currentStepIndex < tutorialSteps.Count)
         {

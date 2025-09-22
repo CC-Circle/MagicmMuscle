@@ -1118,7 +1118,6 @@ RectTransform:
   - {fileID: 807543940}
   - {fileID: 1116136837}
   - {fileID: 1921431916}
-  - {fileID: 847529651}
   - {fileID: 271343433}
   - {fileID: 73829086}
   - {fileID: 958348195}
@@ -4586,47 +4585,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-
-  - component: {fileID: 854794095}
-  - component: {fileID: 854794094}
-  - component: {fileID: 854794096}
-
-  - component: {fileID: 854794097}
-  - component: {fileID: 854794098}
-  - component: {fileID: 854794099}
-
-  m_Layer: 0
-  m_Name: GameManager
-
-  - component: {fileID: 847529651}
+  - component: {fileID: 847529654}
   - component: {fileID: 847529653}
   - component: {fileID: 847529652}
-  m_Layer: 5
-  m_Name: 8
+  m_Layer: 0
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
-
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847529650}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 139211746}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: 410}
-  m_SizeDelta: {x: 1200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847529652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4726,6 +4694,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847529650}
   m_CullTransparentMesh: 1
+--- !u!224 &847529654
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847529650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &854794093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,6 +4725,7 @@ GameObject:
   - component: {fileID: 854794096}
   - component: {fileID: 854794097}
   - component: {fileID: 854794098}
+  - component: {fileID: 854794099}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4772,7 +4760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459f08266ffd640268d98bffee92402e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
 --- !u!114 &854794097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4814,15 +4801,14 @@ MonoBehaviour:
   - text: "\u6700\u9AD8\u3084\uFF01 \u3044\u3063\u3071\u3044\u63E1\u3063\u3066\u632F\u308B\uFF01\u3053\u308C\u304C\u57FA\u672C\u3084"
     isCompleted: 0
   - text: "\u307E\u3060\u307E\u3060\u6575\u306F\u3044\u308B\u3067\uFF01\u6B21\u304B\u3089\u672C\u756A\u3084\uFF01"
-
+    isCompleted: 0
+  - text: 
     isCompleted: 0
   TM: {fileID: 419129690}
   slider: {fileID: 912912189}
   scenename: 5_GameScene_Simple
-
   audioSource: {fileID: 854794099}
   voiceClips:
-  - {fileID: 8300000, guid: 48caeea26fe9f429fae1bc65c2122864, type: 3}
   - {fileID: 8300000, guid: 7d4d892503dba49068f9c6dfd26884a7, type: 3}
   - {fileID: 8300000, guid: 6145fc6527071433691ac02c690ed875, type: 3}
   - {fileID: 8300000, guid: 8da4c4139472644efb73e23ace8ee2db, type: 3}
@@ -4836,7 +4822,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1045653d734a946afa9e65e9ade5722c, type: 3}
   - {fileID: 8300000, guid: c5aa4f2841f9142e681514b21e01c604, type: 3}
   - {fileID: 8300000, guid: 17d840f55fdc04e3ca04277b968dcdc6, type: 3}
-
 --- !u!114 &854794098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4852,7 +4837,7 @@ MonoBehaviour:
   muscleTime_cnt: 7
   startWaitTime: 2
   slider: {fileID: 0}
-
+--- !u!82 &854794099
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4871,7 +4856,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 143
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -9841,6 +9826,7 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 847529654}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
