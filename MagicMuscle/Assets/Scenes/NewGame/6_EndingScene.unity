@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8800bc9a76694128921990da68f1fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: /dev/cu.M5StickCPlus_Stecki
+  portName: /dev/cu.M5StickCPlus_Magick
   baurate: 115200
   conect: 0
   connect_char: 0
@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4085603227792659213, guid: bea812d3f2d2a40f2ab3aa778502cb5b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2652
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 4085603227792659213, guid: bea812d3f2d2a40f2ab3aa778502cb5b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7089214092133086507, guid: bea812d3f2d2a40f2ab3aa778502cb5b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 86acaec9c23aa400eb3df3425106b4b1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1308,7 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpeedChangeMode: 1
-  isAutoCount: 1
+  isAutoCount: 0
   audiosource: {fileID: 2112021653}
   notValue: {fileID: 8300000, guid: 05edf1af22b3b460f97129bd5bb73170, type: 3}
   Value: {fileID: 8300000, guid: efc9aec3046ef43e5a3950077267af91, type: 3}

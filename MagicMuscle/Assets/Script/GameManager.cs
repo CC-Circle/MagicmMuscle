@@ -32,11 +32,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MuscleTimeControle();
-        if (Input.GetKey(KeyCode.Escape))
+        if (slider != null)
         {
-            SceneManager.LoadScene("");
+            MuscleTimeControle();
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("");
+            }
         }
+       
     }
 
     void MuscleTimeControle()
