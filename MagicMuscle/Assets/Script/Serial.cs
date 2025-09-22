@@ -42,6 +42,8 @@ public class Serial : MonoBehaviour
     public static bool isDegShakeEnd = false;//振った状態を解除した時
     public static bool isDeg = false;//振った閾値かどうか
 
+
+
     void Awake()
     {
         degshakeval = 0.9f;

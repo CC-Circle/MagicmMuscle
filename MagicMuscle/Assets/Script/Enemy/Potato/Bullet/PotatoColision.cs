@@ -22,6 +22,7 @@ public class PotatoColision : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            OilControle.isOil = true;
             Destroy(this.gameObject);
         }
         if (other.gameObject.tag == "Bullet")

@@ -17,6 +17,7 @@ public class LetusColision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            OilControle.isOil = true;
             Destroy(this.gameObject);
         }
         if (collision.gameObject.tag == "Bullet")
@@ -29,6 +30,7 @@ public class LetusColision : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            OilControle.isOil = true;
             Destroy(this.gameObject);
         }
         if (other.gameObject.tag == "Bullet")

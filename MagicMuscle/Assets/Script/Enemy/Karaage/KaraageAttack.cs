@@ -7,9 +7,11 @@ public class KaraageAttack : MonoBehaviour
     public float wattime;
     private EnemyStatus enemystate;
     public int muinusScore = 100;
+    public Score score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        score = GameObject.Find("Score").GetComponent<Score>();
         enemystate = GetComponent<EnemyStatus>();
         StartCoroutine(Attack(wattime));
     }
@@ -35,7 +37,7 @@ public class KaraageAttack : MonoBehaviour
         if (!enemystate.IsDead)
         {
             OilControle.isOil = true;
-            Score.score -= muinusScore;
+            score.ScoreRed(muinusScore);
         }
     }
 

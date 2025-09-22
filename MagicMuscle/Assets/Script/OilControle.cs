@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 public class OilControle : MonoBehaviour
 {
+    public AudioSource audio;
+    public AudioClip clip;
     public Image targetImage; // 表示切替したいImageをInspectorで指定
     public static bool isOil = false;
     public float waittime;
@@ -16,11 +18,13 @@ public class OilControle : MonoBehaviour
     {
         if (isOil == true)
         {
+            audio.PlayOneShot(clip);
             isOil = false;
             DrawOil();
 
         }
     }
+
     // 表示・非表示を切り替える
     public void ToggleImage()
     {
@@ -51,6 +55,8 @@ public class OilControle : MonoBehaviour
     {
         StartCoroutine(Oiling());
     }
+
+
 
     IEnumerator Oiling()
     {

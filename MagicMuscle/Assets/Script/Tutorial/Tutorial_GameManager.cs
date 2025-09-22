@@ -45,7 +45,7 @@ public class Tutorial_GameManager : MonoBehaviour
                 break;
                 //
             case 1:
-                if (Serial.deg<0.3)
+                if (Serial.deg<0.5)
                 {
                     MoveNextStep();
                 }

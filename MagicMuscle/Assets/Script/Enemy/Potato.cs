@@ -32,7 +32,7 @@ public class Potato : MonoBehaviour
         {
 
             animator.SetBool("isDeath", true);
-            Score.score += scoreadd;
+           
             Destroy(collision.gameObject);
             //Destroy(this.gameObject);
 

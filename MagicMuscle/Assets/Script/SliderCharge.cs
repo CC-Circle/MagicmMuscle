@@ -4,7 +4,8 @@ using System.Collections;
 
 public class SliderCharge : MonoBehaviour
 {
-//バーが一本のみで、シュート後にリセットなどをしないモードはtrue
+    public SpriteFlash spriteflash;
+    //バーが一本のみで、シュート後にリセットなどをしないモードはtrue
     public bool IsSingleMode = false;
 //スライダーたち
     public UnityEngine.UI.Slider[] slider = new UnityEngine.UI.Slider[2];
@@ -40,7 +41,7 @@ public class SliderCharge : MonoBehaviour
             if (s != null)
             {
                 
-                s.maxValue = YourPower.maxValue/2+ cnt*(YourPower.maxValue / 3);
+                s.maxValue = YourPower.maxValue/2+ cnt*(YourPower.maxValue / 4);
                 s.value = 0;
                 slider[0].value = 0;
                 RectTransform rect = s.GetComponent<RectTransform>();
@@ -99,6 +100,11 @@ public class SliderCharge : MonoBehaviour
 
     public void FazeChange()
     {
+        if (spriteflash != null)
+        {
+            spriteflash.Flash();
+        }
+       
         limitCharge = true;
         // 全てのスライダーを振動させる
         foreach (var s in slider)

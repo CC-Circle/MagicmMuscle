@@ -50,13 +50,14 @@ public class end_Score : MonoBehaviour
                     elapsed += Time.deltaTime;
                     float progress = Mathf.Clamp01(elapsed / duration);
                     countup_score = Mathf.RoundToInt(finalScore * progress);
-                    scoreText.text =  countup_score.ToString()+ "kcal ";
+                    float showscore = Score.score - countup_score;
+                    scoreText.text = countup_score.ToString()+ "マッスル";
                 }
             yield return null;
 
             }
             IsCount = false;
-            scoreText.text = finalScore.ToString() + "kcal ";
+            scoreText.text = finalScore.ToString() + "マッスル";
 
        
     }

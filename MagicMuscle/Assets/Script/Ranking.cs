@@ -29,9 +29,14 @@ public class Ranking : MonoBehaviour
         //    awake = true;
         //    ResetRanking();
         //}
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ClearRanking();
+        }
     }
 
-    public void ResetRanking() {
+    public void ResetRanking()
+    {
         ranknumber = -1;
         rankingshare = rankingValue;
         GetRanking();
@@ -39,6 +44,8 @@ public class Ranking : MonoBehaviour
         for (int i = 0; i < rankingText.Length; i++)
         {
             int lank = i + 1;
+            if (Score.score == rankingValue[i])
+                rankingText[i].color = Color.yellow;
             rankingText[i].text = lank + "st " + rankingValue[i].ToString();
             if (rankingValue[i] == Score.score / 100 + 1)
                 ranknumber = lank;
@@ -81,4 +88,18 @@ public class Ranking : MonoBehaviour
             PlayerPrefs.SetInt(ranking[i], rankingValue[i]);
         }
     }
+
+    /// <summary>
+    /// 保存されているランキングをクリア
+    /// </summary>
+    void ClearRanking()
+    {
+        for (int i = 0; i < ranking.Length; i++)
+        {
+            PlayerPrefs.DeleteKey(ranking[i]); // 保存データ削除
+            rankingValue[i] = 0;               // 配列も初期化
+        }
+        PlayerPrefs.Save();
+    }
 }
+

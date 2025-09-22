@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerHItBox : MonoBehaviour
 {
     CameraShake camerashake;
+    Score score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         camerashake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
+        score = GameObject.Find("Score").GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class PlayerHItBox : MonoBehaviour
     private void Hit()
     {
         camerashake.Shake();
-        Score.score -= 100;
+        score.ScoreRed(100);
+        
     }
 }
