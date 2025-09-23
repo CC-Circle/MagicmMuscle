@@ -23,10 +23,15 @@ public class EndingGameManager : MonoBehaviour
     public GameObject sqeeze_sqeeze;
     public end_Score end_score;
     public EndResultSpawner endresultspawner;
+
     public SceneMove scenemove;
     public BG_ColorChange bg;
     public bool isCount= false;
     public Animator animator;
+
+    public bool isCameraMove;
+    public CameraRankingMove cameramove;
+    public MuscleMakaer musclemaker;
 
     //アニメーター
     public Animator ScoreAnimation;
@@ -157,8 +162,20 @@ public class EndingGameManager : MonoBehaviour
         {
             bg.ColorLerp();
         }
+        //カメラ移動
+        if (isCameraMove)
+        {
+            cameramove.MoveCamera();
+        }
+        //カメラ移動終了
+        if (cameramove.isMoveEnd)
+        {
+            musclemaker.LightOn();
+        }
+        //
 
     }
+
     IEnumerator GameStart()
     {
         yield return new WaitForSeconds(3.0f);
@@ -179,9 +196,9 @@ public class EndingGameManager : MonoBehaviour
         else
         {
             animator.SetBool("UIMove", true);
+            isCameraMove = true;
         }
-       
-        //
+
     }
 
     // 曲を切り替える関数

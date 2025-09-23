@@ -1,35 +1,44 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class Ranking : MonoBehaviour
 {
+    [SerializeField, Header("ランキング保存数")]
+    public int rankingSize = 100;   // 保存は100件
+    [SerializeField, Header("表示件数")]
+    public int displaySize = 5;     // 表示は5件
 
-    [SerializeField, Header("数値")]
-    int point;
+    string[] rankingKeys;           // PlayerPrefsのキー（100件分）
+    public int[] rankingValue;             // スコア保存用配列（100件分）
+    public static int[] rankingshare;
 
-    public int rankingSize = 100;
-    string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
-    public int ranknumber;
+    [SerializeField, Header("表示用テキスト (上位5件)")]
+    TextMeshProUGUI[] rankingText;  // インスペクタで5件分だけ割り当て
 
-    int[] rankingValue = new int[5];
-    public static int[] rankingshare = new int[5];
-    [SerializeField, Header("表示させるテキスト")]
-    TextMeshProUGUI[] rankingText = new TextMeshProUGUI[5];
+    public int ranknumber = -1;
 
-    private bool awake = false;
-    // Use this for initialization
+    void Awake()
+    {
+        // 配列をランキング数に合わせて初期化
+        rankingKeys = new string[rankingSize];
+        rankingValue = new int[rankingSize];
+        rankingshare = new int[rankingSize];
+
+        for (int i = 0; i < rankingSize; i++)
+        {
+            rankingKeys[i] = $"ランキング{i + 1}位"; // PlayerPrefsのキー
+        }
+        ResetRanking();
+    }
+
     void Start()
     {
-        ResetRanking();
+        
     }
 
     void Update()
     {
-        //if (!awake)
-        //{
-        //    awake = true;
-        //    ResetRanking();
-        //}
         if (Input.GetKeyDown(KeyCode.R))
         {
             ClearRanking();
@@ -39,55 +48,68 @@ public class Ranking : MonoBehaviour
     public void ResetRanking()
     {
         ranknumber = -1;
-        rankingshare = rankingValue;
         GetRanking();
-        SetRanking(Score.score);
-        for (int i = 0; i < rankingText.Length; i++)
+        InsertScore(Score.score);
+        SaveRanking();
+
+        // 上位5件だけUIに反映
+        for (int i = 0; i < displaySize && i < rankingText.Length; i++)
         {
+            //Debug.Log("Value" + rankingValue[i]);
             int lank = i + 1;
             if (Score.score == rankingValue[i])
                 rankingText[i].color = Color.yellow;
-            rankingText[i].text = lank + "st " + rankingValue[i].ToString();
-            if (rankingValue[i] == Score.score / 100 + 1)
-                ranknumber = lank;
+            else
+                rankingText[i].color = Color.red;
+
+            rankingText[i].text = $"{lank}位 : {rankingValue[i]}";
         }
     }
 
-
     /// <summary>
-    /// ランキング呼び出し
+    /// 保存されているランキングを読み込む
     /// </summary>
     void GetRanking()
     {
-        //ランキング呼び出し
-        for (int i = 0; i < ranking.Length; i++)
+        for (int i = 0; i < rankingSize; i++)
         {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking[i]);
+           
+            rankingValue[i] = PlayerPrefs.GetInt(rankingKeys[i], 0);
+            
         }
     }
-    /// <summary>
-    /// ランキング書き込み
-    /// </summary>
 
-    void SetRanking(int _value)
+    /// <summary>
+    /// 新しいスコアを挿入（常に大きい順に保つ）
+    /// </summary>
+    void InsertScore(int newScore)
     {
-        //書き込み用
-        for (int i = 0; i < ranking.Length; i++)
+        for (int i = 0; i < rankingSize; i++)
         {
-            //取得した値とRankingの値を比較して入れ替え
-            if (_value > rankingValue[i])
+            if (newScore > rankingValue[i])
             {
-                var change = rankingValue[i];
-                rankingValue[i] = _value;
-                _value = change;
+                // iの位置から右にシフト
+                for (int j = rankingSize - 1; j > i; j--)
+                {
+                    rankingValue[j] = rankingValue[j - 1];
+                }
+                rankingValue[i] = newScore;
                 ranknumber = i;
+                break;
             }
         }
-        //入れ替えた値を保存
-        for (int i = 0; i < ranking.Length; i++)
+    }
+
+    /// <summary>
+    /// ランキングを保存
+    /// </summary>
+    void SaveRanking()
+    {
+        for (int i = 0; i < rankingSize; i++)
         {
-            PlayerPrefs.SetInt(ranking[i], rankingValue[i]);
+            PlayerPrefs.SetInt(rankingKeys[i], rankingValue[i]);
         }
+        PlayerPrefs.Save();
     }
 
     /// <summary>
@@ -95,12 +117,12 @@ public class Ranking : MonoBehaviour
     /// </summary>
     void ClearRanking()
     {
-        for (int i = 0; i < ranking.Length; i++)
+        for (int i = 0; i < rankingSize; i++)
         {
-            PlayerPrefs.DeleteKey(ranking[i]); // 保存データ削除
-            rankingValue[i] = 0;               // 配列も初期化
+            PlayerPrefs.DeleteKey(rankingKeys[i]);
+            rankingValue[i] = 0;
         }
         PlayerPrefs.Save();
+        ResetRanking();
     }
 }
-
