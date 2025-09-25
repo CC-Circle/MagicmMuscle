@@ -1810,6 +1810,9 @@ GameObject:
   - component: {fileID: 1720146753}
   - component: {fileID: 1720146754}
   - component: {fileID: 1720146755}
+  - component: {fileID: 1720146756}
+  - component: {fileID: 1720146757}
+  - component: {fileID: 1720146758}
   m_Layer: 0
   m_Name: TutorialUI
   m_TagString: Untagged
@@ -1853,7 +1856,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720146750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d40e594c673704d56bd6c2d0b44d18f3, type: 3}
   m_Name: 
@@ -1868,7 +1871,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720146750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94fee565b83134d8d9c5c3d496529dc0, type: 3}
   m_Name: 
@@ -1986,6 +1989,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1720146756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720146750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b94d41cf13a4042b1c46015defe23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 440918381}
+  nextButton: {fileID: 2030141224}
+  audioSource: {fileID: 1720146755}
+  voiceClips:
+  - {fileID: 8300000, guid: b92bd8227b07443e9b070d7e10ad9cc2, type: 3}
+  - {fileID: 8300000, guid: ab7b060a313c0400b940b131dc86b118, type: 3}
+  - {fileID: 8300000, guid: 7a75864ad1e01437089de736cf66738a, type: 3}
+  - {fileID: 8300000, guid: 40258ab2e6db942ebaf4e0b9f77adc4e, type: 3}
+  - {fileID: 8300000, guid: 2645da26aa8f641eb8b64e664e4fb1a6, type: 3}
+  - {fileID: 8300000, guid: d20738fd6b0494395a2cfe6eeee2fee8, type: 3}
+  - {fileID: 8300000, guid: 39dd5cad8b63b4bc686ce4599c9162ca, type: 3}
+  - {fileID: 8300000, guid: 82c5bc332fe8d4f3ea0535f4ed7927f0, type: 3}
+  serial: {fileID: 1444421416}
+  scenename: 3_checkScene(W)
+  illustrationImage: {fileID: 1188532545}
+  finalIllustration: {fileID: 21300000, guid: f4474945f929f4fdc9c0e2a1e9a1e38b, type: 3}
+  dialogues:
+  - text: "\u79C1\u3092\u9B54\u6CD5\u5C11\u5973\u306B\u3057\u3066\u304F\u3060\u3055\u3044\uFF01"
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u6575\u306F\u4EBA\u3092\u592A\u3089\u305B\u308B\u3053\u3068\u3092\u4F01\u3080\u7D44\u7E54\u2019\u30AE\u30C8\u30AE\u30BF\u30FC\u2019\u3060\uFF01"
+    color: {r: 0.972549, g: 0.6, b: 0.3254902, a: 1}
+  - text: "\u541B\u306B\u6226\u3046\u899A\u609F\u306F\u3042\u308B\u304B\uFF1F\uFF01"
+    color: {r: 0.972549, g: 0.6, b: 0.3254902, a: 1}
+  - text: "\u79C1\u306F\u3053\u306E\u4F53\u578B\u3067\u6CA2\u5C71\u3001\u305F\u3044\u3078\u3093\u306A\u3053\u3068\u304C\u3042\u308A\u307E\u3057\u305F"
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u305D\u3093\u306A\u8F9B\u3044\u601D\u3044\u3092\u5E83\u3081\u305F\u304F\u306A\u3044\uFF01"
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u3060\u304B\u3089\u79C1\u3001\u6226\u3044\u307E\u3059\uFF01\uFF01"
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u826F\u3044\u6C17\u5408\u3060\u3002\u96A3\u306E\u2019\u30E9\u30D1\u30F3\u2019\u304C\u541B\u3092\u9B54\u6CD5\u5C11\u5973\u306B\u3057\u3066\u304F\u308C\u308B"
+    color: {r: 0.972549, g: 0.6, b: 0.3254902, a: 1}
+  - text: "\u3088\u308D\u3057\u3085\u3046\u306A\u65B0\u4EBA\uFF01\u3000\u3053\u306E\u30B9\u30C6\u30C3\u30AD\u3092\u63E1\u308B\u3093\u3084"
+    color: {r: 0.9764706, g: 0.7490196, b: 0.85490197, a: 1}
+--- !u!114 &1720146757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720146750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b94d41cf13a4042b1c46015defe23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 0}
+  nextButton: {fileID: 0}
+  audioSource: {fileID: 0}
+  voiceClips: []
+  serial: {fileID: 0}
+  scenename: 
+  illustrationImage: {fileID: 0}
+  finalIllustration: {fileID: 0}
+  dialogues: []
+--- !u!114 &1720146758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720146750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18b630bfd3d74c7fa02e2cdbfb11f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 588048696}
+  nextButton: {fileID: 2030141224}
+  dialogues:
+  - text: "\u3000\u3000\u4E3B\u4EBA\u516C"
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u5148\u8F29\u9B54\u6CD5\u5C11\u5973"
+    color: {r: 0.972549, g: 0.6, b: 0.3254902, a: 1}
+  - text: "\u5148\u8F29\u9B54\u6CD5\u5C11\u5973"
+    color: {r: 0.972549, g: 0.6, b: 0.29411766, a: 1}
+  - text: "\u3000\u3000\u4E3B\u4EBA\u516C "
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u3000\u3000\u4E3B\u4EBA\u516C "
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u3000\u3000\u4E3B\u4EBA\u516C "
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - text: "\u5148\u8F29\u9B54\u6CD5\u5C11\u5973"
+    color: {r: 0.972549, g: 0.6, b: 0.3254902, a: 1}
+  - text: "\u3000\u3000\u30E9\u30D1\u30F3\u3000"
+    color: {r: 0.972549, g: 0.74509805, b: 0.85490197, a: 1}
 --- !u!1 &1784623762
 GameObject:
   m_ObjectHideFlags: 0
