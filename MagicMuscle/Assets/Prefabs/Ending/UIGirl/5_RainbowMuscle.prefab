@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4085603227792659213}
   - component: {fileID: 2885685023900447752}
   - component: {fileID: 5768627952921355448}
-  - component: {fileID: 7057172366439390574}
   - component: {fileID: 1175718532679302798}
   m_Layer: 5
   m_Name: 5_RainbowMuscle
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49c805a9ea50b4073b181719c6e7f041, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e51c0fd3dd954e9c9fb1a185bd13656, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,21 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7057172366439390574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567274125449744781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82e70393c076445e18ccda8f2bb17fc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetImage: {fileID: 5768627952921355448}
-  speed: 1
-  blinkSpeed: 2
 --- !u!114 &1175718532679302798
 MonoBehaviour:
   m_ObjectHideFlags: 0

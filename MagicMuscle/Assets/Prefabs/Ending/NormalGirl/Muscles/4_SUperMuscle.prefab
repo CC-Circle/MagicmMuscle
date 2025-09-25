@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3638542926801314541}
   - component: {fileID: 6109447654272628532}
   m_Layer: 0
-  m_Name: MaxMuscle
+  m_Name: 4_SUperMuscle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16915, y: 0.16915, z: 0.16915}
+  m_LocalScale: {x: 0.23493244, y: 0.23493244, z: 0.23493244}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

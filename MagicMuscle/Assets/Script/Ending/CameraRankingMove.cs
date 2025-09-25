@@ -48,17 +48,17 @@ public class CameraRankingMove : MonoBehaviour
             }
             transform.position += new Vector3(direction.x * speed * Time.deltaTime, 0);
         }
-        if (isMoveEnd)
-        {
+    }
 
-            Debug.Log("Zoom");
-            Vector3 target_zoom = target + zoomPos + new Vector3 (0,this.transform.position.y,0);
-            transform.position = Vector3.Lerp(
-                transform.position,
-                target_zoom,
-                Time.deltaTime * zoomspeed
-            );
-        }
+    public void ZoomTarget()
+    {
+        Debug.Log("Zoom");
+        Vector3 target_zoom = target + zoomPos + new Vector3(0, this.transform.position.y, 0);
+        transform.position = Vector3.Lerp(
+            transform.position,
+            target_zoom,
+            Time.deltaTime * zoomspeed
+        );
     }
     void Update()
     {

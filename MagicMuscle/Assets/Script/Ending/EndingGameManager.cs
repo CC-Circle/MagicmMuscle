@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Audio;
-
+using UnityEngine.Video;
+using UnityEngine.UI;
 public class EndingGameManager : MonoBehaviour
 {
     public bool SimpleScore = false;
@@ -16,27 +17,43 @@ public class EndingGameManager : MonoBehaviour
     private bool iscomit = false;
     private bool iscomitdone = true;
 
-    public AudioSource audiosource;
-    public AudioClip notValue,Value;
+    public AudioSource audiosource,dramaudio;
+    public AudioClip notValue,Value,roll,yhea;
     public GameObject daietto;
     public GameObject sqeeze;
     public GameObject sqeeze_sqeeze;
     public end_Score end_score;
     public EndResultSpawner endresultspawner;
 
+    public GameObject ThankYou;
+
     public SceneMove scenemove;
     public BG_ColorChange bg;
     public bool isCount= false;
     public Animator animator;
-
+    //カメラ移動
     public bool isCameraMove;
     public CameraRankingMove cameramove;
     public MuscleMakaer musclemaker;
 
+    //ビデオ
+    public RawImage videoraw;
+    public VideoPlayer videoPlayer;
+
+    //ライト
+    public Light DirectLight;
+
     //アニメーター
+
     public Animator ScoreAnimation;
     void Start()
     {
+        ThankYou.SetActive(false);
+
+        // 最初は非表示
+        videoraw.enabled = false;
+        //videoPlayer.waitForFirstFrame = false; // 再生開始まで何も出さない
+
         sqeeze.SetActive(false);
         sqeeze_sqeeze.SetActive(false);
 
@@ -49,7 +66,6 @@ public class EndingGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (isSpeedChangeMode)
         {
             
@@ -67,7 +83,8 @@ public class EndingGameManager : MonoBehaviour
                 if (endresultspawner.ShowResult(end_Score.countup_score))
                 {
                     iscomit = true;
-                    ChangeMusic(Value);
+
+                    ChangeMusic(audiosource,Value);
                 }
 
             }
@@ -79,12 +96,12 @@ public class EndingGameManager : MonoBehaviour
             //カウント中なら音楽を変更する
             if (end_score.IsCount)
             {
-                ChangeMusic(notValue);
+                ChangeMusic(audiosource,notValue);
             }
             else
             {
                 iscomit = true;
-                ChangeMusic(Value);
+                ChangeMusic(audiosource,Value);
             }
 
             if(isSqeezeStart)
@@ -140,11 +157,11 @@ public class EndingGameManager : MonoBehaviour
             //カウント中なら音楽を変更する
             if (end_score.IsCount)
             {
-                ChangeMusic(notValue);
+                ChangeMusic(audiosource,notValue);
             }
             else
             {
-                ChangeMusic(Value);
+                ChangeMusic(audiosource,Value);
             }
         }
 
@@ -165,12 +182,29 @@ public class EndingGameManager : MonoBehaviour
         //カメラ移動
         if (isCameraMove)
         {
+            
             cameramove.MoveCamera();
+            if (!dramaudio.isPlaying) // 再生中でなければ
+            {
+                dramaudio.Play();
+            }
         }
+        
+        //dramaudio.Play();
         //カメラ移動終了
         if (cameramove.isMoveEnd)
         {
+            StartCoroutine(ThankYouEnd());
+            musclemaker.ShowPoepleNumber();
+            dramaudio.loop = false;
+            ChangeMusic(dramaudio, yhea);
+            DirectLight.intensity = 0.5f;
             musclemaker.LightOn();
+            //ズームする
+            cameramove.ZoomTarget();
+
+            videoraw.enabled = true;
+            videoPlayer.Play();
         }
         //
 
@@ -198,11 +232,16 @@ public class EndingGameManager : MonoBehaviour
             animator.SetBool("UIMove", true);
             isCameraMove = true;
         }
-
     }
 
+    IEnumerator ThankYouEnd()
+    {
+        yield return new WaitForSeconds(4.0f);
+        ThankYou.SetActive(true);
+
+    }
     // 曲を切り替える関数
-    public void ChangeMusic(AudioClip newClip)
+    public void ChangeMusic( AudioSource audiosource,AudioClip newClip)
     {
         // 今の曲と同じなら何もしない
         if (audiosource.clip == newClip)

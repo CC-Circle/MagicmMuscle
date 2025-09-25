@@ -145,7 +145,7 @@ public class Tutorial_GameManager : MonoBehaviour
                 //    StartCoroutine(MoveTextTime(1.0f));
                 //    isMoveTextTimer = true;
                 //}
-                StartCoroutine(MoveScene(2.0f));
+                StartCoroutine(MoveScene(4.0f));
                 break;
 
         }

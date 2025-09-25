@@ -21,21 +21,26 @@ public class EndResultSpawner : MonoBehaviour
     public bool isPauseByCharge = false;
 
 
-    //入力された値よりも以下で、一番大きいものを
-    public ScoreResult maxScoreGameObjectInputScore(int score)
+    //入力された値よりも以下で、一番大きいものの番号を出力
+    public int maxScoreGameObjectInputScore(int score)
     {
+        int Maxnum = 0;
         int maxcurrentscore = -1;
         ScoreResult maxobject = null;
+
+        int i = 0;
         foreach (var r in results)
         {
             if (r.minScore >= maxcurrentscore && r.minScore <= score)
             {
+                Maxnum = i;
                 maxobject = r;
                 maxcurrentscore = r.minScore;
             }
+            i++;
         }
-      
-        return maxobject;
+
+        return Maxnum;
     }
     //入力された値よりも以下で、一番大きいものを
     public int maxScoreInputScore(int score)
