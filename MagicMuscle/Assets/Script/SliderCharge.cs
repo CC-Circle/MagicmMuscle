@@ -41,7 +41,7 @@ public class SliderCharge : MonoBehaviour
             if (s != null)
             {
                 
-                s.maxValue = YourPower.maxValue/2+ cnt*(YourPower.maxValue / 4);
+                s.maxValue = YourPower.maxValue/2+ cnt*(YourPower.maxValue / 6);
                 s.value = 0;
                 slider[0].value = 0;
                 RectTransform rect = s.GetComponent<RectTransform>();

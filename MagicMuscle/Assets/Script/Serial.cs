@@ -46,7 +46,7 @@ public class Serial : MonoBehaviour
 
     void Awake()
     {
-        degshakeval = 0.9f;
+        degshakeval = 0.8f;
         isDegShake = false;//振った時
         isDeg = false;//振った閾値かどうか
         deg = 0;

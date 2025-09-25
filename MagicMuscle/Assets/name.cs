@@ -6,7 +6,7 @@ public class name : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // セリフ表示用
     public Button nextButton;            // 次へボタン
-
+    public Serial serial;
     private string[] dialogues = {
         "　　主人公　",
         "先輩魔法少女",
@@ -22,13 +22,20 @@ public class name : MonoBehaviour
 
     void Start()
     {
+        serial = GameObject.Find("Serial").GetComponent<Serial>();
         // 最初のセリフを表示
         dialogueText.text = dialogues[currentIndex];
 
         // ボタンのクリックイベントを登録
         nextButton.onClick.AddListener(ShowNextDialogue);
     }
-
+    private void Update()
+    {
+        if (serial.ischargedown)
+        {
+            ShowNextDialogue();
+        }
+    }
     void ShowNextDialogue()
     {
         currentIndex++;

@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     
     public static bool GameStart = false;
     public static bool muscleTime = false;
+    public static bool GameEnd = false;
+
 
     public static int Time = 120;
     public int time = 120;
@@ -17,7 +20,12 @@ public class GameManager : MonoBehaviour
 
     public SpawnManager spawnmanager;
 
+    public AudioSource audiosource;
+    public AudioClip start,yhea;
+
     public SceneMove scenemove;
+
+    public TextMeshProUGUI endText;
     //private static bool isStart = false;
     ////
     //private static bool isOil = false;
@@ -32,7 +40,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        endText.enabled = false;
         GameStart = false;
         muscleTime = false;
         StartCoroutine(StartGame());
@@ -56,10 +64,19 @@ public class GameManager : MonoBehaviour
                 {
                     scenemove.MoveScene();
                 }
-                
             }
         }
-       
+
+        if (spawnmanager.isEnd) {
+            if (!GameEnd) {
+                StartCoroutine(EndGame());
+            }
+
+           
+           
+           
+        }
+
     }
 
     void MuscleTimeControle()
@@ -82,5 +99,17 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(startWaitTime);
         GameStart = true;
+        audiosource.PlayOneShot(start);
+
+    }
+    IEnumerator EndGame()
+    {
+        GameEnd = true;
+        yield return new WaitForSeconds(4);
+        
+        endText.enabled = true;
+        endText.text = "終了〜!";
+        audiosource.PlayOneShot(yhea);
+
     }
 }

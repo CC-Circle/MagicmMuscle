@@ -110,6 +110,7 @@ public class YourPower : MonoBehaviour
     public float measureDuration = 3.0f; // 計測する秒数
     [Header("UI表示用")]
     public TextMeshProUGUI messageText; // TMPテキストをアタッチ
+    public Color defaultcolor;
 
     [Header("音楽設定")]
     public AudioSource audioSource; // AudioSourceをアタッチ
@@ -154,7 +155,8 @@ public class YourPower : MonoBehaviour
                 isMeasuring = true;
                 measureTimer = 0f;
                 maxValue = currentValue; // 計測開始時にリセット
-                messageText.text = "握り続けろ！！"; // 計測開始時の表示
+                messageText.text = "ステッキを壊す勢いで握り続けろ！！"; // 計測開始時の表示
+                messageText.color = Color.red;
 
                 // 計測中の音楽を再生
                 PlayCorrectMusic();
@@ -163,6 +165,7 @@ public class YourPower : MonoBehaviour
             {
                 // 閾値未満のとき
                 messageText.text = "ステッキを強くにぎれ！！！";
+                messageText.color = defaultcolor;
                 // 音楽を停止
                 StopMusic();
             }
@@ -204,7 +207,8 @@ public class YourPower : MonoBehaviour
                 else
                 {
                     // 計測中に毎フレーム表示更新（保険）
-                    messageText.text = "握り続けろ！！";
+                    messageText.text = "ステッキを壊す勢いで握り続けろ！！";
+                    messageText.color = Color.red;
                 }
             }
         }
